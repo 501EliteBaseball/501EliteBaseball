@@ -1,1 +1,1 @@
-// Midnight launch build: no external JS required.
+// No external JS required.

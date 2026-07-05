@@ -1,1 +1,1 @@
-501 Elite Midnight Launch Build. Upload all extracted files directly to the repository root and replace existing files.
+501 Elite MONEY SITE build. Upload all files directly to the GitHub repo root and replace existing files.
