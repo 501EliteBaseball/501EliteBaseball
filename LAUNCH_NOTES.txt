@@ -1,0 +1,18 @@
+501 Elite Website v1.0 Launch Candidate
+
+Upload the extracted contents to the site root.
+Keep shield.svg in the root directory.
+
+Pages included:
+- Home
+- About / The Standard
+- Teams
+- Parent Hub
+- Sponsors
+- Contact / Join
+
+Next easy edits:
+- Replace placeholder hero/banner images when you have 501 Elite player photos.
+- Add Cash App and Venmo handles or QR codes on parents.html.
+- Add coach bios on teams.html.
+- Add sponsor logos on sponsors.html.

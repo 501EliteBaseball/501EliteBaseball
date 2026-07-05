@@ -1,1 +1,1 @@
-document.documentElement.classList.add('ready');
+document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.add('loaded'));
