@@ -1,1 +1,1 @@
-501 Elite v2.1 Parent Hub update. Upload extracted contents to the site root. The Parent Hub page is parents.html and includes Cash App/Venmo placeholders.
+501 Elite Milestone 1 Homepage. Upload contents to site root. Keep shield.svg in root.
