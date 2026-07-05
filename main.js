@@ -1,1 +1,1 @@
-document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.add('loaded'));
+// Midnight launch build: no external JS required.

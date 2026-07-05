@@ -1,2 +1,91 @@
-<!doctype html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Teams | 501 Elite Baseball</title><meta name='description' content='501 Elite Baseball is a Central Arkansas youth baseball organization built on character, competition, commitment, and player development.'><link rel='stylesheet' href='css/style.css'></head><body><header class="top-banner"><img src="assets/banner.jpg" alt="501 Elite Baseball"></header>
-<nav class="site-nav"><div class="wrap nav-inner"><a class="nav-mark" href="index.html"><img src="shield.svg" alt="" onerror="this.style.display='none'"><span>501 Elite</span></a><div class="nav-links"><a class="" href="index.html">Home</a><a class="" href="about.html">About</a><a class="active" href="teams.html">Teams</a><a class="" href="parents.html">Parent Hub</a><a class="" href="sponsors.html">Sponsors</a><a class="nav-cta " href="contact.html">Join</a></div></div></nav><main><section class="page-hero camo"><div class="wrap"><p class="eyebrow">Teams</p><h1>2026–2027 8U Elite</h1><p>The founding team of 501 Elite Baseball. Built on development, discipline, and the beginning of a lasting standard.</p></div></section><section class="section white"><div class="wrap"><div class="section-head"><p class="eyebrow">Founding Roster</p><h2>The first group.</h2></div><div class="roster"><div class="player">⚾ Billy Dawson</div><div class="player">⚾ Boston Grimmett</div><div class="player">⚾ Cache Scott</div><div class="player">⚾ Carter Brown</div><div class="player">⚾ Dan Wiley</div><div class="player">⚾ Dawson Frechette</div><div class="player">⚾ Jack Thomas</div><div class="player">⚾ Jackson Chambers</div><div class="player">⚾ Jesse George</div><div class="player">⚾ Junior Gillespie</div><div class="player">⚾ Parker Willingham</div><div class="player">⚾ Sonny Mills</div><div class="player">⚾ Zeke French</div></div></div></section><section class="section soft"><div class="wrap grid2"><div class="feature"><p class="eyebrow">Coaches</p><h2>Leadership</h2><p>Coach bios and contact information will be added here.</p></div><div class="feature"><p class="eyebrow">Schedule</p><h2>Coming Soon</h2><p>Practices, games, tournaments, and parent meetings will live here.</p></div></div></section></main><footer class="footer"><div class="wrap footer-inner"><div class="footer-brand"><img src="shield.svg" alt="501 Elite shield" onerror="this.style.display='none'"><div><strong>501 Elite Baseball</strong><br><span>Building Better Men.</span></div></div><span>Hot Springs, Arkansas</span><span>501elitebaseball@gmail.com</span><span>© 2026 501 Elite Baseball.</span></div></footer><script src='js/main.js'></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teams | 501 Elite Baseball</title><meta name="description" content="501 Elite Baseball is a Central Arkansas youth baseball organization built on character, competition, commitment, and player development.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@400;600;700;800;900&display=swap');
+:root{--navy:#061a35;--blue:#0b2e5e;--red:#d7193f;--white:#fff;--paper:#f7f8fb;--ink:#101828;--muted:#5e6a7d;--line:#d9e1ec;--soft:#eef3f9;--max:1180px;--radius:22px;--shadow:0 18px 45px rgba(15,32,64,.13)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(100%,var(--max));margin:0 auto;padding:0 22px}
+.camo{background-color:#f8fbff;background-image:linear-gradient(90deg,rgba(6,26,53,.08) 12px,transparent 12px),linear-gradient(0deg,rgba(215,25,63,.08) 12px,transparent 12px),linear-gradient(90deg,transparent 34px,rgba(6,26,53,.06) 34px,rgba(6,26,53,.06) 52px,transparent 52px),linear-gradient(0deg,transparent 28px,rgba(215,25,63,.06) 28px,rgba(215,25,63,.06) 46px,transparent 46px);background-size:72px 72px}
+.top-banner{height:clamp(92px,15vw,190px);overflow:hidden;background:var(--navy);border-bottom:4px solid var(--red)}
+.top-banner img{width:100%;height:100%;object-fit:cover;object-position:center}
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 10px 30px rgba(6,26,53,.08)}
+.nav-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-mark{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy)}
+.nav-mark img{width:46px;height:46px;object-fit:contain}
+.nav-mark span{font-family:Graduate,serif;text-transform:uppercase;font-size:18px;letter-spacing:.04em}
+.nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto}
+.nav-links a{padding:12px 14px;border-radius:999px;color:#223044;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{background:var(--navy);color:#fff}
+.nav-cta{background:var(--red)!important;color:#fff!important}
+.hero{position:relative;min-height:calc(100svh - 70px);display:flex;align-items:center;overflow:hidden;background:#fff}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center right;opacity:.42}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.96) 38%,rgba(255,255,255,.72) 74%,rgba(255,255,255,.88)),radial-gradient(circle at 86% 18%,rgba(215,25,63,.18),transparent 28%)}
+.hero-content{position:relative;z-index:2;width:min(100%,var(--max));margin:0 auto;padding:70px 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--red);font-weight:900;text-transform:uppercase;letter-spacing:.09em;font-size:13px}
+.eyebrow:before{content:"";width:34px;height:3px;background:var(--red);border-radius:999px}
+h1,h2,h3,p{margin-top:0}
+.hero h1,.page-hero h1,.section-head h2,.feature h2,.standard h2,.cta h2,.card h3,.resource h3,.contact-card h3,.level strong,.pay strong{font-family:Graduate,serif;text-transform:uppercase}
+.hero h1{max-width:820px;margin:0;font-size:clamp(48px,8.5vw,112px);line-height:.96;color:var(--navy);letter-spacing:-.025em}
+.hero h1 span{display:block;color:var(--red)}
+.hero-copy{max-width:690px;margin:24px 0 0;color:#334155;font-size:clamp(18px,2.2vw,24px);font-weight:750;line-height:1.46}
+.button-row{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{min-height:56px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;text-transform:uppercase;letter-spacing:.05em;font-size:14px}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 14px 28px rgba(215,25,63,.24)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-outline{border:2px solid var(--navy);color:var(--navy);background:#fff}
+.quick{position:relative;z-index:3;margin-top:-42px}
+.quick-grid,.cards,.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quick-card,.card,.feature,.resource,.contact-card,.level,.pay,.player{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.quick-card{padding:24px}
+.quick-card strong{display:block;font-family:Graduate,serif;text-transform:uppercase;color:var(--navy);font-size:23px}
+.quick-card span{display:block;margin-top:8px;color:var(--muted);font-weight:700;line-height:1.4}
+.section{padding:82px 0}
+.white{background:#fff}.soft{background:var(--paper)}
+.section-head{max-width:820px;margin:0 auto 42px;text-align:center}
+.section-head h2{margin:0;color:var(--navy);font-size:clamp(34px,5vw,68px);line-height:1.04}
+.section-head p{margin:18px auto 0;color:var(--muted);font-size:18px;line-height:1.6}
+.card,.resource,.contact-card,.feature{padding:28px}
+.card-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:var(--soft);font-size:27px;margin-bottom:18px}
+.card h3,.resource h3,.contact-card h3{color:var(--navy);font-size:25px;margin:0 0 10px}
+.card p,.resource p,.contact-card p,.feature p,.pay p{color:var(--muted);font-weight:650;line-height:1.55;margin:0}
+.standard{background:var(--navy);color:#fff;padding:82px 0;text-align:center;overflow:hidden}
+.standard h2{font-size:clamp(36px,6vw,72px);line-height:1.1;margin:0}
+.standard h2 span{display:block}
+.standard p{max-width:720px;margin:22px auto 0;color:rgba(255,255,255,.84);font-size:19px;line-height:1.55}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
+.feature h2{color:var(--navy);font-size:clamp(32px,5vw,56px);line-height:1.04;margin:0 0 14px}
+.feature-list{display:grid;gap:12px;margin:24px 0}
+.feature-list div{padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;font-weight:900;color:var(--navy)}
+.photo-card{min-height:420px;border-radius:var(--radius);overflow:hidden;position:relative;background:linear-gradient(135deg,var(--navy),var(--blue));box-shadow:var(--shadow)}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72}
+.photo-card:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,26,53,.85),transparent)}
+.photo-card strong{position:absolute;left:28px;bottom:28px;right:28px;font-family:Graduate,serif;text-transform:uppercase;font-size:32px;line-height:1.05;color:#fff}
+.page-hero{padding:74px 0;background:#fff;border-bottom:1px solid var(--line)}
+.page-hero h1{color:var(--navy);font-size:clamp(44px,8vw,92px);line-height:1;margin:0}
+.page-hero p{max-width:760px;color:var(--muted);font-size:20px;line-height:1.55;font-weight:650}
+.roster,.pay-grid,.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.player{padding:18px 20px;font-weight:900;color:var(--navy)}
+.pay{padding:28px;text-align:center;border:2px dashed #b8c6d9}
+.pay strong{color:var(--navy);font-size:30px}
+.sponsor-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.level{padding:24px;text-align:center}
+.level strong{display:block;color:var(--navy);font-size:22px}
+.level span{display:block;color:var(--red);font-weight:900;margin-top:6px}
+.cta{padding:82px 0;background:linear-gradient(135deg,var(--navy),#0b2e5e);color:#fff;text-align:center}
+.cta h2{font-size:clamp(36px,6vw,72px);line-height:1.08;margin:0}
+.cta p{max-width:720px;margin:18px auto 0;color:rgba(255,255,255,.84);font-size:18px;line-height:1.55}
+.footer{background:var(--navy);color:#fff;padding:34px 0;border-top:5px solid var(--red)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-brand img{width:56px;height:56px;object-fit:contain}
+.footer strong{font-family:Graduate,serif;text-transform:uppercase}
+.footer span{color:rgba(255,255,255,.72);font-weight:700}
+@media(max-width:900px){
+  .top-banner{height:92px}.nav-inner{display:block;padding:12px 0}.nav-mark{justify-content:center;margin-bottom:10px}.nav-links{justify-content:flex-start}.nav-links a{font-size:12px;padding:11px 12px}.hero{min-height:auto}.hero-bg{object-position:center;opacity:.25}.hero-content{padding:54px 22px 60px}.quick{margin-top:0;padding:18px 0;background:#fff}.quick-grid,.cards,.split,.resource-grid,.roster,.pay-grid,.grid2,.sponsor-levels{grid-template-columns:1fr}.section{padding:62px 0}.standard,.cta{padding:68px 0}.photo-card{min-height:300px}.section-head{text-align:left}.button-row .btn{width:100%}
+}
+</style>
+</head><body><header class="top-banner"><img src="banner.jpg" alt="501 Elite Baseball"></header>
+<nav class="site-nav"><div class="wrap nav-inner"><a class="nav-mark" href="index.html"><img src="Shield%20Vector.svg" alt="" onerror="this.style.display='none'"><span>501 Elite</span></a><div class="nav-links"><a class="" href="index.html">Home</a><a class="" href="about.html">About</a><a class="active" href="teams.html">Teams</a><a class="" href="parents.html">Parent Hub</a><a class="" href="sponsors.html">Sponsors</a><a class="nav-cta " href="contact.html">Join</a></div></div></nav><main><section class="page-hero camo"><div class="wrap"><p class="eyebrow">Teams</p><h1>2026–2027 8U Elite</h1><p>The founding team of 501 Elite Baseball. Built on development, discipline, and the beginning of a lasting standard.</p></div></section><section class="section white"><div class="wrap"><div class="section-head"><p class="eyebrow">Founding Roster</p><h2>The first group.</h2></div><div class="roster"><div class="player">⚾ Billy Dawson</div><div class="player">⚾ Boston Grimmett</div><div class="player">⚾ Cache Scott</div><div class="player">⚾ Carter Brown</div><div class="player">⚾ Dan Wiley</div><div class="player">⚾ Dawson Frechette</div><div class="player">⚾ Jack Thomas</div><div class="player">⚾ Jackson Chambers</div><div class="player">⚾ Jesse George</div><div class="player">⚾ Junior Gillespie</div><div class="player">⚾ Parker Willingham</div><div class="player">⚾ Sonny Mills</div><div class="player">⚾ Zeke French</div></div></div></section><section class="section soft"><div class="wrap grid2"><div class="feature"><p class="eyebrow">Coaches</p><h2>Leadership</h2><p>Coach bios and contact information will be added here.</p></div><div class="feature"><p class="eyebrow">Schedule</p><h2>Coming Soon</h2><p>Practices, games, tournaments, and parent meetings will live here.</p></div></div></section></main><footer class="footer"><div class="wrap footer-inner"><div class="footer-brand"><img src="Shield%20Vector.svg" alt="501 Elite shield" onerror="this.style.display='none'"><div><strong>501 Elite Baseball</strong><br><span>Building Better Men.</span></div></div><span>Hot Springs, Arkansas</span><span>501elitebaseball@gmail.com</span><span>© 2026 501 Elite Baseball.</span></div></footer></body></html>
