@@ -1,1 +1,1 @@
-501 Elite MONEY SITE build. Upload all files directly to the GitHub repo root and replace existing files.
+501 Elite Homepage Final Polish. Upload all files directly to repo root and replace existing files.
