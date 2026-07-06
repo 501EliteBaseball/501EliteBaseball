@@ -1,5 +1,5 @@
-# Commit 34 — Hamburger Right-Zone Alignment
+# Commit 35 — Hamburger Exact Pocket Alignment
 
-- Shifted the full hamburger button to the right within the existing dedicated header space.
-- Kept the button size, shape, icon, colors, and functionality unchanged.
-- No other layout or content changes.
+- Moved the full hamburger button container into the intended right-side header pocket.
+- Kept the menu icon, button size, shape, styling, and functionality unchanged.
+- No homepage/content/layout changes beyond the hamburger placement.
