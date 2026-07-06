@@ -120,4 +120,110 @@ a.join::after{display:none !important;}
   a.join{padding:11px 16px !important;}
 }
 
+
+/* COMMIT 15 — MOBILE-FIRST HEADER FIX
+   Fixes tiny SVG display by using a text-based brand lockup in the nav.
+   Mobile traffic is priority.
+*/
+.nav{
+  min-height:84px !important;
+  padding:0 !important;
+  border-bottom:4px solid #d7193f !important;
+  background:#fff !important;
+}
+.nav-inner{
+  padding:10px 18px 12px !important;
+  display:block !important;
+}
+.brand{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  margin:0 auto 10px !important;
+}
+.brand img{
+  display:none !important;
+}
+.brand::before{
+  content:"501 ELITE" !important;
+  display:block !important;
+  font-family:Graduate, serif !important;
+  color:#061b38 !important;
+  font-size:clamp(30px, 9vw, 44px) !important;
+  line-height:1 !important;
+  letter-spacing:.055em !important;
+  text-transform:uppercase !important;
+  text-align:center !important;
+  text-shadow:2px 2px 0 rgba(215,25,63,.18) !important;
+}
+.brand::after{
+  content:"BASEBALL" !important;
+  display:block !important;
+  position:absolute !important;
+  margin-top:44px !important;
+  font-weight:900 !important;
+  color:#d7193f !important;
+  font-size:12px !important;
+  letter-spacing:.38em !important;
+  text-transform:uppercase !important;
+  text-align:center !important;
+}
+.links{
+  display:flex !important;
+  justify-content:flex-start !important;
+  gap:22px !important;
+  overflow-x:auto !important;
+  padding:16px 0 4px !important;
+  margin-top:16px !important;
+  scrollbar-width:none !important;
+}
+.links::-webkit-scrollbar{display:none !important;}
+.links a{
+  font-size:15px !important;
+  padding:9px 0 !important;
+  white-space:nowrap !important;
+}
+.links a.active{
+  color:#d7193f !important;
+}
+.links a.active::after{
+  transform:scaleX(1) !important;
+}
+.hero-content{
+  padding-top:42px !important;
+}
+@media(min-width:1001px){
+  .nav{
+    min-height:92px !important;
+  }
+  .nav-inner{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    padding:0 24px !important;
+  }
+  .brand{
+    width:auto !important;
+    justify-content:flex-start !important;
+    margin:0 !important;
+    position:relative !important;
+    min-width:340px !important;
+  }
+  .brand::before{
+    font-size:38px !important;
+    text-align:left !important;
+  }
+  .brand::after{
+    margin-top:48px !important;
+    left:3px !important;
+    text-align:left !important;
+  }
+  .links{
+    margin-top:0 !important;
+    padding:0 !important;
+    justify-content:flex-end !important;
+  }
+}
+
 </style></head><body><nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html"><img src="Logo%20Vector.svg" alt="501 Elite Baseball"></a><div class="links"><a class="active" href="index.html">Home</a><a class="" href="about.html">About</a><a class="" href="teams.html">Teams</a><a class="" href="parents.html">Parent Hub</a><a class="" href="sponsors.html">Sponsors</a><a class="join " href="contact.html">Join 501 Elite</a></div></div></nav><main><section class="hero"><div class="camo-block camo"></div><div class="camo-right camo"></div><img src="hero.jpg" alt=""><div class="hero-content"><p class="eyebrow">501 Elite Baseball</p><h1>Own Your Effort.<span>Own Your Attitude.</span>Own Your Future.</h1><div class="stars"><b>★★★</b></div><p>Developing baseball players with purpose, character, and elite instruction. Doing things the right way — on the field, at home, and in life.</p><div class="buttons"><a class="btn btn-red" href="contact.html">Join 501 Elite</a><a class="btn btn-outline" href="teams.html">Meet Our Teams</a></div></div></section><section class="stats"><div class="wrap stats-grid"><div class="stat"><div class="icon">📅</div><strong>2026</strong><span>Founded</span></div><div class="stat"><div class="icon">👥</div><strong>13</strong><span>Players</span></div><div class="stat"><div class="icon">👨‍👩‍👦</div><strong>13</strong><span>Families</span></div><div class="stat"><div class="icon">⚾</div><strong>100+</strong><span>Practices</span></div><div class="stat"><div class="icon">🏆</div><strong>12+</strong><span>Tournaments</span></div></div></section><div class="camo-divider"></div><section class="section center"><div class="wrap"><p class="eyebrow">The 501 Standard</p><h2>We build better players by building better people.</h2><p class="lead">The foundation of 501 Elite is simple: character, development, and competition — all taught with purpose.</p><div class="cards"><article class="card dark"><div class="circle">🛡</div><h3>Character</h3><p>We coach young men before baseball players. Integrity, humility and teamwork are non-negotiable.</p></article><article class="card dark"><div class="circle">⚾</div><h3>Development</h3><p>Every practice has purpose, structure and a clear path for long-term player development.</p></article><article class="card dark"><div class="circle">🏆</div><h3>Competition</h3><p>We prepare players to compete with toughness, confidence and respect in every situation.</p></article></div></div></section><section class="quick-row camo"><div class="wrap quick-grid"><div class="quick-intro"><h2>Parent Hub</h2><p>Everything you need as a 501 Elite parent in one place.</p><a class="btn btn-red" href="parents.html">Visit Parent Hub</a></div><div class="quick"><div class="ico">📅</div><strong>Schedules</strong><span>Games, practices and tournaments</span></div><div class="quick"><div class="ico">💳</div><strong>Payments</strong><span>Fees, links and records</span></div><div class="quick"><div class="ico">📄</div><strong>Forms</strong><span>Important documents</span></div><div class="quick"><div class="ico">📖</div><strong>Manual</strong><span>Practice and development</span></div><div class="quick"><div class="ico">📣</div><strong>Updates</strong><span>Announcements</span></div><div class="quick"><div class="ico">❓</div><strong>FAQ</strong><span>Answers for families</span></div></div></section><section class="section players"><div class="wrap player-strip"><div class="player-intro"><h2>Meet Our Players</h2><p>More than teammates. We're family.</p><a class="btn btn-red" href="teams.html">View Full Team</a></div><div class="jersey"><span class="num">12</span><strong>Jack Thomas</strong><span>SS • R/R</span></div><div class="jersey"><span class="num">23</span><strong>Cache Scott</strong><span>2B • R/R</span></div><div class="jersey"><span class="num">5</span><strong>Dawson Frechette</strong><span>3B • R/R</span></div><div class="jersey"><span class="num">8</span><strong>Junior Gillespie</strong><span>C • R/R</span></div><div class="jersey"><span class="num">27</span><strong>Parker Willingham</strong><span>OF • R/R</span></div></div></section><section class="sponsors"><div class="wrap"><p class="eyebrow">Thank You To Our Sponsors</p><div class="sponsor-row"><span>Dick’s</span><span>Marucci</span><span>Rawlings</span><span>Boombah</span><span>Wilson</span></div></div></section><section class="cta camo"><div class="wrap cta-inner"><div><h2>Your player only gets one childhood.<span>Let's make it count.</span></h2><p>Join a program committed to character, development, and doing things the right way.</p></div><a class="btn btn-red" href="contact.html">Become Part of 501 Elite</a></div></section></main><footer class="shield footer"><div class="wrap foot"><img src="Shield%20Vector.svg" alt="501 Elite Baseball"><span>Own Your Effort.<br>Own Your Attitude.<br>Own Your Future.</span><span><a href="mailto:info@501elitebaseball.org">info@501elitebaseball.org</a><br>Hot Springs, Arkansas</span><span>© 2026 501 Elite Baseball</span></div></footer></body></html>

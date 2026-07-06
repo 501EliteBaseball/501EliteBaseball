@@ -6,3 +6,8 @@
 - Improved navigation spacing, active state, and hover underline.
 - Kept footer/contact info consistent.
 
+## Commit 15 - Mobile-First Header Fix
+- Replaced tiny SVG-rendered header mark with a large text-based 501 Elite Baseball brand lockup.
+- Optimized header spacing for mobile-first traffic.
+- Kept nav horizontal and scrollable on mobile.
+
