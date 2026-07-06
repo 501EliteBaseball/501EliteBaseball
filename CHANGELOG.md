@@ -1,5 +1,5 @@
-# Commit 31
+# Commit 32 — Hamburger Width Polish
 
-- Finalized Parent Hub meeting block for July 13 at 6:00 PM.
-- Added Hank Aaron Field at Majestic Park details.
-- Slimmed down oversized secondary-page footers to match the homepage polish.
+- Made the hamburger/menu button wider and better proportioned.
+- Preserved the working menu functionality from Commit 30/31.
+- No layout, content, homepage, or Parent Hub changes.

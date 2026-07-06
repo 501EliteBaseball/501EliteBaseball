@@ -1,1 +1,1 @@
-501 Elite Baseball website – Commit 27 interface polish.
+501 Elite Baseball — Commit 32 hamburger width polish.
