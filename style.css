@@ -343,3 +343,9 @@ body.menu-open{overflow:hidden;}
   .header-shell{grid-template-columns:126px 1fr 118px;}
   .menu-toggle{justify-self:center;}
 }
+
+/* Commit 34: move the whole hamburger button right within the dedicated header zone */
+.menu-toggle{justify-self:end;}
+@media(max-width:760px){
+  .menu-toggle{justify-self:end;}
+}

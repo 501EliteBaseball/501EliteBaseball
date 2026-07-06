@@ -1,5 +1,5 @@
-# Commit 33 — Hamburger Zone Alignment
+# Commit 34 — Hamburger Right-Zone Alignment
 
-- Shifted the entire hamburger/menu button into the center of the empty far-right header zone.
-- Kept the existing button size, shape, colors, and icon treatment unchanged.
-- No other layout, page, content, or design changes.
+- Shifted the full hamburger button to the right within the existing dedicated header space.
+- Kept the button size, shape, icon, colors, and functionality unchanged.
+- No other layout or content changes.
