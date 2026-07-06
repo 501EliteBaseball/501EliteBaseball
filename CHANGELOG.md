@@ -11,3 +11,8 @@
 - Optimized header spacing for mobile-first traffic.
 - Kept nav horizontal and scrollable on mobile.
 
+## Commit 15 - Cropped SVG Header Fix
+- Cropped horizontal logo SVG to reduce built-in whitespace.
+- Removed text-based header workaround.
+- Header now uses the cropped horizontal logo.
+
