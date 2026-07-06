@@ -1,6 +1,5 @@
-# Commit 30 — Navigation Fix
+# Commit 31
 
-- Fixed hamburger menu by removing duplicate inline/listener toggle conflict.
-- Added reliable open/close state handling across every page.
-- Added outside-click close, ESC close, resize reset, and mobile scroll lock.
-- Preserved Commit 29 Parent Hub foundation and homepage styling.
+- Finalized Parent Hub meeting block for July 13 at 6:00 PM.
+- Added Hank Aaron Field at Majestic Park details.
+- Slimmed down oversized secondary-page footers to match the homepage polish.

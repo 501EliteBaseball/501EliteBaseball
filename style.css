@@ -283,3 +283,36 @@ body.menu-open{overflow:hidden;}
   .mobile-menu.open{grid-template-columns:repeat(2,1fr);gap:0 18px;}
   .mobile-menu a{min-height:44px;display:flex;align-items:center;}
 }
+
+
+/* Commit 31: compact secondary footers + finalized parent meeting */
+.footer{
+  background:radial-gradient(circle at 96% 8%,rgba(240,31,69,.20),transparent 22%),linear-gradient(180deg,#061d39,#020914);
+  border-top:2px solid var(--red);
+  padding:8px max(12px,calc((100vw - var(--max))/2 + 12px));
+  min-height:58px;
+}
+.footer .foot{
+  display:grid;
+  grid-template-columns:auto 1fr auto auto;
+  align-items:center;
+  gap:12px 34px;
+  max-width:var(--max);
+  margin:auto;
+}
+.footer .shield{width:34px;display:block;}
+.footer span,.footer a{color:#e8edf5;font-size:11px;line-height:1.12;font-weight:800;font-style:normal;}
+.footer .foot span:nth-of-type(2){justify-self:end;text-align:right;min-width:245px;}
+.footer .foot span:last-child{justify-self:end;align-self:end;color:#bfc8d5;white-space:nowrap;font-size:11px;}
+.next-card{border-top:3px solid var(--red);box-shadow:0 18px 38px rgba(0,0,0,.30),inset 0 1px rgba(255,255,255,.15)}
+.next-card .mini-meta strong{line-height:1.18;}
+.announcement-list article:first-child{border-left:4px solid var(--red);}
+@media(max-width:760px){
+  .footer{padding:6px 9px;min-height:44px;}
+  .footer .foot{grid-template-columns:auto 1fr auto;gap:4px 8px;}
+  .footer .shield{width:20px;}
+  .footer span,.footer a{font-size:7.8px;line-height:1.08;}
+  .footer .foot span:nth-of-type(1){max-width:120px;}
+  .footer .foot span:nth-of-type(2){grid-column:3;grid-row:1 / span 2;min-width:0;justify-self:end;text-align:right;}
+  .footer .foot span:last-child{grid-column:2;grid-row:2;justify-self:center;text-align:center;font-size:7.4px;align-self:center;}
+}
