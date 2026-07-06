@@ -1,5 +1,5 @@
-# Commit 32 — Hamburger Width Polish
+# Commit 33 — Hamburger Zone Alignment
 
-- Made the hamburger/menu button wider and better proportioned.
-- Preserved the working menu functionality from Commit 30/31.
-- No layout, content, homepage, or Parent Hub changes.
+- Shifted the entire hamburger/menu button into the center of the empty far-right header zone.
+- Kept the existing button size, shape, colors, and icon treatment unchanged.
+- No other layout, page, content, or design changes.

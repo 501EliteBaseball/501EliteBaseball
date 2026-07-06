@@ -335,3 +335,11 @@ body.menu-open{overflow:hidden;}
   }
   .menu-toggle span{width:32px;height:2px;margin:4px auto;}
 }
+
+/* Commit 33: center hamburger in the far-right header zone */
+.header-shell{grid-template-columns:236px 1fr 178px;}
+.menu-toggle{justify-self:center;}
+@media(max-width:760px){
+  .header-shell{grid-template-columns:126px 1fr 118px;}
+  .menu-toggle{justify-self:center;}
+}
