@@ -630,3 +630,28 @@ body.menu-open{overflow:hidden;}
 .level-title ul li::marker{color:var(--red)}
 @media(max-width:1160px){.sponsor-levels-colored{grid-template-columns:repeat(2,1fr)}.sponsor-levels-colored .level-title{grid-column:1/-1}}
 @media(max-width:760px){.sponsor-levels-colored{grid-template-columns:1fr}.sponsor-levels-colored .level-card{padding-top:72px}.level-title:before{height:98px!important}}
+
+
+/* Commit 46 — Team Page 2.0 additions */
+.team-coaches .team-section-head p:not(.eyebrow){color:#dce5f1;max-width:820px;font-weight:750;line-height:1.55}
+.coach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.coach-card{position:relative;overflow:hidden;min-height:220px;padding:26px;background:linear-gradient(160deg,rgba(8,32,63,.94),rgba(2,10,22,.96)),url('digital-camo.jpg') center/cover;border:1px solid rgba(255,255,255,.28);box-shadow:0 18px 38px rgba(0,0,0,.32)}
+.coach-card:after{content:"501";position:absolute;right:-12px;bottom:-18px;font-family:Graduate,serif;font-size:86px;color:rgba(255,255,255,.055)}
+.coach-card span{display:inline-block;color:#fff;background:linear-gradient(180deg,#f53455,#9b0b23);padding:8px 11px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;border:1px solid rgba(255,255,255,.24)}
+.coach-card h3{position:relative;z-index:1;font-family:Graduate,serif;text-transform:uppercase;margin:22px 0 12px;color:#fff;font-size:clamp(22px,2.5vw,32px)}
+.coach-card p{position:relative;z-index:1;margin:0;color:#dce5f1;font-weight:750;line-height:1.55}
+.coach-card.featured{border-color:rgba(240,31,69,.55);box-shadow:0 22px 48px rgba(0,0,0,.38),0 0 30px rgba(240,31,69,.12)}
+.team-quicklinks{border-top:3px solid var(--red);border-bottom:3px solid var(--red)}
+.team-link-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.team-link-grid a{position:relative;min-height:150px;padding:20px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid #dbe2ec;box-shadow:0 14px 28px rgba(7,23,45,.12);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.team-link-grid a:hover{transform:translateY(-4px);border-color:rgba(240,31,69,.45);box-shadow:0 22px 40px rgba(7,23,45,.18)}
+.team-link-grid b{display:block;font-family:Graduate,serif;text-transform:uppercase;font-size:18px;margin-bottom:10px;color:var(--ink)}
+.team-link-grid span{display:block;color:#34455c;font-weight:750;line-height:1.45;font-size:13px}
+.team-link-grid strong{position:absolute;right:18px;bottom:12px;color:var(--red);font-size:24px}
+.media-preview-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:center}
+.media-preview h2{font-family:Graduate,serif;text-transform:uppercase;font-size:clamp(32px,4.2vw,56px);line-height:1.08;margin:0 0 14px;color:#fff}
+.media-preview p{color:#dce5f1;font-weight:750;line-height:1.55;max-width:760px}
+.media-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.media-strip span{min-height:145px;display:grid;place-items:end start;padding:18px;font-family:Graduate,serif;text-transform:uppercase;color:#fff;background:linear-gradient(160deg,rgba(6,28,56,.78),rgba(2,9,20,.92)),url('digital-camo.jpg') center/cover;border:1px solid rgba(255,255,255,.30);box-shadow:0 18px 34px rgba(0,0,0,.28)}
+@media(max-width:900px){.coach-grid,.team-link-grid,.media-preview-grid{grid-template-columns:1fr}.media-strip{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.coach-grid{gap:12px}.coach-card{min-height:170px;padding:18px}.team-link-grid{grid-template-columns:1fr 1fr;gap:10px}.team-link-grid a{min-height:124px;padding:14px}.team-link-grid b{font-size:13px}.team-link-grid span{font-size:10px}.media-strip{grid-template-columns:1fr}.media-strip span{min-height:95px}}
