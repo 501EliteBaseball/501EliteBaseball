@@ -1,17 +1,20 @@
-# Commit 51 — Homepage Header + 501 Standard Expansion
+# 501 Elite Baseball Website Changelog
 
-## Changed
-- Reworked the top-left header logo treatment across all pages to use the transparent header logo instead of the boxed photo-style header emblem.
-- Added a more integrated header background with subtle shield/camo branding so the logo area flows better with the site.
-- Added shield watermark treatment to homepage player cards, team roster cards, and player profile cards.
-- Completely expanded the 501 Standard / Training page into a full destination page with:
-  - Hero section
-  - Creed card
-  - Foundation section
-  - Five pillar cards
-  - Coaching philosophy section
-  - Parent/family standard section
-  - Closing shield callout
+## Version 1.1 Sprint 1
 
-## Notes
-- This commit addresses the punch-list items for the homepage logo flow, shield branding on player cards, and the weak Learn Our Standard destination page.
+### Homepage
+- Updated header logo treatment to better blend into the textured header.
+- Introduced reusable `mark-501` styling for a more recognizable 501 brand treatment.
+- Improved homepage player card contrast.
+- Added shield presence to player cards.
+
+### Sponsors
+- Reworked sponsorship tier cards with coordinated premium finishes.
+- Replaced generic 501 medallion text with actual shield artwork.
+- Added distinct tier identities for Bronze, Silver, Gold, Platinum, and Title Sponsor.
+- Title Sponsor receives red/white/blue digital camo treatment.
+
+### About
+- Rebuilt About page with expanded story and structure.
+- Added sections for Our Story, What Makes Us Different, Leadership, and Looking Ahead.
+- Converted the page from a light placeholder into a branded narrative page.
