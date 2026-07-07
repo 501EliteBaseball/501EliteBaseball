@@ -1,14 +1,7 @@
-# Sprint 1D — Sponsor Tier Card Rebuild
+# Sprint 1D — Sponsor Tier Rebuild
 
-Focused only on the Sponsors page sponsor tier section.
-
-## Changes
-- Enlarged sponsor shields dramatically across all tier cards.
-- Centered shields in each card and removed the small medallion/backplate treatment.
-- Rebuilt metallic finishes for Bronze, Silver, Gold, and Platinum.
-- Rebuilt Title Sponsor as a full-width digital-camo feature card with an oversized shield.
-- Converted the impact-level section to a clean light-background tier presentation inspired by the approved reference.
-- Improved tier card spacing, type hierarchy, and bullet treatment.
-
-## Intent
-Make the sponsor tiers feel like premium membership cards rather than generic web components.
+- Enlarged sponsor shields dramatically and centered them in every tier card.
+- Removed decorative/shadow badge backplates behind shield artwork.
+- Rebuilt tier backgrounds with stronger brushed/metallic finishes.
+- Converted Title Sponsor tier into a wide premium digital-camo plaque with oversized shield.
+- Tightened sponsor card hierarchy, spacing, borders, and benefit list presentation.
