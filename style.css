@@ -1043,3 +1043,248 @@ body.menu-open{overflow:hidden;}
   .level-title .level-medallion{width:130px!important;height:130px!important;}
   .level-title .level-medallion img{width:120px!important;height:120px!important;}
 }
+
+/* Sprint 1D — Sponsor page rebuild based on approved direction
+   Goal: large centered shields, premium metallic cards, title sponsor horizontal hero card. */
+.sponsor-page #levels.sponsor-dark{
+  background:linear-gradient(180deg,#f9fbff 0%,#eef2f7 100%)!important;
+  color:#07162d!important;
+  border-top:1px solid rgba(7,22,45,.10)!important;
+  border-bottom:1px solid rgba(7,22,45,.10)!important;
+}
+.sponsor-page #levels .sponsor-wrap{max-width:1220px!important;}
+.sponsor-page #levels .eyebrow{
+  justify-content:center!important;
+  color:#e11d3c!important;
+  letter-spacing:.22em!important;
+}
+.sponsor-page #levels h2{
+  margin:0 auto 34px!important;
+  text-align:center!important;
+  color:#07162d!important;
+  font-size:clamp(25px,3.2vw,40px)!important;
+  letter-spacing:.08em!important;
+  text-shadow:none!important;
+}
+.sponsor-levels-colored{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:22px!important;
+  align-items:stretch!important;
+  margin-top:18px!important;
+}
+.sponsor-levels-colored .level-card{
+  min-height:470px!important;
+  padding:28px 26px 24px!important;
+  border-radius:10px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  border:1px solid rgba(255,255,255,.32)!important;
+  box-shadow:0 22px 40px rgba(7,23,45,.25), inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+.sponsor-levels-colored .level-card:after{display:none!important;content:none!important;}
+.sponsor-levels-colored .level-card:before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  opacity:1!important;
+  pointer-events:none!important;
+}
+.sponsor-levels-colored .level-card>*{position:relative!important;z-index:2!important;}
+.sponsor-levels-colored .level-medallion{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  transform:none!important;
+  width:176px!important;
+  height:176px!important;
+  margin:0 auto 22px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  clip-path:none!important;
+  box-shadow:none!important;
+}
+.sponsor-levels-colored .level-medallion img{
+  width:168px!important;
+  height:168px!important;
+  display:block!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 12px 16px rgba(0,0,0,.45)) drop-shadow(0 2px 0 rgba(255,255,255,.14))!important;
+}
+.sponsor-levels-colored .level-top{
+  display:block!important;
+  text-align:center!important;
+  margin:0 0 10px!important;
+}
+.sponsor-levels-colored .level-top span{
+  display:none!important;
+}
+.sponsor-levels-colored .level-top strong{
+  display:block!important;
+  margin:0!important;
+  font-size:10px!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+  color:rgba(255,255,255,.70)!important;
+}
+.sponsor-levels-colored .level-card h3{
+  margin:0 0 12px!important;
+  text-align:center!important;
+  font-family:Graduate,serif!important;
+  font-size:clamp(21px,2.25vw,30px)!important;
+  line-height:1.1!important;
+  letter-spacing:.04em!important;
+  color:#fff!important;
+  text-shadow:0 3px 8px rgba(0,0,0,.58)!important;
+}
+.sponsor-levels-colored .level-card h3:after{
+  content:"";
+  display:block;
+  width:74px;
+  height:2px;
+  margin:14px auto 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.66),transparent);
+}
+.sponsor-levels-colored .level-card p{
+  margin:0 0 20px!important;
+  text-align:center!important;
+  font-size:13px!important;
+  line-height:1.45!important;
+  font-weight:760!important;
+  color:rgba(255,255,255,.86)!important;
+}
+.sponsor-levels-colored .level-card ul{
+  margin:auto 0 0!important;
+  padding:0!important;
+  list-style:none!important;
+  display:grid!important;
+  gap:8px!important;
+}
+.sponsor-levels-colored .level-card li{
+  position:relative!important;
+  padding:0 0 0 23px!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  color:rgba(255,255,255,.93)!important;
+  font-size:12px!important;
+  font-weight:850!important;
+  line-height:1.35!important;
+}
+.sponsor-levels-colored .level-card li:before{
+  content:"✓"!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:15px!important;
+  height:15px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:50%!important;
+  font-size:10px!important;
+  color:#07162d!important;
+  background:rgba(255,255,255,.82)!important;
+  font-weight:950!important;
+}
+.sponsor-levels-colored .level-bronze:before{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.18),transparent 18%,rgba(0,0,0,.38) 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.085) 0 1px,transparent 1px 5px),
+    linear-gradient(160deg,#2a1106 0%,#7c3a15 31%,#c98648 50%,#5d280d 72%,#160702 100%)!important;
+}
+.sponsor-levels-colored .level-bronze{border-color:rgba(206,133,75,.72)!important;}
+.sponsor-levels-colored .level-bronze h3{color:#e3a061!important;}
+.sponsor-levels-colored .level-silver:before{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.24),transparent 18%,rgba(0,0,0,.30) 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 1px,transparent 1px 5px),
+    linear-gradient(160deg,#27313c 0%,#9099a4 32%,#f5f7f9 50%,#626c77 74%,#1a222b 100%)!important;
+}
+.sponsor-levels-colored .level-silver{border-color:rgba(230,237,245,.82)!important;}
+.sponsor-levels-colored .level-silver h3{color:#e9eef4!important;text-shadow:0 2px 8px rgba(0,0,0,.6)!important;}
+.sponsor-levels-colored .level-gold:before{
+  background:
+    linear-gradient(180deg,rgba(255,248,196,.24),transparent 18%,rgba(0,0,0,.36) 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.095) 0 1px,transparent 1px 5px),
+    linear-gradient(160deg,#301d00 0%,#8e6005 30%,#e8bd48 50%,#6e4903 74%,#1c1000 100%)!important;
+}
+.sponsor-levels-colored .level-gold{border-color:rgba(242,199,74,.82)!important;}
+.sponsor-levels-colored .level-gold h3{color:#f3cf6c!important;}
+.sponsor-levels-colored .level-platinum:before{
+  background:
+    linear-gradient(180deg,rgba(164,210,255,.18),transparent 18%,rgba(0,0,0,.44) 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 5px),
+    linear-gradient(160deg,#01050b 0%,#07192e 30%,#224b75 50%,#071b33 73%,#000307 100%)!important;
+}
+.sponsor-levels-colored .level-platinum{border-color:rgba(85,139,202,.72)!important;}
+.sponsor-levels-colored .level-platinum h3{color:#c8d9ee!important;}
+.sponsor-levels-colored .level-title{
+  grid-column:1/-1!important;
+  min-height:310px!important;
+  display:grid!important;
+  grid-template-columns:minmax(260px,.86fr) 1.15fr!important;
+  gap:34px!important;
+  align-items:center!important;
+  padding:34px 44px!important;
+  border-radius:12px!important;
+  border:2px solid rgba(255,255,255,.85)!important;
+  box-shadow:0 28px 56px rgba(7,23,45,.30), inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.sponsor-levels-colored .level-title:before{
+  background:
+    linear-gradient(90deg,rgba(2,8,20,.46),rgba(2,8,20,.80) 55%,rgba(2,8,20,.46)),
+    linear-gradient(135deg,rgba(255,255,255,.16),transparent 24%,rgba(240,31,69,.26) 70%,rgba(255,255,255,.10)),
+    url('digital-camo.jpg') center/cover no-repeat!important;
+}
+.sponsor-levels-colored .level-title .level-medallion{
+  width:250px!important;
+  height:250px!important;
+  margin:0 auto!important;
+}
+.sponsor-levels-colored .level-title .level-medallion img{
+  width:238px!important;
+  height:238px!important;
+}
+.sponsor-levels-colored .level-title .level-top,
+.sponsor-levels-colored .level-title h3,
+.sponsor-levels-colored .level-title p{
+  text-align:left!important;
+}
+.sponsor-levels-colored .level-title .level-top{margin:0 0 8px!important;}
+.sponsor-levels-colored .level-title .level-top strong{color:rgba(255,255,255,.78)!important;}
+.sponsor-levels-colored .level-title h3{
+  font-size:clamp(34px,4.2vw,58px)!important;
+  color:#fff!important;
+}
+.sponsor-levels-colored .level-title h3:after{margin-left:0!important;background:linear-gradient(90deg,var(--red),transparent)!important;}
+.sponsor-levels-colored .level-title p{max-width:640px!important;}
+.sponsor-levels-colored .level-title ul{margin:0!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px 18px!important;}
+.sponsor-levels-colored .level-title li:before{background:var(--red)!important;color:#fff!important;}
+.sponsor-page .exposure-section .sponsor-wrap{max-width:1220px!important;}
+.sponsor-page .exposure-section .exposure-stack{grid-template-columns:repeat(4,1fr)!important;}
+.sponsor-page .exposure-section .exposure-stack div{grid-template-columns:1fr!important;text-align:center!important;place-items:center!important;}
+@media(max-width:1080px){
+  .sponsor-levels-colored{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .sponsor-levels-colored .level-title{grid-column:1/-1!important;grid-template-columns:1fr!important;text-align:center!important;}
+  .sponsor-levels-colored .level-title .level-top,.sponsor-levels-colored .level-title h3,.sponsor-levels-colored .level-title p{text-align:center!important;margin-left:auto!important;margin-right:auto!important;}
+  .sponsor-levels-colored .level-title h3:after{margin-left:auto!important;}
+  .sponsor-page .exposure-section .exposure-stack{grid-template-columns:repeat(2,1fr)!important;}
+}
+@media(max-width:760px){
+  .sponsor-levels-colored{grid-template-columns:1fr!important;gap:18px!important;}
+  .sponsor-levels-colored .level-card{min-height:0!important;padding:28px 20px 24px!important;}
+  .sponsor-levels-colored .level-medallion{width:168px!important;height:168px!important;margin-bottom:18px!important;}
+  .sponsor-levels-colored .level-medallion img{width:158px!important;height:158px!important;}
+  .sponsor-levels-colored .level-title{padding:30px 20px!important;}
+  .sponsor-levels-colored .level-title .level-medallion{width:214px!important;height:214px!important;}
+  .sponsor-levels-colored .level-title .level-medallion img{width:204px!important;height:204px!important;}
+  .sponsor-levels-colored .level-title ul{grid-template-columns:1fr!important;}
+  .sponsor-page .exposure-section .exposure-stack{grid-template-columns:1fr!important;}
+}
