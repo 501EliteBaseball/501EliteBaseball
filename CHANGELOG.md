@@ -1,21 +1,12 @@
-# Patch 001B – Sponsor Cards Flat Integration
+# Patch 001C — Sponsor Card Path Fix
 
-## Purpose
-Fixes broken sponsor card images caused by folder/path upload limitations on GitHub mobile.
+## Changed
+- Updated `sponsors.html` image paths from `images/sponsors/...` to root-level sponsor assets.
 
-## Deployment
-Upload every file in this patch directly into the repository root and overwrite `sponsors.html` when prompted.
+## Why
+- GitHub mobile upload placed sponsor image files in the repo root, not in nested folders.
+- This patch fixes the broken image icons without requiring folder uploads.
 
-## Added
-- sponsor-bronze.jpg
-- sponsor-silver.jpg
-- sponsor-gold.jpg
-- sponsor-platinum.jpg
-- sponsor-title.jpg
-
-## Modified
-- sponsors.html
-
-## Notes
-- The image paths are root-level filenames only. No folders are required.
-- The sponsor levels now use the approved original-style sponsor card artwork.
+## Upload Instructions
+- Upload only `sponsors.html` to the GitHub repo root and overwrite the existing file.
+- The sponsor image files already in the root should then load correctly.
