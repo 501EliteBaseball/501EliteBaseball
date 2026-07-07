@@ -352,3 +352,23 @@ body.menu-open{overflow:hidden;}
 
 /* Commit37 */
 @media(max-width:760px){.menu-toggle{position:relative;left:auto;right:15px;justify-self:end;}}
+
+/* Commit 39: lock hamburger button 15px from the right edge on mobile */
+@media (max-width: 760px) {
+  .header-shell {
+    position: relative;
+  }
+
+  .menu-toggle {
+    position: absolute !important;
+    right: 15px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    justify-self: auto !important;
+  }
+
+  .menu-toggle:hover {
+    transform: translateY(-50%) !important;
+  }
+}
