@@ -1,9 +1,6 @@
-# Commit 47
-Implemented 501 Standard page foundation.
+# Commit 49 — Resources & Organization Hub
 
-
-## Commit 48 — Gallery & Media
-- Added new gallery.html media hub.
-- Added Gallery link to desktop and mobile navigation.
-- Added media center, featured moments, player spotlight, category, and upload sections.
-- Added gallery-specific responsive styling in style.css.
+- Added new `resources.html` page.
+- Added Resources link to desktop and mobile navigation across the site.
+- Built a resource dashboard, document library, Digital Player Card section, practice/development resources, and quick links.
+- Added responsive styling for the new Resources page in `style.css`.
