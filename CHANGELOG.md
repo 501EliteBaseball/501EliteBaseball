@@ -1,10 +1,11 @@
-# Patch 002A — Training Page Visual Refinement
+# Patch 002B — Training Visual Refinement
 
 ## Changed
-- Upgraded Training hero presentation with stronger spacing, hierarchy, and a shield-based development card.
-- Refined development pillar cards with larger shield accents, better spacing, and stronger contrast.
-- Improved pathway, resource, and standard sections with cleaner card styling and more premium visual rhythm.
-- Preserved the existing page flow and content; this is a visual refinement, not a rewrite.
+- Brightened the Training hero by reducing the dark overlay while preserving text readability.
+- Rebuilt Development Pillar cards with larger, centered shields and stronger premium-card styling.
+- Removed the redundant “Practice Library” eyebrow above Resources for Players and Families.
+- Reworked The 501 Standard into a stronger branded feature section with larger shields, principle labels, and dark premium panels.
+- Preserved the existing page flow and mobile rhythm.
 
 ## Upload Instructions
 Upload these files directly to the GitHub repo root and overwrite existing files:
