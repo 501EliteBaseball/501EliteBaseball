@@ -1,9 +1,21 @@
-# 501 Elite Website — Sprint 1C
+# Patch 001 — Sponsor Card Integration
 
-## Sponsor Shield + Metallic Tier Polish
+## Modified
+- `sponsors.html`
+- `style.css`
 
-- Sponsor page only.
-- Enlarged shield usage across sponsorship tier cards.
-- Removed unnecessary badge/backplate effects behind shields.
-- Improved tier cards with more intentional metallic finishes.
-- Refined Title Sponsor card with red/white/blue digital camo treatment.
+## Added
+- `images/sponsors/bronze-sponsor.png`
+- `images/sponsors/silver-sponsor.png`
+- `images/sponsors/gold-sponsor.png`
+- `images/sponsors/platinum-sponsor.png`
+- `images/sponsors/title-sponsor.png`
+
+## Changes
+- Replaced CSS-generated sponsorship tier cards with the approved original-style sponsor card artwork.
+- Added responsive image layout for the sponsor cards.
+- Title Sponsor is displayed as a full-width featured card.
+- Existing sponsor page structure, hero, exposure section, sponsor wall, and CTA remain unchanged.
+
+## Install
+Drag the contents of this patch folder into the root of the GitHub repository and overwrite existing files when prompted.
