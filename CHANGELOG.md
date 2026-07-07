@@ -8,3 +8,9 @@
 ## Commit 40 - Hamburger Menu Viewport Lock
 - Set the mobile hamburger/menu button to sit 15px from the far right edge of the viewport.
 - No other layout, content, or visual changes.
+
+
+## Commit 42 - Parent Hub Dashboard Pop
+- Added a premium dashboard control panel behind the four Parent Hub action cards.
+- Added icons, status badges, chevrons, stronger borders, hover/tap elevation, and a red accent line.
+- Kept the existing Parent Hub content and links intact.
