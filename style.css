@@ -560,3 +560,73 @@ body.menu-open{overflow:hidden;}
 
 /* Commit 45: Sponsor Experience */
 .sponsor-page{background:#020b18;color:#fff;overflow:hidden}.sponsor-hero{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.62fr);gap:34px;align-items:center;padding:86px max(24px,calc((100vw - var(--max))/2 + 24px)) 72px;background:radial-gradient(circle at 82% 18%,rgba(240,31,69,.30),transparent 21%),radial-gradient(circle at 12% 82%,rgba(255,255,255,.08),transparent 19%),linear-gradient(90deg,rgba(2,8,20,.98),rgba(4,22,45,.88)),url('digital-camo.jpg') center/cover no-repeat;border-bottom:3px solid var(--red)}.sponsor-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,8,20,.96),rgba(1,8,20,.70) 48%,rgba(1,8,20,.26)),url('hero-team.jpg') right center/auto 88% no-repeat;z-index:-2}.sponsor-hero:after{content:"501";position:absolute;right:4vw;bottom:-30px;font-family:Graduate,serif;font-size:180px;color:rgba(255,255,255,.045);z-index:-1}.sponsor-hero h1,.sponsor-section h2,.sponsor-cta h2{font-family:Graduate,serif;text-transform:uppercase;font-size:clamp(38px,6.2vw,78px);line-height:1.04;letter-spacing:.02em;margin:0 0 22px;text-shadow:0 7px 0 rgba(0,0,0,.34),0 18px 34px rgba(0,0,0,.55)}.sponsor-hero h1 em{color:var(--red);font-style:normal}.sponsor-hero__copy{max-width:680px;font-size:20px;line-height:1.5;font-weight:800;color:#ecf2fa;text-shadow:0 4px 13px #000;margin:0 0 28px}.sponsor-hero__card{background:linear-gradient(180deg,rgba(9,33,66,.86),rgba(2,11,24,.94));border:1px solid rgba(255,255,255,.32);box-shadow:0 24px 56px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.18);padding:30px;clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%)}.card-label,.level-top span{display:inline-flex;color:#fff;background:linear-gradient(180deg,#ff4a68,#a40722);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.16em;padding:8px 10px;margin-bottom:16px}.sponsor-hero__card strong{display:block;font-family:Graduate,serif;text-transform:uppercase;font-size:26px;line-height:1.15}.sponsor-hero__card p{color:#d5deea;font-weight:750;line-height:1.45}.mini-metrics{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}.mini-metrics span{display:flex;justify-content:space-between;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);padding:10px 12px;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.08em}.mini-metrics b{color:var(--red);font-size:18px}.sponsor-section{padding:72px max(24px,calc((100vw - var(--max))/2 + 24px))}.sponsor-wrap{max-width:var(--max);margin:auto}.sponsor-light{background:linear-gradient(180deg,#f8fafd,#e9edf4);color:var(--ink)}.sponsor-dark{background:radial-gradient(circle at 90% 0%,rgba(240,31,69,.18),transparent 24%),linear-gradient(180deg,#061b36,#020b18);color:#fff}.sponsor-section h2{font-size:clamp(32px,4.5vw,56px);text-shadow:none;color:inherit;max-width:880px}.impact-grid,.levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}.impact-grid article{background:#fff;border:1px solid #dbe2ec;box-shadow:0 18px 36px rgba(7,23,45,.12);padding:28px}.impact-grid span{font-size:40px;color:var(--red)}.impact-grid h3,.level-card h3{font-family:Graduate,serif;text-transform:uppercase;margin:14px 0 12px}.impact-grid p,.level-card p,.lead{font-weight:750;line-height:1.55;color:#2f4056}.levels-grid{grid-template-columns:repeat(4,1fr)}.level-card{position:relative;overflow:hidden;min-height:360px;padding:26px;background:linear-gradient(180deg,rgba(8,30,60,.92),rgba(2,11,24,.97));border:1px solid rgba(255,255,255,.24);box-shadow:0 20px 44px rgba(0,0,0,.28)}.level-card.featured{border-color:rgba(240,31,69,.78);box-shadow:0 0 0 1px rgba(240,31,69,.3),0 24px 56px rgba(0,0,0,.42)}.level-card:after{content:"501";position:absolute;right:-12px;bottom:-10px;font-family:Graduate,serif;font-size:72px;color:rgba(255,255,255,.055)}.level-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.level-top strong{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#c9d5e5}.level-card p{color:#d8e0eb}.level-card ul{position:relative;z-index:1;padding-left:18px;color:#edf3fb;font-weight:800;line-height:1.65}.exposure-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:34px;align-items:center}.exposure-stack{display:grid;gap:12px}.exposure-stack div{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center;background:#fff;border:1px solid #dbe2ec;box-shadow:0 14px 28px rgba(7,23,45,.10);padding:18px}.exposure-stack b{font-family:Graduate,serif;text-transform:uppercase;color:var(--red2)}.exposure-stack span{font-weight:800;color:#26364b}.sponsor-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.sponsor-wall div{min-height:112px;display:grid;place-items:center;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px dashed rgba(255,255,255,.32);color:#dbe4ef;font-weight:900;text-transform:uppercase;letter-spacing:.12em}.sponsor-cta{text-align:center;padding:74px 24px;background:#f8fafd;color:var(--ink)}.sponsor-cta .eyebrow{justify-content:center}.sponsor-cta h2{text-shadow:none;font-size:clamp(32px,4.6vw,58px);max-width:880px;margin-left:auto;margin-right:auto}.sponsor-cta p{font-weight:800;color:#2f4056;max-width:680px;margin:0 auto 28px;line-height:1.55}@media(max-width:1000px){.sponsor-hero{grid-template-columns:1fr}.impact-grid,.levels-grid{grid-template-columns:repeat(2,1fr)}.exposure-grid{grid-template-columns:1fr}.sponsor-hero:before{background:linear-gradient(90deg,rgba(1,8,20,.96),rgba(1,8,20,.72)),url('hero-team.jpg') right center/auto 70% no-repeat}}@media(max-width:760px){.sponsor-hero{padding:42px 14px 34px;gap:22px}.sponsor-hero h1{font-size:clamp(31px,10.5vw,48px)}.sponsor-hero__copy{font-size:14px}.sponsor-actions{display:grid;grid-template-columns:1fr 1fr}.sponsor-hero__card{padding:20px}.sponsor-section{padding:44px 14px}.impact-grid,.levels-grid,.sponsor-wall{grid-template-columns:1fr}.level-card{min-height:auto}.exposure-stack div{grid-template-columns:1fr;gap:6px}.sponsor-cta{padding:48px 14px}}
+
+/* Commit 45: coordinating sponsorship tier colors */
+.sponsor-levels-colored{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  align-items:stretch;
+}
+.sponsor-levels-colored .level-card{
+  isolation:isolate;
+  padding-top:76px;
+  border-width:1px;
+  border-radius:10px;
+  box-shadow:0 24px 54px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.16);
+}
+.sponsor-levels-colored .level-card:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:92px;
+  z-index:-1;
+  opacity:.95;
+  background:linear-gradient(135deg,var(--tier-1),var(--tier-2));
+  border-bottom:1px solid rgba(255,255,255,.26);
+}
+.sponsor-levels-colored .level-card:after{
+  opacity:.08;
+}
+.level-medallion{
+  position:absolute;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:62px;
+  height:62px;
+  display:grid;
+  place-items:center;
+  font-family:Graduate,serif;
+  font-size:22px;
+  color:#fff;
+  text-shadow:0 3px 8px rgba(0,0,0,.55);
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(0,0,0,.22)),linear-gradient(135deg,var(--tier-1),var(--tier-2));
+  border:2px solid rgba(255,255,255,.72);
+  clip-path:polygon(50% 0,92% 18%,92% 70%,50% 100%,8% 70%,8% 18%);
+  box-shadow:0 10px 22px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.35);
+}
+.level-bronze{--tier-1:#8a4317;--tier-2:#d18135;border-color:rgba(209,129,53,.85)}
+.level-silver{--tier-1:#6d737a;--tier-2:#e9edf2;border-color:rgba(223,231,239,.82)}
+.level-gold{--tier-1:#b37b08;--tier-2:#ffd45e;border-color:rgba(255,205,70,.88)}
+.level-platinum{--tier-1:#062f70;--tier-2:#2f7bd5;border-color:rgba(61,132,225,.88)}
+.level-title{--tier-1:#08264f;--tier-2:#ef2447;border-color:rgba(255,255,255,.9)}
+.level-title:before{
+  background:linear-gradient(90deg,rgba(2,20,48,.82),rgba(240,31,69,.70)),url('digital-camo.jpg') center/cover no-repeat!important;
+  height:112px!important;
+}
+.level-title{
+  background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(243,246,250,.96));
+  color:#061b36;
+  box-shadow:0 0 0 2px rgba(240,31,69,.55),0 30px 60px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.8)!important;
+}
+.level-title h3,.level-title p,.level-title ul{color:#061b36!important}
+.level-title .level-top strong{color:#08264f}
+.level-title .level-top span{background:linear-gradient(90deg,#cf1734,#f5f7fb,#07336d);color:#071a34;text-shadow:none}
+.level-bronze .level-top span{background:linear-gradient(180deg,#d18135,#7c3b14)}
+.level-silver .level-top span{background:linear-gradient(180deg,#f5f7fb,#777f89);color:#111;text-shadow:none}
+.level-gold .level-top span{background:linear-gradient(180deg,#ffd45e,#a86f05);color:#14100a;text-shadow:none}
+.level-platinum .level-top span{background:linear-gradient(180deg,#2f7bd5,#072b65)}
+.level-card h3{margin-top:12px;font-size:clamp(18px,2.2vw,25px)}
+.level-card ul li::marker{color:var(--tier-2)}
+.level-title ul li::marker{color:var(--red)}
+@media(max-width:1160px){.sponsor-levels-colored{grid-template-columns:repeat(2,1fr)}.sponsor-levels-colored .level-title{grid-column:1/-1}}
+@media(max-width:760px){.sponsor-levels-colored{grid-template-columns:1fr}.sponsor-levels-colored .level-card{padding-top:72px}.level-title:before{height:98px!important}}

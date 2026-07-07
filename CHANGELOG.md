@@ -1,13 +1,18 @@
-# Commit 44 — Player Profiles
+# Commit 45 – Sponsor Experience: Impact Level Color Update
 
-- Added player profile card system to the Teams page.
-- Converted the previous placeholder profile section into shareable player-card shells.
-- Added profile info strip for photos, parent input, and team identity.
-- Added all 13 founding players with fields for jersey number, position, bats/throws, and goals.
-- Included responsive styling for desktop and mobile.
+## Changes
+- Updated the “Choose Your Impact Level” sponsor tier cards.
+- Added coordinating tier colors:
+  - Bronze = bronze/copper
+  - Silver = silver/steel
+  - Gold = gold
+  - Platinum = blue/platinum
+  - Title Sponsor = red/white/blue digital camo treatment
+- Added a Bronze Partner card so the sponsor ladder is complete.
+- Added shield-style 501 medallions to each sponsorship tier.
+- Preserved existing page structure and navigation.
 
-
-## Commit 45 – Sponsor Experience
-- Rebuilt sponsors.html into a full sponsorship sales page.
-- Added sponsor hero, impact cards, sponsorship level cards, exposure section, sponsor wall placeholders, and CTA.
-- Added responsive Sponsor Experience styling to style.css.
+## Files Updated
+- `sponsors.html`
+- `style.css`
+- `CHANGELOG.md`
