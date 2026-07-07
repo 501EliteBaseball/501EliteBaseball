@@ -372,3 +372,25 @@ body.menu-open{overflow:hidden;}
     transform: translateY(-50%) !important;
   }
 }
+
+
+/* Commit 40: place hamburger button 15px from viewport right edge on mobile */
+@media (max-width: 760px) {
+  .header-shell {
+    position: static !important;
+  }
+
+  .site-header .menu-toggle {
+    position: absolute !important;
+    right: 15px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    justify-self: auto !important;
+  }
+
+  .site-header .menu-toggle:hover,
+  .site-header .menu-toggle:focus {
+    transform: translateY(-50%) !important;
+  }
+}
