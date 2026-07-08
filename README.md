@@ -1,3 +1,9 @@
-# 501 Elite Baseball – Commit 46
+# 501 Elite Document Library
 
-Team Page 2.0 build from the latest uploaded repository.
+Upload the final print-ready Parent Handbook PDF here using this exact filename:
+
+`501-Elite-Parent-Handbook.pdf`
+
+Once uploaded, update the disabled PDF buttons in `parent-handbook.html`, `parents.html`, and `resources.html` to point to:
+
+`docs/501-Elite-Parent-Handbook.pdf`
