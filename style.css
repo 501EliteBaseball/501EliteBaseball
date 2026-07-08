@@ -5138,3 +5138,203 @@ body{color:var(--text-on-dark);}
     font-size:11px !important;
   }
 }
+
+/* === 501 Elite Signature UI v2.0.5: Give Page / Support Mission Luxury Pass === */
+/* This keeps existing support.html functional while allowing future rename to give.html. */
+.support-page,
+.give-page{
+  background:#010814 !important;
+  color:var(--platinum-text,#d8e2ee) !important;
+}
+
+.support-page .page-hero,
+.give-page .page-hero,
+.support-hero{
+  background:
+    radial-gradient(circle at 82% 10%,rgba(240,31,69,.24),transparent 24%),
+    radial-gradient(circle at 12% 100%,rgba(63,139,255,.14),transparent 30%),
+    linear-gradient(90deg,rgba(1,8,20,.96),rgba(5,24,49,.82)),
+    url('digital-camo.jpg') center/cover !important;
+  border-bottom:3px solid var(--red) !important;
+}
+.support-page .page-hero p,
+.give-page .page-hero p,
+.support-hero p{
+  color:#d8e2ee !important;
+  font-weight:800 !important;
+  line-height:1.58 !important;
+  text-shadow:0 4px 14px rgba(0,0,0,.50) !important;
+}
+
+.support-giving-section,
+.give-giving-section{
+  padding:64px 20px !important;
+  background:
+    radial-gradient(circle at 8% 8%,rgba(18,62,116,.12),transparent 28%),
+    linear-gradient(180deg,#eaf0f7 0%,#dbe5ef 100%) !important;
+  color:#15243a !important;
+  border-top:1px solid rgba(7,23,45,.10) !important;
+  border-bottom:1px solid rgba(7,23,45,.12) !important;
+}
+.support-grid{
+  align-items:stretch !important;
+  gap:24px !important;
+}
+.support-card{
+  position:relative !important;
+  overflow:hidden !important;
+  border-radius:26px !important;
+  padding:30px !important;
+  background:
+    linear-gradient(180deg,rgba(248,251,255,.92),rgba(225,234,244,.94)) !important;
+  border:1px solid rgba(18,47,82,.18) !important;
+  box-shadow:0 22px 44px rgba(7,23,45,.14), inset 0 1px 0 rgba(255,255,255,.70) !important;
+}
+.support-card:after{
+  content:"501";
+  position:absolute;
+  right:-12px;
+  bottom:-14px;
+  font-family:Graduate,serif;
+  font-size:74px;
+  color:rgba(7,23,45,.045);
+  pointer-events:none;
+}
+.support-card h2{
+  color:#12233a !important;
+  letter-spacing:.02em !important;
+}
+.support-card p,
+.support-card li,
+.support-card em{
+  color:#3c4f68 !important;
+  font-weight:750 !important;
+  line-height:1.58 !important;
+}
+.support-card .eyebrow{
+  color:var(--red) !important;
+  opacity:.95 !important;
+}
+.support-impact-card ul{padding-left:18px !important;}
+.support-impact-card li{margin-bottom:8px !important;}
+
+/* Clean up Cash App / Venmo visual labels: the handles can live below the buttons, not inside the gemstones. */
+.support-buttons{
+  display:grid !important;
+  gap:16px !important;
+  margin-top:22px !important;
+}
+.support-pay-link{
+  position:relative !important;
+  min-height:62px !important;
+  border-radius:999px !important;
+  padding:0 24px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  overflow:hidden !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+  box-shadow:0 14px 28px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(0,0,0,.30) !important;
+  transition:transform .18s ease, filter .18s ease, box-shadow .18s ease !important;
+}
+.support-pay-link.cashapp-link{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.26),transparent 24%),
+    linear-gradient(180deg,#23d56d 0%,#00a86b 45%,#08733f 100%) !important;
+}
+.support-pay-link.venmo-link{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.26),transparent 24%),
+    linear-gradient(180deg,#2fb8ff 0%,#008cff 45%,#0057d8 100%) !important;
+}
+.support-pay-link.cashapp-link > *,
+.support-pay-link.venmo-link > *{
+  display:none !important;
+}
+.support-pay-link.cashapp-link:before,
+.support-pay-link.venmo-link:before{
+  position:relative;
+  z-index:1;
+  font-family:Graduate,serif;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  font-size:17px;
+  line-height:1;
+  color:#edf4fb;
+  text-shadow:0 2px 7px rgba(0,0,0,.50);
+}
+.support-pay-link.cashapp-link:before{content:"Cash App";}
+.support-pay-link.venmo-link:before{content:"Venmo";}
+.support-pay-link:hover,
+.support-pay-link:focus-visible{
+  transform:translateY(-2px) !important;
+  filter:brightness(1.06) saturate(1.06) !important;
+  box-shadow:0 18px 34px rgba(0,0,0,.28),0 0 0 2px rgba(255,255,255,.14), inset 0 1px 0 rgba(255,255,255,.34) !important;
+}
+.support-pay-link:active{transform:translateY(0) scale(.985) !important;}
+
+.support-handles,
+.support-handles-mini{
+  gap:10px !important;
+}
+.support-handles div,
+.support-handles-mini span,
+.support-handles-mini a{
+  background:rgba(18,47,82,.08) !important;
+  color:#2a3d55 !important;
+  border:1px solid rgba(18,47,82,.14) !important;
+  border-radius:14px !important;
+  box-shadow:none !important;
+}
+.support-handles span,
+.support-handles-mini span,
+.support-handles-mini a{
+  color:#52677f !important;
+}
+.support-handles strong{
+  color:#16273e !important;
+  font-size:16px !important;
+}
+
+.support-cta{
+  padding:62px 20px !important;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(240,31,69,.18),transparent 24%),
+    radial-gradient(circle at 10% 100%,rgba(63,139,255,.12),transparent 28%),
+    linear-gradient(180deg,#061d39,#020914) !important;
+}
+.support-cta-card{
+  border-radius:28px !important;
+  padding:38px 28px !important;
+  background:
+    linear-gradient(160deg,rgba(10,35,68,.94),rgba(2,9,20,.97)),
+    url('digital-camo.jpg') center/cover !important;
+  border:1px solid rgba(216,226,238,.22) !important;
+  box-shadow:0 26px 56px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+.support-cta-card h2{color:#edf4fb !important;}
+.support-cta-card p{
+  color:#d5e0ec !important;
+  line-height:1.58 !important;
+}
+.support-cta-card .brand-btn{
+  margin-top:8px !important;
+}
+
+/* Future-proof the nav/page label visually if Support remains in HTML for now. */
+.main-nav a[href*="support"],
+.mobile-menu a[href*="support"],
+.footer-links a[href*="support"]{
+  color:#d8e2ee !important;
+}
+.main-nav a[href*="support"].active,
+.mobile-menu a[href*="support"].active{
+  color:var(--red) !important;
+}
+
+@media(max-width:900px){
+  .support-giving-section{padding:48px 16px !important;}
+  .support-card{padding:24px !important;}
+  .support-pay-link{min-height:58px !important;}
+}
