@@ -5338,3 +5338,54 @@ body{color:var(--text-on-dark);}
   .support-card{padding:24px !important;}
   .support-pay-link{min-height:58px !important;}
 }
+
+
+/* v2.0.7 — Rename Support to Give + restore official mobile giving handles */
+.support-pay-link.cashapp-link > *,
+.support-pay-link.venmo-link > *{
+  display:block !important;
+}
+.support-pay-link.cashapp-link:before,
+.support-pay-link.venmo-link:before{
+  content:none !important;
+}
+.support-pay-link{
+  min-height:82px !important;
+  flex-direction:column !important;
+  gap:4px !important;
+  border-radius:18px !important;
+  padding:14px 18px !important;
+}
+.support-pay-link span{
+  font-family:Graduate,serif !important;
+  text-transform:uppercase !important;
+  letter-spacing:.08em !important;
+  font-size:15px !important;
+  color:#edf4fb !important;
+  text-shadow:0 2px 7px rgba(0,0,0,.50) !important;
+}
+.support-pay-link strong{
+  font-family:Inter,Arial,sans-serif !important;
+  font-size:15px !important;
+  letter-spacing:.02em !important;
+  color:#f3f7fb !important;
+  text-shadow:0 2px 7px rgba(0,0,0,.45) !important;
+}
+.support-pay-link em{
+  margin-top:2px !important;
+  font-style:normal !important;
+  font-size:10px !important;
+  letter-spacing:.11em !important;
+  text-transform:uppercase !important;
+  color:rgba(237,244,251,.76) !important;
+}
+.payment-card--cashapp strong,
+.payment-card--venmo strong{
+  display:block !important;
+  color:#16273e !important;
+  opacity:1 !important;
+}
+@media(max-width:760px){
+  .support-pay-link{min-height:78px !important;}
+  .support-pay-link strong{font-size:14px !important;}
+}
