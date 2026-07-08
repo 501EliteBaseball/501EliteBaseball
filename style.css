@@ -3090,3 +3090,117 @@ a[class*="btn"],
     grid-template-columns:1fr;
   }
 }
+
+
+/* === V1.2A Support Buttons + Contrast Sweep === */
+/* Support page: force readable text contrast on every nested element. */
+.support-page .support-card,
+.support-page .support-card *,
+.support-page .support-giving-section,
+.support-page .support-giving-section *{
+  color:#07172d;
+}
+.support-page .support-card p,
+.support-page .support-card li,
+.support-page .support-card em{
+  color:#33465d !important;
+}
+.support-page .support-card .eyebrow{
+  color:var(--red) !important;
+}
+.support-page .support-card h2,
+.support-page .support-card strong{
+  color:#07172d !important;
+}
+.support-page .support-card a{
+  color:inherit;
+}
+
+/* Clickable Cash App / Venmo giving cards. */
+.support-buttons{
+  display:grid;
+  gap:14px;
+  margin-top:18px;
+}
+.support-pay-link{
+  display:block;
+  border-radius:18px;
+  padding:16px;
+  background:linear-gradient(180deg,#07172d,#020914);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 16px 30px rgba(0,0,0,.20);
+  text-align:left;
+}
+.support-pay-link span{
+  display:block;
+  color:#bfc8d5 !important;
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.support-pay-link strong{
+  display:block;
+  margin-top:5px;
+  color:#fff !important;
+  font-size:20px;
+  overflow-wrap:anywhere;
+}
+.support-pay-link em{
+  display:inline-block;
+  margin-top:10px;
+  color:#fff !important;
+  font-style:normal;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.support-pay-link:hover{
+  transform:translateY(-2px);
+  border-color:rgba(240,31,69,.5);
+}
+.support-pay-link.cashapp-link{
+  background:linear-gradient(180deg,#0c3f24,#061a12);
+}
+.support-pay-link.venmo-link{
+  background:linear-gradient(180deg,#0b3b72,#051629);
+}
+
+/* Payment page mini support links. */
+.support-handles-mini{
+  display:grid;
+  gap:8px;
+  margin:16px 0;
+}
+.support-handles-mini a{
+  display:block;
+  border-radius:14px;
+  padding:11px 12px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff !important;
+  font-size:13px;
+  font-weight:900;
+}
+.support-handles-mini strong{
+  color:#fff !important;
+}
+
+/* Site-wide contrast safety net for dark cards where earlier styles made text disappear. */
+.sponsor-page .impact-grid article *,
+.payments-page .payment-panel *,
+.parents-page .payment-widget-card *,
+.contact-hero-card *,
+.payment-widget-card *,
+.payment-panel *{
+  color:#fff;
+}
+.sponsor-page .impact-grid article p,
+.payments-page .payment-panel p,
+.parents-page .payment-widget-card p,
+.contact-hero-card span,
+.payment-widget-card p,
+.payment-panel p{
+  color:#e8edf5 !important;
+}

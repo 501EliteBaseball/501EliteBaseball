@@ -1,17 +1,15 @@
-# V1.2 Support 501 Elite
+# V1.2A Support Links + Contrast Sweep
+
+## Fixed
+- Support page low-contrast text in giving cards.
+- Added a contrast safety sweep for support/payment/sponsor/contact dark-card text.
 
 ## Added
-- New `support.html` page.
-- New Support navigation link.
-- PayPal Donate button on Support page.
-- Venmo handle: `@EliteBaseball-501`
-- Cash App handle: `$501EliteBaseball`
-- Support page links to sponsor opportunities.
-
-## Changed
-- Parent Hub payment section now focuses on parent/team payments only.
-- Donation/support language moved away from the Parent Hub.
-- Footer/navigation updated with Support link.
+- Functional Venmo link: `https://venmo.com/u/EliteBaseball-501`
+- Functional Cash App link: `https://cash.app/$501EliteBaseball`
+- Clickable Venmo and Cash App giving cards on Support page.
+- Clickable Venmo and Cash App mini links on Payments page when present.
+- `CONTRAST_SCAN_NOTES.md`
 
 ## Upload
 Upload everything inside this ZIP to GitHub root and overwrite.
