@@ -6512,3 +6512,164 @@ body{color:var(--text-on-dark);}
     color:#d8e2ee !important;
   }
 }
+
+/* v2.1.5 — Responsive QA + Desktop Lock
+   Goal: final responsive stabilization after desktop luxury pass.
+   This is a safety/consistency pass, not a redesign. */
+
+/* Prevent wide cards/buttons/media from causing horizontal scroll anywhere. */
+html, body{max-width:100%;overflow-x:hidden;}
+.site-header,.hero-stage,.page-hero,.section,.standard-panel,.players-panel,.cta-panel,.team-hero,.team-light,.team-dark,.hub-hero,.hub-dashboard,.hub-light,.hub-dark{max-width:100vw;}
+
+/* Keep all generated/share/library/payment assets predictable. */
+.social-preview-card,
+.library-card,
+.publication-card,
+.payment-card,
+.quick-pay-card,
+.support-card,
+.contact-card,
+.doc-card,
+.resource,
+.card,
+.player,
+.player-card,
+.stat,
+.hub-tile,
+.team-action-card{overflow-wrap:anywhere;}
+
+/* Desktop lock */
+@media (min-width:1051px){
+  .header-shell,
+  .hero-content,
+  .value-row,
+  .page-hero .wrap,
+  .section .wrap,
+  .team-wrap,
+  .hub-wrap{
+    max-width:1320px !important;
+  }
+
+  /* Desktop nav should never reintroduce hamburger or crowd the logo. */
+  .site-header .menu-toggle{display:none !important;}
+  .mobile-menu{display:none !important;}
+  .main-nav{display:flex !important;flex-wrap:wrap !important;row-gap:0 !important;}
+  .main-nav a{white-space:nowrap !important;}
+
+  /* Hero and primary home sections keep a consistent premium rhythm. */
+  .hero-stage{min-height:690px !important;display:flex !important;align-items:center !important;}
+  .hero-content{width:100% !important;}
+  .hero-copy{max-width:650px !important;color:#dbe5f0 !important;line-height:1.6 !important;}
+  .actions{align-items:center !important;}
+
+  /* Better People / stats: balanced desktop columns. */
+  .standard-panel{grid-template-columns:minmax(420px,.95fr) minmax(520px,1.05fr) !important;gap:56px !important;}
+  .stats-board{align-items:stretch !important;}
+  .stat{border-radius:0 !important;overflow:hidden !important;}
+
+  /* Player section: avoid awkward left-weighted intro at desktop widths. */
+  .players-panel{grid-template-columns:340px repeat(5,minmax(130px,1fr)) !important;align-items:stretch !important;}
+  .players-intro{align-self:center !important;}
+  .players-intro .actions{justify-content:flex-start !important;}
+  .player-card{min-height:190px !important;}
+
+  /* Desktop gemstones: centered label, no arrows, no optical offset. */
+  .brand-btn,
+  .gem-btn,
+  .gem-button,
+  .payment-gem,
+  .support-gem,
+  .give-gem,
+  a[class*="gem"]{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    gap:0 !important;
+    white-space:normal !important;
+  }
+  .brand-btn::after,
+  .gem-btn::after,
+  .gem-button::after,
+  .payment-gem::after,
+  .support-gem::after,
+  .give-gem::after,
+  a[class*="gem"]::after{content:"" !important;display:none !important;}
+
+  /* Forms and contact/payment copy: readable on desktop. */
+  input,textarea,select{font:inherit;}
+  .contact-card input,
+  .contact-card textarea,
+  .payment-card input,
+  .payment-card textarea{
+    color:#14243a !important;
+    background:#f1f5f9 !important;
+    border-color:#bdcad8 !important;
+  }
+  .contact-card label,
+  .payment-card label,
+  .support-card label{color:#273a53 !important;font-weight:850 !important;}
+
+  /* Footer should not sprawl on wide screens. */
+  .site-footer,
+  .footer{padding-left:max(28px,calc((100vw - 1320px)/2 + 28px)) !important;padding-right:max(28px,calc((100vw - 1320px)/2 + 28px)) !important;}
+}
+
+/* Tablet bridge: prevent the site from feeling like neither desktop nor mobile. */
+@media (min-width:761px) and (max-width:1050px){
+  .header-shell{grid-template-columns:190px 1fr 88px !important;gap:18px !important;padding:12px 22px !important;}
+  .brand img{width:180px !important;}
+  .main-nav{display:none !important;}
+  .menu-toggle{display:block !important;justify-self:end !important;}
+  .hero-stage{min-height:620px !important;padding:58px 24px 42px !important;}
+  .hero-content{max-width:720px !important;}
+  .hero-content h1{font-size:clamp(48px,7vw,72px) !important;}
+  .hero-copy{font-size:18px !important;line-height:1.58 !important;}
+  .standard-panel{grid-template-columns:1fr !important;padding:64px 28px !important;}
+  .players-panel{grid-template-columns:1fr 1fr !important;padding:64px 28px !important;}
+  .players-intro{grid-column:1/-1 !important;max-width:720px !important;}
+  .site-footer,.footer{grid-template-columns:1fr 1fr !important;gap:18px !important;}
+}
+
+/* Mobile QA lock: preserve the mature mobile experience while fixing edge cases. */
+@media (max-width:760px){
+  .main-nav{display:none !important;}
+  .site-header .menu-toggle{display:block !important;}
+  .mobile-menu.open{display:grid !important;}
+
+  /* Stop payment handles and long labels from breaking gemstone buttons. */
+  .payment-gem,
+  .support-gem,
+  .give-gem{
+    min-height:58px !important;
+    padding-top:8px !important;
+    padding-bottom:8px !important;
+    flex-direction:column !important;
+    line-height:1.05 !important;
+  }
+  .payment-gem small,
+  .support-gem small,
+  .give-gem small,
+  .gem-handle{
+    font-size:9.5px !important;
+    letter-spacing:.02em !important;
+    margin-top:4px !important;
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+  }
+
+  /* Mobile platinum surfaces stay readable, not washed out. */
+  .card,.resource,.player,.doc-card,.announcement-list article,.quick-pay-card,.payment-card,.support-card,.contact-card{
+    background:linear-gradient(180deg,#eef3f8,#dfe8f2) !important;
+    color:#14243a !important;
+  }
+  .card p,.resource p,.player p,.doc-card p,.announcement-list p,.quick-pay-card p,.payment-card p,.support-card p,.contact-card p,
+  .quick-pay-card li,.payment-card li,.support-card li,.contact-card li{
+    color:#34475f !important;
+  }
+
+  /* Keep final CTAs from feeling cramped. */
+  .cta-panel .actions,
+  .cta-panel .payment-actions,
+  .cta-panel .support-actions{display:grid !important;grid-template-columns:1fr !important;gap:10px !important;}
+}
