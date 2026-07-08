@@ -1,17 +1,15 @@
-# Version 1.0 Gold Master Polish
+# Final Polish Gold Master
 
-## Included
-- Rebuilt header around approved full-width 501 Elite banner artwork.
-- Added dedicated Payments page with PayPal hosted button.
-- Added prominent Parents payment section.
-- Added Payments to desktop/mobile navigation and footer.
-- Rebuilt compact footer layout.
-- Cropped shield asset so it scales correctly and appears larger across the site.
-- Increased button size and readability site-wide.
-- Replaced Title Sponsor artwork with updated image.
-- Improved sponsor contrast issues.
-- Updated Executive Director copy to communicate equal leadership.
-- Preserved deployment fix using clean `dist` deploy.
+## Changed
+- Added official shield system assets:
+  - shield-primary.png
+  - shield-compact.png
+  - shield-micro.png
+- Replaced card-level shield usage with compact shield treatment to prevent overlap.
+- Rebuilt the footer into a much shorter aligned premium bar.
+- Added mobile footer rules to prevent stacked oversized content.
+- Added final typography/button readability refinements.
 
 ## Upload
-Upload these files to the GitHub root and overwrite existing files. Keep Cloudflare deploy command as `bash deploy.sh`.
+Upload all files inside this ZIP to the GitHub root and overwrite.
+Cloudflare deploy command remains: `bash deploy.sh`
