@@ -4050,3 +4050,419 @@ p{line-height:1.52;}
     max-width:270px !important;
   }
 }
+
+/* =========================================================
+   COMMIT 40 — Typography & Contrast System
+   Soft light palette, cleaner gemstone labels, mobile balance,
+   contact/parent contrast fixes, and no true-white UI surfaces.
+   ========================================================= */
+
+:root{
+  --light:#e8edf5;
+  --light-strong:#f1f4f8;
+  --light-soft:#cfd8e6;
+  --light-muted:#aebbd0;
+  --panel:#f1f4f8;
+  --panel-2:#e7edf5;
+  --panel-border:#ccd6e4;
+}
+
+html,body{
+  color:var(--light) !important;
+}
+body{
+  background:#010814 !important;
+}
+
+/* Soft light replaces hard white on dark UI. */
+.site-header,
+.hero-stage,
+.players-panel,
+.team-dark,
+.hub-dark,
+.hub-dashboard,
+.donate-section,
+.support-cta,
+.payment-center-section:nth-of-type(odd),
+.payments-hero,
+.page-hero,
+.section.dark,
+.v10-footer,
+.site-footer,
+.footer,
+.payment-widget-card,
+.payment-panel,
+.payment-checkout-card,
+.team-identity-card,
+.standard-callout,
+.next-card,
+.support-cta-card{
+  color:var(--light) !important;
+}
+
+.hero-copy,
+.players-intro p,
+.value-row p,
+.player-card small,
+.team-lead,
+.hub-lead,
+.team-dark p,
+.hub-dark p,
+.section.dark p,
+.payment-widget-card p,
+.payment-panel p,
+.payment-checkout-card p,
+.support-cta-card p,
+.donate-layout p,
+.next-card p,
+.standard-callout p,
+.footer span,
+.footer a,
+.v10-footer p,
+.v10-footer address,
+.site-footer p,
+.site-footer address,
+.site-footer a{
+  color:var(--light-soft) !important;
+}
+
+/* Headings stay strong, but not pure white. */
+.hero-content h1,
+.players-intro h2,
+.cta-panel h2,
+.standard-panel h2,
+.page-hero h1,
+.section.dark h2,
+.team-dark h2,
+.hub-dark h2,
+.payment-panel h2,
+.payment-checkout-card h2,
+.support-cta-card h2,
+.team-identity-card h2,
+.next-card h2,
+.standard-callout h3,
+.player-card span,
+.player-card strong,
+.value-row h3{
+  color:var(--light-strong) !important;
+}
+
+/* Light sections become soft gray instead of true white. */
+.standard-panel,
+.cta-panel,
+.section:not(.dark),
+.team-light,
+.hub-light,
+.payment-center-section,
+.support-giving-section,
+.parent-payment-section,
+.team-control-section,
+.team-light,
+.payment-intent-card,
+.support-card,
+.card,
+.resource,
+.player,
+.stat,
+.announcement-list article,
+.doc-card,
+.roster-wall article{
+  background:linear-gradient(180deg,var(--panel),var(--panel-2)) !important;
+  color:var(--ink) !important;
+  border-color:var(--panel-border) !important;
+}
+
+/* Light-section copy: readable, not washed out. */
+.standard-panel p,
+.cta-panel p,
+.section:not(.dark) p,
+.team-light p,
+.hub-light p,
+.payment-center-section p,
+.support-giving-section p,
+.support-card p,
+.support-card li,
+.payment-helper,
+.payment-copy p,
+.payments-lead,
+.announcement-list p,
+.doc-card p,
+.contact-method-card p,
+.contact-cta-panel p,
+.contact-hero-copy,
+.roster-wall span{
+  color:#304156 !important;
+}
+
+/* Remove the cheap-looking black backplate feel from gemstones in light sections. */
+.cta-panel .brand-btn,
+.cta-panel .brand-btn.red,
+.cta-panel .brand-btn.primary,
+.cta-panel .brand-btn.steel,
+.cta-panel .brand-btn.navy,
+.cta-panel .brand-btn.secondary{
+  background:transparent !important;
+  box-shadow:none !important;
+  margin-top:18px !important;
+}
+.cta-panel .brand-btn::before,
+.cta-panel .brand-btn.red::before,
+.cta-panel .brand-btn.primary::before,
+.cta-panel .brand-btn.steel::before,
+.cta-panel .brand-btn.navy::before,
+.cta-panel .brand-btn.secondary::before{
+  filter:drop-shadow(0 15px 20px rgba(7,23,45,.24)) drop-shadow(0 0 14px rgba(77,143,224,.16)) !important;
+}
+
+/* Gemstone label discipline: softer text, less shouting, cleaner shadow. */
+.brand-btn,
+.brand-btn.red,
+.brand-btn.primary,
+.brand-btn.steel,
+.brand-btn.navy,
+.brand-btn.secondary,
+.cta-button,
+.btn-primary,
+.donate-paypal-button,
+button.brand-btn.red,
+button.brand-btn.navy,
+.contact-method-card a,
+.contact-action-btn{
+  color:var(--light-strong) !important;
+  font-size:clamp(11px,2.6vw,13px) !important;
+  font-weight:850 !important;
+  letter-spacing:.045em !important;
+  text-shadow:0 1px 3px rgba(0,0,0,.70),0 0 8px rgba(0,0,0,.38) !important;
+}
+.brand-btn b,
+.brand-btn span,
+.cta-button b,
+.btn-primary b,
+.donate-paypal-button b,
+.contact-method-card a b,
+.contact-action-btn b{
+  color:var(--light-strong) !important;
+  font-weight:850 !important;
+  text-shadow:0 1px 3px rgba(0,0,0,.70),0 0 8px rgba(0,0,0,.38) !important;
+}
+
+/* Contact page: convert old buttons/readability to gemstone system. */
+.contact-method-card a,
+.contact-action-btn,
+.contact-actions a{
+  position:relative !important;
+  isolation:isolate !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:var(--gem-btn-w) !important;
+  max-width:318px !important;
+  min-width:220px !important;
+  height:var(--gem-btn-h) !important;
+  min-height:var(--gem-btn-h) !important;
+  padding:0 30px !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  clip-path:none !important;
+  overflow:visible !important;
+}
+.contact-method-card a::before,
+.contact-action-btn::before,
+.contact-actions a::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:-1 !important;
+  background:url("gem-button-sapphire.png") center/100% 100% no-repeat !important;
+  filter:drop-shadow(0 18px 24px rgba(0,0,0,.34)) drop-shadow(0 0 18px rgba(77,143,224,.16)) !important;
+}
+.contact-method-card a::after,
+.contact-action-btn::after,
+.contact-actions a::after{
+  content:"" !important;
+  position:absolute !important;
+  left:15% !important;
+  right:15% !important;
+  top:17% !important;
+  height:1px !important;
+  background:linear-gradient(90deg,transparent,rgba(241,244,248,.62),transparent) !important;
+  opacity:.55 !important;
+}
+.contact-method-card,
+.contact-hero-card,
+.contact-cta-panel{
+  color:var(--light) !important;
+}
+.contact-method-card p,
+.contact-hero-card span,
+.contact-cta-panel p:not(.eyebrow){
+  color:var(--light-soft) !important;
+}
+
+/* Support/Give page: make direct payment gems read as clean labels. */
+.support-pay-link,
+.support-handles-mini a{
+  min-height:62px !important;
+  padding:0 28px !important;
+  text-align:center !important;
+}
+.support-pay-link span,
+.support-pay-link strong,
+.support-pay-link em{
+  visibility:hidden !important;
+  position:absolute !important;
+  pointer-events:none !important;
+}
+.support-pay-link::after,
+.support-handles-mini a::after{
+  position:relative !important;
+  z-index:2 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  height:100% !important;
+  color:var(--light-strong) !important;
+  font-size:12px !important;
+  font-weight:850 !important;
+  letter-spacing:.045em !important;
+  text-transform:uppercase !important;
+  text-shadow:0 1px 3px rgba(0,0,0,.72),0 0 8px rgba(0,0,0,.38) !important;
+  transform:none !important;
+  background:transparent !important;
+}
+.support-pay-link.cashapp-link::after,
+.support-handles-mini a[href*="cash.app"]::after{
+  content:"Cash App" !important;
+}
+.support-pay-link.venmo-link::after,
+.support-handles-mini a[href*="venmo"]::after{
+  content:"Venmo" !important;
+}
+.support-pay-link:not(.cashapp-link):not(.venmo-link)::after{
+  content:"Give" !important;
+}
+
+/* Parent calendar blue-on-blue safety fix. */
+.parents-page [class*="calendar"],
+.parents-page [class*="coming"],
+.parents-page [class*="schedule"],
+.hub-light [class*="calendar"],
+.hub-light [class*="coming"],
+.hub-light [class*="schedule"]{
+  color:var(--ink) !important;
+}
+.parents-page [class*="calendar"] *,
+.parents-page [class*="coming"] *,
+.hub-light [class*="calendar"] *,
+.hub-light [class*="coming"] *{
+  color:inherit !important;
+}
+.parents-page .hub-action-card,
+.parents-page .resource-action-card,
+.parents-page [class*="calendar-card"],
+.parents-page [class*="coming-card"]{
+  background:linear-gradient(180deg,#0a2748,#020b18) !important;
+  color:var(--light) !important;
+}
+.parents-page .hub-action-card p,
+.parents-page .resource-action-card p,
+.parents-page [class*="calendar-card"] p,
+.parents-page [class*="coming-card"] p{
+  color:var(--light-soft) !important;
+}
+
+/* Homepage Meet Our Players balance on mobile. */
+@media(max-width:760px){
+  .players-panel{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    align-items:stretch !important;
+    gap:12px !important;
+  }
+  .players-intro{
+    grid-column:1/-1 !important;
+    text-align:center !important;
+    max-width:310px !important;
+    margin:0 auto 4px !important;
+  }
+  .players-intro .eyebrow,
+  .players-intro .kicker{
+    justify-content:center !important;
+  }
+  .players-intro h2{
+    text-align:center !important;
+    margin-bottom:8px !important;
+  }
+  .players-intro p{
+    text-align:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .players-intro .actions,
+  .players-panel .players-intro .actions{
+    justify-content:center !important;
+    display:flex !important;
+  }
+  .players-panel .players-intro .brand-btn{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .player-card{
+    min-height:150px !important;
+  }
+}
+
+/* Mobile gem text gets calmer; payment gems stop feeling crammed. */
+@media(max-width:760px){
+  .brand-btn,
+  .brand-btn.red,
+  .brand-btn.primary,
+  .brand-btn.steel,
+  .brand-btn.navy,
+  .brand-btn.secondary,
+  .cta-button,
+  .btn-primary,
+  .donate-paypal-button,
+  button.brand-btn.red,
+  button.brand-btn.navy,
+  .contact-method-card a,
+  .contact-action-btn{
+    font-size:11px !important;
+    letter-spacing:.035em !important;
+    font-weight:850 !important;
+  }
+  .support-pay-link::after,
+  .support-handles-mini a::after{
+    font-size:11px !important;
+    letter-spacing:.035em !important;
+  }
+}
+
+/* Final true-white safety sweep: tiny highlights may stay rgba, but visible type/surfaces should not be #fff. */
+.footer-links a,
+.main-nav a,
+.mobile-menu a,
+.site-footer a,
+.v10-footer nav a,
+.team-meta strong,
+.dashboard-panel-topline span,
+.dashboard-actions .hub-tile em,
+.dashboard-actions .hub-tile strong,
+.payment-summary-box,
+.payment-summary-box p,
+.payment-summary-box strong,
+.payment-summary-box small{
+  color:var(--light) !important;
+}
+.stat,
+.payment-intent-card,
+.support-card,
+.card,
+.resource,
+.player,
+.announcement-list article,
+.doc-card,
+.roster-wall article{
+  background:var(--panel) !important;
+}
