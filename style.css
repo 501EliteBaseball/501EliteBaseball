@@ -3516,3 +3516,186 @@ a[class*="btn"] b{
     gap:10px !important;
   }
 }
+
+
+/* =========================================================
+   GEMSTONE BUTTON SYSTEM — PHASE A
+   Ruby asset applied to primary actions.
+   ========================================================= */
+
+:root{
+  --gem-btn-w: min(82vw, 318px);
+  --gem-btn-h: 72px;
+}
+
+/* Primary Ruby Button: image asset + centered text */
+.brand-btn.red,
+.brand-btn.primary,
+.cta-button,
+.btn-primary,
+.donate-paypal-button,
+button.brand-btn.red{
+  position:relative !important;
+  isolation:isolate;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:var(--gem-btn-w) !important;
+  max-width:318px !important;
+  min-width:220px !important;
+  height:var(--gem-btn-h) !important;
+  min-height:var(--gem-btn-h) !important;
+  padding:0 34px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  clip-path:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+  color:#fff !important;
+  font-family:Inter,Arial,sans-serif !important;
+  font-size:clamp(12px, 3vw, 15px) !important;
+  font-weight:950 !important;
+  letter-spacing:.075em !important;
+  text-transform:uppercase !important;
+  text-align:center !important;
+  line-height:1 !important;
+  text-shadow:
+    0 2px 5px rgba(0,0,0,.95),
+    0 0 10px rgba(0,0,0,.62),
+    0 -1px 0 rgba(255,255,255,.24) !important;
+  transform:translateZ(0);
+  transition:transform .18s ease, filter .18s ease !important;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* Ruby gemstone artwork layer */
+.brand-btn.red::before,
+.brand-btn.primary::before,
+.cta-button::before,
+.btn-primary::before,
+.donate-paypal-button::before,
+button.brand-btn.red::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:-1 !important;
+  background:url("gem-button-ruby.png") center/100% 100% no-repeat !important;
+  opacity:1 !important;
+  mix-blend-mode:normal !important;
+  pointer-events:none !important;
+  transform:none !important;
+  border-radius:0 !important;
+  clip-path:none !important;
+  filter:drop-shadow(0 18px 24px rgba(0,0,0,.42)) drop-shadow(0 0 18px rgba(240,31,69,.18));
+}
+
+/* Subtle glass glint without distorting the PNG */
+.brand-btn.red::after,
+.brand-btn.primary::after,
+.cta-button::after,
+.btn-primary::after,
+.donate-paypal-button::after,
+button.brand-btn.red::after{
+  content:"" !important;
+  position:absolute !important;
+  left:15% !important;
+  right:15% !important;
+  top:17% !important;
+  height:1px !important;
+  z-index:1 !important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.70),transparent) !important;
+  opacity:.55 !important;
+  transform:none !important;
+  pointer-events:none !important;
+}
+
+/* Keep button text above art */
+.brand-btn.red > *,
+.brand-btn.primary > *,
+.cta-button > *,
+.btn-primary > *,
+.donate-paypal-button > *,
+button.brand-btn.red > *{
+  position:relative;
+  z-index:2;
+}
+
+.brand-btn.red b,
+.brand-btn.primary b,
+.cta-button b,
+.btn-primary b,
+.donate-paypal-button b,
+button.brand-btn.red b{
+  position:relative;
+  z-index:2;
+  color:#fff !important;
+  text-shadow:0 2px 5px rgba(0,0,0,.85) !important;
+}
+
+/* Hover/tap: move the whole gem, not the artwork proportions */
+@media (hover:hover){
+  .brand-btn.red:hover,
+  .brand-btn.primary:hover,
+  .cta-button:hover,
+  .btn-primary:hover,
+  .donate-paypal-button:hover,
+  button.brand-btn.red:hover{
+    transform:translateY(-3px) scale(1.018) !important;
+    filter:saturate(1.08) brightness(1.04);
+  }
+
+  .brand-btn.red:hover::before,
+  .brand-btn.primary:hover::before,
+  .cta-button:hover::before,
+  .btn-primary:hover::before,
+  .donate-paypal-button:hover::before,
+  button.brand-btn.red:hover::before{
+    filter:drop-shadow(0 24px 30px rgba(0,0,0,.48)) drop-shadow(0 0 24px rgba(240,31,69,.26));
+  }
+
+  .brand-btn.red:hover b,
+  .brand-btn.primary:hover b,
+  .cta-button:hover b,
+  .btn-primary:hover b,
+  .donate-paypal-button:hover b{
+    transform:translateX(4px);
+  }
+}
+
+.brand-btn.red:active,
+.brand-btn.primary:active,
+.cta-button:active,
+.btn-primary:active,
+.donate-paypal-button:active,
+button.brand-btn.red:active{
+  transform:translateY(1px) scale(.992) !important;
+  filter:brightness(.94);
+}
+
+/* Keep secondary buttons on the previous navy system until sapphire asset arrives. */
+.brand-btn.steel,
+.brand-btn.navy,
+.brand-btn.secondary,
+button.brand-btn.navy{
+  color:#fff !important;
+}
+
+/* Mobile sizing */
+@media(max-width:760px){
+  :root{
+    --gem-btn-w:min(82vw, 270px);
+    --gem-btn-h:62px;
+  }
+  .brand-btn.red,
+  .brand-btn.primary,
+  .cta-button,
+  .btn-primary,
+  .donate-paypal-button,
+  button.brand-btn.red{
+    min-width:min(236px,82vw) !important;
+    max-width:270px !important;
+    padding:0 24px !important;
+    font-size:12px !important;
+  }
+}
