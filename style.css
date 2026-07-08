@@ -4841,3 +4841,164 @@ body{color:var(--text-on-dark);}
     color:#d5dfec !important;
   }
 }
+
+/* v2.0.3: Home Page Composition Pass
+   Scope: home-page rhythm, Founding Team/Better People balance, Meet Our Players alignment,
+   gemstone CTA spacing, and platinum card composition. No structural HTML changes required. */
+
+:root{
+  --surface-platinum:#e7edf4;
+  --surface-platinum-2:#dce5ee;
+  --surface-platinum-3:#f0f4f8;
+  --text-platinum-strong:#16263c;
+  --text-platinum-body:#34465f;
+  --text-on-dark:#e4ebf4;
+  --text-on-dark-soft:#c8d4e2;
+}
+
+/* Home hero: keep the current drama, but improve vertical rhythm around the CTAs. */
+.hero-content .actions{
+  align-items:center;
+  margin-top:4px;
+}
+.hero-content .brand-btn,
+.hero-content .gem-btn,
+.hero-content .btn-gem{
+  margin-top:2px;
+  margin-bottom:6px;
+}
+
+/* Better People / standard section: cooler platinum surface and cleaner balance. */
+.standard-panel{
+  background:
+    radial-gradient(circle at 0% 18%,rgba(240,31,69,.065),transparent 24%),
+    linear-gradient(180deg,var(--surface-platinum-3),var(--surface-platinum));
+  color:var(--text-platinum-strong);
+  overflow:hidden;
+}
+.standard-panel > div:first-child{
+  max-width:560px;
+}
+.standard-panel p{
+  color:var(--text-platinum-body);
+  line-height:1.62;
+}
+.standard-panel .actions{
+  margin-top:20px;
+  justify-content:flex-start;
+}
+
+/* Platinum stat cards: softer than white, still readable. */
+.stat{
+  background:linear-gradient(180deg,#f4f7fa,var(--surface-platinum-2));
+  border-color:#c8d3df;
+  box-shadow:0 14px 30px rgba(7,23,45,.13), inset 0 1px 0 rgba(255,255,255,.52);
+}
+.stat b{color:#1a2a40;}
+.stat span{color:#4b5f79;}
+
+/* Meet Our Players: make the intro/button/card group feel centered instead of left-heavy. */
+.players-panel{
+  align-items:center;
+}
+.players-intro{
+  align-self:center;
+}
+.players-intro h2{
+  margin-bottom:12px;
+}
+.players-intro p{
+  color:var(--text-on-dark-soft);
+  line-height:1.58;
+  max-width:310px;
+}
+.players-intro .actions,
+.players-intro .gem-actions,
+.players-intro .button-row{
+  margin-top:18px;
+  justify-content:flex-start;
+}
+.players-panel .gem-btn,
+.players-panel .btn-gem,
+.players-panel .brand-btn{
+  margin-top:4px;
+}
+.player-card{
+  border-color:rgba(220,231,242,.30);
+  box-shadow:0 18px 36px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.10);
+}
+.player-card span{color:#edf3fa;}
+.player-card small{color:#c3cfdd;}
+
+/* Bottom CTA: remove any cheap dark backplates and let platinum surface breathe. */
+.cta-panel{
+  background:linear-gradient(180deg,var(--surface-platinum-3),var(--surface-platinum));
+  color:var(--text-platinum-strong);
+}
+.cta-panel p{
+  color:var(--text-platinum-body);
+  line-height:1.62;
+  max-width:720px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.cta-panel .actions{
+  justify-content:center;
+  margin-top:22px;
+}
+.cta-panel .brand-btn,
+.cta-panel .gem-btn,
+.cta-panel .btn-gem{
+  background-color:transparent !important;
+}
+
+/* Global home button centering cleanup after arrow removal. */
+.gem-btn,
+.btn-gem,
+.brand-btn{
+  text-align:center;
+  justify-content:center;
+}
+.gem-btn::after,
+.btn-gem::after{
+  display:none !important;
+  content:none !important;
+}
+
+@media(max-width:1050px){
+  .standard-panel > div:first-child{max-width:none;}
+  .players-intro p{max-width:620px;}
+}
+
+@media(max-width:760px){
+  .standard-panel{
+    grid-template-columns:1fr 1.1fr;
+    gap:10px;
+    align-items:center;
+  }
+  .standard-panel p{
+    line-height:1.42;
+  }
+  .standard-panel .actions{
+    margin-top:9px;
+  }
+  .players-panel{
+    grid-template-columns:1.08fr repeat(2,1fr);
+    align-items:center;
+  }
+  .players-intro h2{
+    margin-bottom:5px;
+  }
+  .players-intro p{
+    max-width:none;
+    line-height:1.42;
+  }
+  .players-intro .actions,
+  .players-intro .gem-actions,
+  .players-intro .button-row{
+    margin-top:8px;
+  }
+  .cta-panel p{
+    line-height:1.45;
+  }
+}
