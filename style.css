@@ -5002,3 +5002,139 @@ body{color:var(--text-on-dark);}
     line-height:1.45;
   }
 }
+
+/* ========================================================================== 
+   501 Elite Signature UI v2.0.4 — Contact Page Luxury Pass
+   Purpose: bring Contact fully into the platinum/gemstone system without layout risk.
+   ========================================================================== */
+.contact-hero{
+  background:
+    radial-gradient(circle at 86% 10%,rgba(18,62,116,.26),transparent 24%),
+    radial-gradient(circle at 8% 88%,rgba(240,31,69,.16),transparent 26%),
+    linear-gradient(90deg,rgba(2,10,22,.96),rgba(5,25,52,.88)),
+    url('digital-camo.jpg') center/cover !important;
+  border-bottom:3px solid var(--red) !important;
+}
+.contact-hero-copy,
+.contact-hero p,
+.contact-method-card p,
+.contact-cta-panel p:not(.eyebrow){
+  color:var(--text-on-dark) !important;
+  font-weight:760 !important;
+  line-height:1.62 !important;
+  text-shadow:none !important;
+}
+.contact-hero-card,
+.contact-method-card,
+.contact-cta-panel{
+  border-radius:0 !important;
+  clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%) !important;
+  background:
+    linear-gradient(160deg,rgba(9,33,66,.94),rgba(2,10,22,.98)),
+    url('digital-camo.jpg') center/cover !important;
+  border:1px solid rgba(207,216,228,.28) !important;
+  box-shadow:0 24px 48px rgba(0,0,0,.36), inset 0 1px 0 rgba(238,243,248,.12) !important;
+}
+.contact-hero-card strong,
+.contact-method-card h3,
+.contact-cta-panel h2,
+.contact-section-head h2{
+  color:var(--text-heading-light) !important;
+  text-shadow:none !important;
+}
+.contact-hero-card span{
+  color:var(--text-steel) !important;
+}
+.contact-section-head p,
+.contact-section-head .section-copy,
+.contact-section-head div:not(.eyebrow){
+  color:var(--text-body) !important;
+  font-weight:760 !important;
+  line-height:1.58 !important;
+}
+.contact-icon{
+  color:var(--text-heading-light) !important;
+  background:linear-gradient(180deg,#263f63 0%,#0c2444 52%,#041224 100%) !important;
+  border:1px solid rgba(238,243,248,.32) !important;
+  box-shadow:0 14px 26px rgba(0,0,0,.34), inset 0 1px 0 rgba(238,243,248,.22) !important;
+}
+.contact-method-card a,
+.contact-action-btn,
+.contact-card a,
+.contact-actions a,
+.contact-method a{
+  position:relative !important;
+  overflow:hidden !important;
+  min-height:54px !important;
+  padding:0 30px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  color:var(--text-heading-light) !important;
+  font-family:Graduate,serif !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  letter-spacing:.075em !important;
+  text-transform:uppercase !important;
+  text-shadow:0 1px 2px rgba(0,0,0,.50) !important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.24) 0%,rgba(255,255,255,.06) 22%,transparent 23%),
+    linear-gradient(180deg,#123E74 0%,#0f3464 44%,#082548 45%,#041428 100%) !important;
+  border:1px solid rgba(238,243,248,.38) !important;
+  clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%) !important;
+  box-shadow:0 14px 26px rgba(0,0,0,.28), inset 0 1px 0 rgba(238,243,248,.26), inset 0 -1px 0 rgba(0,0,0,.35) !important;
+  transition:transform .18s ease, filter .18s ease, box-shadow .18s ease !important;
+}
+.contact-method-card a:after,
+.contact-action-btn:after,
+.contact-card a:after,
+.contact-actions a:after,
+.contact-method a:after{
+  content:"" !important;
+}
+.contact-method-card a:hover,
+.contact-action-btn:hover,
+.contact-card a:hover,
+.contact-actions a:hover,
+.contact-method a:hover{
+  transform:translateY(-2px) !important;
+  filter:brightness(1.06) saturate(1.04) !important;
+  box-shadow:0 18px 32px rgba(0,0,0,.34), inset 0 1px 0 rgba(238,243,248,.30), inset 0 -1px 0 rgba(0,0,0,.36) !important;
+}
+.contact-method-card a:active,
+.contact-action-btn:active,
+.contact-card a:active,
+.contact-actions a:active,
+.contact-method a:active{
+  transform:translateY(0) scale(.985) !important;
+}
+.contact-cta-section{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(18,62,116,.26),transparent 28%),
+    linear-gradient(180deg,#061b36,#020b18) !important;
+}
+.contact-actions{
+  align-items:center !important;
+  justify-content:center !important;
+  gap:16px !important;
+}
+.compact-contact{
+  gap:34px !important;
+  align-items:center !important;
+}
+@media(max-width:760px){
+  .contact-hero{padding-top:52px !important;padding-bottom:44px !important;}
+  .contact-hero-card,
+  .contact-method-card,
+  .contact-cta-panel{clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%) !important;}
+  .contact-method-card a,
+  .contact-action-btn,
+  .contact-card a,
+  .contact-actions a,
+  .contact-method a{
+    width:100% !important;
+    min-height:52px !important;
+    font-size:11px !important;
+  }
+}
