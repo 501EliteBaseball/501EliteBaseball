@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Support 501 Elite | 501 Elite Baseball</title><link rel="stylesheet" href="style.css"><script src="https://www.paypal.com/sdk/js?client-id=BAAo1b-BIXgxGebbefVKynbELlM5b8UyQw73FGSKkZqErDpXXUpHRnIKF3lRAHOxqsEhgjBTtLnH0FC0Cc&components=hosted-buttons&enable-funding=venmo&currency=USD"></script></head><body>
+<header class="site-header">
+  <div class="header-shell">
+    <a class="brand" href="index.html" aria-label="501 Elite Baseball Home"><span class="sr-only">501 Elite Baseball</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="teams.html">Teams</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="resources.html">Resources</a>
+      <a href="standard.html">Training</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a class="active" href="support.html">Support</a>
+      <a href="parents.html">Parents</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav id="mobileMenu" class="mobile-menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="teams.html">Teams</a><a href="gallery.html">Gallery</a><a href="resources.html">Resources</a><a href="standard.html">Training</a><a href="sponsors.html">Sponsors</a>
+      <a class="active" href="support.html">Support</a><a href="parents.html">Parents</a><a href="payments.html">Payments</a><a href="contact.html">Contact</a></nav>
+</header>
+<main class="support-page">
+  <section class="payments-hero page-hero support-hero">
+    <div class="wrap payments-grid">
+      <div class="payment-copy">
+        <p class="kicker"><span></span>Support 501 Elite<span></span></p>
+        <h1>Invest in the Standard</h1>
+        <p class="payments-lead">Your support helps provide better equipment, tournament opportunities, family resources, and player development for 501 Elite Baseball.</p>
+        <div class="actions">
+          <a class="brand-btn red" href="#give">Support the Team <b>→</b></a>
+          <a class="brand-btn steel" href="sponsors.html">Sponsor Opportunities <b>→</b></a>
+        </div>
+      </div>
+      <aside class="payment-panel support-panel">
+        <img src="shield-card.png" alt="501 Elite Shield">
+        <h2>Community Backed</h2>
+        <p>Every contribution helps us create a better experience for players and families.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="support-giving-section" id="give">
+    <div class="wrap support-grid">
+      <article class="support-card paypal-support-card">
+        <p class="eyebrow">Donate Online</p>
+        <h2>PayPal Donation</h2>
+        <p>Choose any amount and support 501 Elite securely through PayPal.</p>
+        <form class="paypal-donate-form" action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="AC4DC4MYLQ9U8">
+          <button type="submit" class="brand-btn red donate-paypal-button">Donate with PayPal <b>→</b></button>
+        </form>
+      </article>
+
+      <article class="support-card support-handle-card">
+        <p class="eyebrow">Mobile Giving</p>
+        <h2>Cash App & Venmo</h2>
+        <p>Prefer to send support directly? Use the official 501 Elite handles below.</p>
+        <div class="support-handles">
+          <div><span>Venmo</span><strong>@EliteBaseball-501</strong></div>
+          <div><span>Cash App</span><strong>$501EliteBaseball</strong></div>
+        </div>
+      </article>
+
+      <article class="support-card support-impact-card">
+        <p class="eyebrow">Where It Helps</p>
+        <h2>Your Impact</h2>
+        <ul>
+          <li>Player development resources</li>
+          <li>Team equipment and training tools</li>
+          <li>Tournament and field costs</li>
+          <li>Family communication and team resources</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="support-cta">
+    <div class="wrap support-cta-card">
+      <h2>Interested in a larger partnership?</h2>
+      <p>Visit the Sponsors page to learn about founding partner opportunities and ways local businesses can support 501 Elite Baseball.</p>
+      <a class="brand-btn steel" href="sponsors.html">View Sponsor Options <b>→</b></a>
+    </div>
+  </section>
+</main>
+
+<script>
+(function() {
+  const form = document.getElementById('paymentIntentForm');
+  const summary = document.getElementById('paymentSummary');
+  if (!form || !summary) return;
+
+  const fields = ['payPlayer','payParent','payType','payAmount','payNote'].map(id => document.getElementById(id));
+
+  function clean(value) {
+    return (value || '').trim();
+  }
+
+  function updateSummary() {
+    const player = clean(document.getElementById('payPlayer').value) || 'Player Name';
+    const parent = clean(document.getElementById('payParent').value) || 'Parent Name';
+    const type = clean(document.getElementById('payType').value) || 'Payment';
+    const amount = clean(document.getElementById('payAmount').value);
+    const note = clean(document.getElementById('payNote').value);
+
+    const amountText = amount ? ' — $' + Number(amount).toFixed(2) : '';
+    const memo = `501 Elite | ${type}${amountText} | Player: ${player} | Parent: ${parent}${note ? ' | Note: ' + note : ''}`;
+
+    summary.innerHTML = '<strong>Payment Memo</strong><p>' + memo + '</p><small>Tip: copy this memo into the PayPal note field when available.</small>';
+  }
+
+  fields.forEach(field => field && field.addEventListener('input', updateSummary));
+  updateSummary();
+})();
+</script>
+<footer class="v10-footer" aria-label="Site footer">
+  <div class="v10-footer-inner">
+    <a class="v10-footer-brand" href="index.html" aria-label="501 Elite Baseball Home">
+      <img src="shield-footer.png" alt="501 Elite Shield">
+      <span>501 Elite Baseball</span>
+    </a>
+    <p>Own Your Effort. Own Your Attitude. Own Your Future.</p>
+    <nav aria-label="Footer navigation">
+      <a href="payments.html">Pay Team Fees</a>
+      <a href="parents.html">Parent Hub</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <address><a href="tel:5015201695">501-520-1695</a> <span>•</span> <a href="mailto:info@501elitebaseball.org">info@501elitebaseball.org</a> <span>•</span> Hot Springs, AR</address>
+    <small>© 2026 501 Elite Baseball</small>
+  </div>
+</footer>
+<script src="main.js"></script></body></html>
