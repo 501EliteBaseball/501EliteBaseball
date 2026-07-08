@@ -1,20 +1,17 @@
-# Deployment Fix — Cloudflare Wrangler Config
+# 501 Elite RC1 — Version 1.0 Release Candidate
 
-## Problem
-Cloudflare was running `npx wrangler deploy` without a committed Wrangler config file.
-Wrangler detected the existing Worker `501elite-production` but stopped because it could not confirm overwriting/updating it in a non-interactive deployment.
+## Scope
+Coordinated launch-candidate polish across the full website.
 
-## Fix
-Added:
-- `wrangler.jsonc` with the existing Worker name: `501elite-production`
-- `package.json` with Wrangler dependency and deploy script
+## Updated
+- Home: balanced player card grid, tightened CTA section, improved card consistency.
+- About: real founder cards for Adam Thomas and Chase Grimmett, larger shields, button overflow protection, better readability.
+- Teams: updated leadership, assistant coaches, cleaner command-center styling.
+- Training: final shield/spacing rules and Pathway heading adjustment.
+- Parents: added Payment Center buttons and cleaned dashboard/card treatment.
+- Sponsors: fixed visibility in sponsor info cards and protected sponsor art sizing.
+- Contact: reduced redundancy to two primary contact options.
+- Global: compact footer, integrated header logo treatment, shield sizing system, card/button/footer consistency.
 
 ## Upload Instructions
-Upload these files directly to the GitHub repo root:
-- wrangler.jsonc
-- package.json
-
-Then retry the Cloudflare deployment.
-
-## Expected Result
-Wrangler should recognize this as an update to the existing Worker and deploy without prompting.
+Upload all files in this ZIP to the GitHub repo root and overwrite existing files.

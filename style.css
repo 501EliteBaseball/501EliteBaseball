@@ -1753,3 +1753,365 @@ section{scroll-margin-top:90px;}
   }
 }
 
+
+
+
+/* ========== RC1 — Version 1.0 Release Candidate polish ========== */
+
+/* Header: integrate logo into the camo bar without the pasted-on feel */
+.site-header{
+  background:
+    linear-gradient(180deg,rgba(3,13,28,.76),rgba(3,13,28,.92)),
+    url('digital-camo.jpg') center/cover !important;
+}
+.site-header:before{opacity:.08 !important;}
+.header-shell{min-height:104px !important;}
+.brand{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  padding:0 !important;
+  background:transparent !important;
+}
+.brand img{
+  width:clamp(172px,22vw,218px) !important;
+  background:rgba(255,255,255,.92) !important;
+  padding:4px !important;
+  border-radius:0 !important;
+  box-shadow:0 10px 26px rgba(0,0,0,.38),0 0 0 1px rgba(255,255,255,.16) !important;
+}
+
+/* Official shield scale system */
+:root{
+  --shield-hero:clamp(132px,23vw,220px);
+  --shield-feature:clamp(96px,18vw,158px);
+  --shield-accent:64px;
+}
+img[src*="Shield%20Vector"],
+img[src*="shield-training"],
+.player-shield{
+  object-fit:contain;
+}
+.about-hero-card img,
+.founder-card img,
+.about-cta-card img,
+.contact-hero-card img{
+  width:var(--shield-feature) !important;
+  max-width:180px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.value-row article img,
+.player-card .player-shield,
+.coach-card img{
+  width:82px !important;
+  max-width:82px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.training-shield,
+.pillar-card img[src*="shield-training"],
+.training-standard-card img[src*="shield-training"]{
+  width:var(--shield-feature) !important;
+  max-width:170px !important;
+  margin:0 auto 20px !important;
+  transform:none !important;
+}
+
+/* Home */
+.players-panel{
+  align-items:stretch !important;
+}
+.player-card{
+  min-height:168px !important;
+  height:100% !important;
+  border-radius:24px !important;
+  text-align:left;
+}
+.player-card span{
+  font-size:clamp(19px,4.8vw,28px) !important;
+  line-height:1.02 !important;
+}
+.player-card small{font-size:15px !important;}
+.cta-panel{
+  padding:clamp(52px,8vw,86px) 24px !important;
+}
+.cta-panel h2{
+  max-width:920px;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.cta-panel .brand-btn{
+  margin-top:18px;
+}
+
+/* About */
+.about-hero-v11b .actions,
+.about-hero-v11b .hero-actions,
+.about-hero-v11b .brand-btn{
+  max-width:100%;
+  flex-wrap:wrap;
+}
+.founders-grid{
+  align-items:stretch !important;
+}
+.founder-card{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  min-height:300px !important;
+  background:linear-gradient(180deg,rgba(8,29,57,.98),rgba(2,10,22,.98)) !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  border-radius:26px !important;
+  box-shadow:0 24px 48px rgba(0,0,0,.26) !important;
+  padding:28px !important;
+}
+.founder-card img{
+  margin-bottom:20px !important;
+}
+.founder-card span{
+  display:block;
+  color:var(--red);
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+  margin-bottom:10px;
+}
+.founder-card h3{
+  color:#fff !important;
+  font-family:Graduate,serif;
+  text-transform:uppercase;
+  font-size:clamp(24px,4vw,34px) !important;
+  margin:0 0 14px !important;
+}
+.founder-card p{
+  color:#dbe6f3 !important;
+}
+.about-dark-v12 .feature-card p,
+.about-pillars-grid article p{
+  line-height:1.55 !important;
+  font-size:15px !important;
+}
+
+/* Teams */
+.team-action-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+}
+.team-action-card{
+  border-radius:20px !important;
+}
+.coach-grid{
+  align-items:stretch !important;
+}
+.coach-card{
+  border-radius:24px !important;
+}
+
+/* Training */
+.training-page .pillar-card,
+.training-page .training-card,
+.training-page .training-standard-card{
+  border-radius:24px !important;
+}
+.training-page .pillar-card{
+  text-align:center !important;
+}
+.training-page .pillar-card p,
+.training-page .training-standard-card p{
+  position:relative;
+  z-index:2;
+}
+.training-page img[src*="shield-training"]{
+  position:relative !important;
+  z-index:1 !important;
+}
+.training-page h2 em{
+  display:block;
+  color:var(--red);
+  font-style:normal;
+}
+
+/* Parents */
+.payment-center{
+  border-top:3px solid var(--red);
+  border-bottom:3px solid var(--red);
+}
+.payment-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+  margin-top:28px;
+}
+.payment-card{
+  display:flex;
+  flex-direction:column;
+  min-height:150px;
+  padding:22px;
+  background:linear-gradient(180deg,#071f3e,#020b18);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:22px;
+  color:#fff;
+  box-shadow:0 18px 36px rgba(0,0,0,.24);
+}
+.payment-card b{
+  font-family:Graduate,serif;
+  text-transform:uppercase;
+  margin-bottom:auto;
+}
+.payment-card span{
+  color:#ccd7e6;
+  font-weight:850;
+}
+.payment-card strong{
+  color:var(--red);
+  font-size:24px;
+  align-self:flex-end;
+}
+.hub-action-card,
+.team-action-card{
+  background-image:linear-gradient(180deg,rgba(8,29,57,.92),rgba(2,10,22,.98)),url('digital-camo.jpg') !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+
+/* Sponsors */
+.sponsor-why article,
+.exposure-stack div{
+  color:#fff !important;
+  background:linear-gradient(180deg,rgba(8,29,57,.96),rgba(2,10,22,.98)) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+}
+.sponsor-why article p,
+.sponsor-why article h3,
+.exposure-stack div span,
+.exposure-stack div b{
+  color:#fff !important;
+  opacity:1 !important;
+}
+.sponsor-art-card img{
+  display:block !important;
+  margin:0 auto !important;
+}
+.sponsor-art-card--title img{
+  max-height:460px !important;
+  object-fit:contain !important;
+}
+
+/* Contact */
+.contact-method-grid--two{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  max-width:920px;
+  margin:0 auto;
+}
+.compact-contact{
+  grid-template-columns:1fr .55fr !important;
+}
+
+/* Resources */
+.resource-card p,
+.resources-card p{
+  line-height:1.55 !important;
+}
+
+/* Compact footer: one clean row */
+.site-footer{
+  display:grid !important;
+  grid-template-columns:auto 1fr auto auto !important;
+  gap:22px !important;
+  align-items:center !important;
+  padding:20px max(18px,calc((100vw - var(--max))/2 + 24px)) !important;
+  min-height:auto !important;
+}
+.site-footer>div:first-child{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+}
+.site-footer img{
+  width:54px !important;
+  max-width:54px !important;
+}
+.site-footer p{
+  margin:0 !important;
+  font-size:12px !important;
+  line-height:1.2 !important;
+}
+.socials{
+  justify-content:center !important;
+  gap:12px !important;
+  font-size:18px !important;
+}
+.site-footer address{
+  font-size:12px !important;
+  line-height:1.25 !important;
+  text-align:right !important;
+}
+.site-footer small{
+  font-size:11px !important;
+  justify-self:end !important;
+}
+
+/* Mobile RC1 */
+@media(max-width:900px){
+  .team-action-grid,
+  .payment-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .compact-contact{
+    grid-template-columns:1fr !important;
+  }
+}
+@media(max-width:760px){
+  .header-shell{
+    min-height:92px !important;
+    grid-template-columns:minmax(155px,42vw) 1fr 78px !important;
+  }
+  .brand img{
+    width:100% !important;
+    max-width:195px !important;
+    padding:3px !important;
+  }
+  .players-panel{
+    grid-template-columns:1fr 1fr !important;
+    gap:14px !important;
+  }
+  .players-intro{
+    grid-column:1/-1 !important;
+  }
+  .player-card{
+    min-height:154px !important;
+    padding:18px !important;
+  }
+  .player-card .player-shield{
+    width:74px !important;
+  }
+  .player-card span{
+    font-size:20px !important;
+  }
+  .team-action-grid,
+  .payment-grid,
+  .contact-method-grid--two{
+    grid-template-columns:1fr !important;
+  }
+  .founder-card{
+    min-height:0 !important;
+  }
+  .sponsor-art-card--title img{
+    max-height:none !important;
+  }
+  .site-footer{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+    text-align:center !important;
+    padding:22px 18px !important;
+  }
+  .site-footer>div:first-child{
+    justify-content:center !important;
+  }
+  .site-footer address,
+  .site-footer small{
+    text-align:center !important;
+    justify-self:center !important;
+  }
+}
