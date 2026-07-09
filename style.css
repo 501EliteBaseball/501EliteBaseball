@@ -6673,3 +6673,111 @@ html, body{max-width:100%;overflow-x:hidden;}
   .cta-panel .payment-actions,
   .cta-panel .support-actions{display:grid !important;grid-template-columns:1fr !important;gap:10px !important;}
 }
+
+/* v2.1.6 — Mobile QA + Code Cleanup
+   Scope: stabilize mobile/tablet behavior after the desktop luxury pass.
+   This is intentionally conservative: no page redesigns, no desktop composition changes. */
+
+/* Universal safety: media, long handles, and generated labels should never create horizontal scroll. */
+*{min-width:0;}
+html,body{width:100%;max-width:100%;overflow-x:hidden;}
+img,svg,video,canvas,iframe{max-width:100%;height:auto;}
+a,button,.brand-btn,.gem-btn,.gem-button,.payment-gem,.support-gem,.give-gem{ -webkit-tap-highlight-color:transparent; }
+
+/* Keep payment handles readable without forcing buttons wider than the viewport. */
+.gem-handle,
+.payment-gem small,
+.support-gem small,
+.give-gem small{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+/* Prevent pseudo arrows or inherited decorative content from returning on gemstone CTAs. */
+.brand-btn::after,
+.gem-btn::after,
+.gem-button::after,
+.payment-gem::after,
+.support-gem::after,
+.give-gem::after,
+a[class*="gem"]::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Shared readable form defaults for contact/payment/support areas. */
+input,textarea,select{
+  max-width:100%;
+  color:#14243a;
+  background:#eef3f8;
+}
+::placeholder{color:#657790;opacity:1;}
+
+/* Tablet bridge refinement: preserve desktop polish without crowding nav/content. */
+@media (min-width:761px) and (max-width:1050px){
+  .page-hero,.section,.team-light,.team-dark,.hub-dashboard,.hub-light,.hub-dark{
+    padding-left:28px !important;
+    padding-right:28px !important;
+  }
+  .cards,.grid2,.roster,.doc-grid,.hub-card-grid,.team-action-grid,.season-board,.schedule-row{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .team-hero-grid,.hub-hero-grid,.hub-split{
+    grid-template-columns:1fr !important;
+  }
+  .brand-btn,.gem-btn,.gem-button{
+    min-height:48px !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+}
+
+/* Mobile stabilization: keep the mature mobile composition while protecting edge cases. */
+@media (max-width:760px){
+  body{font-size:16px;}
+
+  .page-hero,.section,.team-light,.team-dark,.hub-dashboard,.hub-light,.hub-dark,.cta-panel,.standard-panel,.players-panel{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .cards,.grid2,.roster,.doc-grid,.hub-card-grid,.team-action-grid,.season-board,.schedule-row,.stats-board{
+    grid-template-columns:1fr !important;
+  }
+
+  .stat.wide{grid-column:auto !important;max-width:none !important;}
+
+  .brand-btn,.gem-btn,.gem-button,.payment-gem,.support-gem,.give-gem,a[class*="gem"]{
+    width:100%;
+    max-width:100%;
+    justify-content:center !important;
+    text-align:center !important;
+    white-space:normal !important;
+    overflow:hidden;
+  }
+
+  .payment-gem,.support-gem,.give-gem{
+    min-height:62px !important;
+  }
+
+  .payment-gem small,.support-gem small,.give-gem small,.gem-handle{
+    display:block !important;
+    line-height:1.12 !important;
+  }
+
+  .mobile-menu.open{
+    max-height:calc(100svh - 68px);
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .site-footer,.footer{
+    max-width:100vw;
+    overflow:hidden;
+  }
+
+  .site-footer small,.footer .foot span:last-child{
+    white-space:normal !important;
+  }
+}
