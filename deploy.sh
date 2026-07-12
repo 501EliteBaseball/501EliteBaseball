@@ -12,6 +12,7 @@ find . -maxdepth 1 -type f \( \
   -name "*.webp" -o \
   -name "*.svg" -o \
   -name "*.ico" -o \
-  -name "CNAME" \
+  -name "CNAME" -o \
+  -name "*.webmanifest" \
 \) -exec cp -f {} dist/ \;
 npx wrangler deploy --config wrangler.jsonc
