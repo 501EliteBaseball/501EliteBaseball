@@ -494,6 +494,160 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
     step,
   ]);
 
+  useEffect(() => {
+    const currentPlayerId = playerId ?? registration?.player_id ?? null;
+
+    if (
+      loading ||
+      saving ||
+      step !== "emergency" ||
+      !currentPlayerId
+    ) {
+      return;
+    }
+
+    if (autosaveTimeout.current) {
+      clearTimeout(autosaveTimeout.current);
+    }
+
+    autosaveTimeout.current = setTimeout(async () => {
+      try {
+        setAutosaveText("Saving emergency contact…");
+
+        await saveEmergencyContact({
+          playerId: currentPlayerId,
+          emergency,
+        });
+
+        setAutosaveText("Emergency contact saved.");
+      } catch (autosaveError) {
+        setError(
+          autosaveError instanceof Error
+            ? autosaveError.message
+            : "Emergency contact could not be autosaved.",
+        );
+        setAutosaveText("Autosave paused.");
+      }
+    }, 1000);
+
+    return () => {
+      if (autosaveTimeout.current) {
+        clearTimeout(autosaveTimeout.current);
+      }
+    };
+  }, [
+    emergency,
+    loading,
+    playerId,
+    registration?.player_id,
+    saving,
+    step,
+  ]);
+
+  useEffect(() => {
+    const currentPlayerId = playerId ?? registration?.player_id ?? null;
+
+    if (
+      loading ||
+      saving ||
+      step !== "medical" ||
+      !currentPlayerId
+    ) {
+      return;
+    }
+
+    if (autosaveTimeout.current) {
+      clearTimeout(autosaveTimeout.current);
+    }
+
+    autosaveTimeout.current = setTimeout(async () => {
+      try {
+        setAutosaveText("Saving medical information…");
+
+        await saveMedicalProfile({
+          playerId: currentPlayerId,
+          medical,
+        });
+
+        setAutosaveText("Medical information saved.");
+      } catch (autosaveError) {
+        setError(
+          autosaveError instanceof Error
+            ? autosaveError.message
+            : "Medical information could not be autosaved.",
+        );
+        setAutosaveText("Autosave paused.");
+      }
+    }, 1000);
+
+    return () => {
+      if (autosaveTimeout.current) {
+        clearTimeout(autosaveTimeout.current);
+      }
+    };
+  }, [
+    loading,
+    medical,
+    playerId,
+    registration?.player_id,
+    saving,
+    step,
+  ]);
+
+  useEffect(() => {
+    const currentPlayerId = playerId ?? registration?.player_id ?? null;
+    const registrationId = registration?.id ?? null;
+
+    if (
+      loading ||
+      saving ||
+      step !== "uniform" ||
+      !currentPlayerId ||
+      !registrationId
+    ) {
+      return;
+    }
+
+    if (autosaveTimeout.current) {
+      clearTimeout(autosaveTimeout.current);
+    }
+
+    autosaveTimeout.current = setTimeout(async () => {
+      try {
+        setAutosaveText("Saving uniform sizing…");
+
+        await saveUniformProfile({
+          registrationId,
+          playerId: currentPlayerId,
+          uniform,
+        });
+
+        setAutosaveText("Uniform sizing saved.");
+      } catch (autosaveError) {
+        setError(
+          autosaveError instanceof Error
+            ? autosaveError.message
+            : "Uniform sizing could not be autosaved.",
+        );
+        setAutosaveText("Autosave paused.");
+      }
+    }, 1000);
+
+    return () => {
+      if (autosaveTimeout.current) {
+        clearTimeout(autosaveTimeout.current);
+      }
+    };
+  }, [
+    loading,
+    playerId,
+    registration?.id,
+    registration?.player_id,
+    saving,
+    step,
+    uniform,
+  ]);
+
   function validateStep(nextStep: StepKey) {
     const errors: Record<string, string> = {};
 
