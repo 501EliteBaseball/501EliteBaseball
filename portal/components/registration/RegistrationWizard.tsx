@@ -8,6 +8,9 @@ import { supabaseBrowser } from "@/lib/supabase-browser";
 import FamilyStep, {
   type FamilyForm,
 } from "@/components/registration/steps/FamilyStep";
+import PlayerStep, {
+  type PlayerForm,
+} from "@/components/registration/steps/PlayerStep";
 
 type StepKey = "parent" | "family" | "player" | "emergency" | "medical" | "uniform" | "review" | "complete";
 
@@ -20,20 +23,6 @@ type ProfileForm = {
   last_name: string;
   phone: string;
   email: string;
-};
-
-type PlayerForm = {
-  first_name: string;
-  middle_name: string;
-  last_name: string;
-  preferred_name: string;
-  date_of_birth: string;
-  gender: string;
-  school: string;
-  grade: string;
-  jersey_number_preference: string;
-  bats: string;
-  throws: string;
 };
 
 type EmergencyForm = {
@@ -795,66 +784,11 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
 
     if (step === "player") {
       return (
-        <div className="space-y-4">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">First name</label>
-              <input value={player.first_name} onChange={(event) => setPlayer({ ...player, first_name: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-              {formErrors.first_name ? <p className="text-sm text-[#D7193F]">{formErrors.first_name}</p> : null}
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Middle name</label>
-              <input value={player.middle_name} onChange={(event) => setPlayer({ ...player, middle_name: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Last name</label>
-              <input value={player.last_name} onChange={(event) => setPlayer({ ...player, last_name: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-              {formErrors.last_name ? <p className="text-sm text-[#D7193F]">{formErrors.last_name}</p> : null}
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Preferred name</label>
-              <input value={player.preferred_name} onChange={(event) => setPlayer({ ...player, preferred_name: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Date of birth</label>
-              <input type="date" value={player.date_of_birth} onChange={(event) => setPlayer({ ...player, date_of_birth: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-              {formErrors.date_of_birth ? <p className="text-sm text-[#D7193F]">{formErrors.date_of_birth}</p> : null}
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Gender</label>
-              <input value={player.gender} onChange={(event) => setPlayer({ ...player, gender: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-              {formErrors.gender ? <p className="text-sm text-[#D7193F]">{formErrors.gender}</p> : null}
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">School</label>
-              <input value={player.school} onChange={(event) => setPlayer({ ...player, school: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Grade</label>
-              <input value={player.grade} onChange={(event) => setPlayer({ ...player, grade: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Jersey number preference</label>
-              <input value={player.jersey_number_preference} onChange={(event) => setPlayer({ ...player, jersey_number_preference: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Bats</label>
-              <input value={player.bats} onChange={(event) => setPlayer({ ...player, bats: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-slate-700">Throws</label>
-            <input value={player.throws} onChange={(event) => setPlayer({ ...player, throws: event.target.value })} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3" />
-          </div>
-        </div>
+        <PlayerStep
+          player={player}
+          setPlayer={setPlayer}
+          formErrors={formErrors}
+        />
       );
     }
 
