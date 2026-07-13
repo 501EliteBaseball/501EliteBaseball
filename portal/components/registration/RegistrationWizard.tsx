@@ -6,9 +6,12 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, ShieldCheck, Sparkles } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import {
+  saveEmergencyContact,
   saveFamily,
+  saveMedicalProfile,
   savePlayer,
   saveProfile,
+  saveUniformProfile,
 } from "@/lib/registration/registration-service";
 import FamilyStep, {
   type FamilyForm,
@@ -455,79 +458,48 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
         }
       }
 
-      if (step === "emergency" || step === "review" || step === "medical" || step === "uniform") {
-        const { data: existingEmergency } = await supabaseBrowser.from("emergency_contacts").select("id").eq("player_id", currentPlayerId).maybeSingle();
-
-        if (existingEmergency?.id) {
-          await supabaseBrowser.from("emergency_contacts").update({
-            name: emergency.name,
-            relationship: emergency.relationship,
-            phone: emergency.phone,
-            alternate_phone: emergency.alternate_phone,
-            authorized_pickup: emergency.authorized_pickup,
-          }).eq("id", existingEmergency.id);
-        } else {
-          await supabaseBrowser.from("emergency_contacts").insert({
-            player_id: currentPlayerId,
-            name: emergency.name,
-            relationship: emergency.relationship,
-            phone: emergency.phone,
-            alternate_phone: emergency.alternate_phone,
-            authorized_pickup: emergency.authorized_pickup,
-          });
-        }
+      if (
+        !currentPlayerId &&
+        (step === "emergency" ||
+          step === "medical" ||
+          step === "uniform" ||
+          step === "review")
+      ) {
+        throw new Error("A player must be saved before continuing.");
       }
 
-      if (step === "medical" || step === "review" || step === "uniform") {
-        const { data: existingMedical } = await supabaseBrowser.from("medical_profiles").select("id").eq("player_id", currentPlayerId).maybeSingle();
-
-        if (existingMedical?.id) {
-          await supabaseBrowser.from("medical_profiles").update({
-            physician_name: medical.physician_name,
-            physician_phone: medical.physician_phone,
-            insurance_provider: medical.insurance_provider,
-            policy_number: medical.policy_number,
-            allergies: medical.allergies,
-            medications: medical.medications,
-            medical_conditions: medical.medical_conditions,
-            special_instructions: medical.special_instructions,
-          }).eq("id", existingMedical.id);
-        } else {
-          await supabaseBrowser.from("medical_profiles").insert({
-            player_id: currentPlayerId,
-            physician_name: medical.physician_name,
-            physician_phone: medical.physician_phone,
-            insurance_provider: medical.insurance_provider,
-            policy_number: medical.policy_number,
-            allergies: medical.allergies,
-            medications: medical.medications,
-            medical_conditions: medical.medical_conditions,
-            special_instructions: medical.special_instructions,
-          });
-        }
+      if (
+        currentPlayerId &&
+        (step === "emergency" ||
+          step === "medical" ||
+          step === "uniform" ||
+          step === "review")
+      ) {
+        await saveEmergencyContact({
+          playerId: currentPlayerId,
+          emergency,
+        });
       }
 
-      if (step === "uniform" || step === "review") {
-        const { data: existingUniform } = await supabaseBrowser.from("uniform_profiles").select("id").eq("registration_id", currentRegistration.id).maybeSingle();
+      if (
+        currentPlayerId &&
+        (step === "medical" || step === "uniform" || step === "review")
+      ) {
+        await saveMedicalProfile({
+          playerId: currentPlayerId,
+          medical,
+        });
+      }
 
-        if (existingUniform?.id) {
-          await supabaseBrowser.from("uniform_profiles").update({
-            jersey_size: uniform.jersey_size,
-            pants_size: uniform.pants_size,
-            hat_size: uniform.hat_size,
-            jersey_name: uniform.jersey_name,
-            jersey_number_preference: uniform.jersey_number_preference,
-          }).eq("id", existingUniform.id);
-        } else {
-          await supabaseBrowser.from("uniform_profiles").insert({
-            registration_id: currentRegistration.id,
-            jersey_size: uniform.jersey_size,
-            pants_size: uniform.pants_size,
-            hat_size: uniform.hat_size,
-            jersey_name: uniform.jersey_name,
-            jersey_number_preference: uniform.jersey_number_preference,
-          });
-        }
+      if (
+        currentPlayerId &&
+        (step === "uniform" || step === "review")
+      ) {
+        await saveUniformProfile({
+          registrationId: currentRegistration.id,
+          playerId: currentPlayerId,
+          uniform,
+        });
       }
 
       const currentStepNumber = stepConfig[step].number;

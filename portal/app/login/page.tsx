@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { ArrowRight, Lock, Mail, Sparkles } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
@@ -17,19 +15,24 @@ export default function LoginPage() {
     setStatus("");
     setLoading(true);
 
-    const { error } = await supabaseBrowser.auth.signInWithPassword({
+    const { data, error } = await supabaseBrowser.auth.signInWithPassword({
       email,
       password,
     });
 
-    setLoading(false);
-
     if (error) {
+      setLoading(false);
       setStatus(error.message);
       return;
     }
 
-    router.replace("/dashboard");
+    if (!data.session) {
+      setLoading(false);
+      setStatus("Sign-in succeeded, but no browser session was created.");
+      return;
+    }
+
+    window.location.assign("/registration/parent");
   }
 
   return (

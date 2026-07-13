@@ -171,3 +171,198 @@ export async function savePlayer({
 
   return data.id;
 }
+
+type EmergencyFormInput = {
+  name: string;
+  relationship: string;
+  phone: string;
+  alternate_phone: string;
+  authorized_pickup: boolean;
+};
+
+type MedicalFormInput = {
+  physician_name: string;
+  physician_phone: string;
+  insurance_provider: string;
+  policy_number: string;
+  allergies: string;
+  medications: string;
+  medical_conditions: string;
+  special_instructions: string;
+};
+
+type UniformFormInput = {
+  jersey_size: string;
+  pants_size: string;
+  hat_size: string;
+  jersey_name: string;
+  jersey_number_preference: string;
+};
+
+export async function saveEmergencyContact({
+  playerId,
+  emergency,
+}: {
+  playerId: string;
+  emergency: EmergencyFormInput;
+}) {
+  const { data: existing, error: lookupError } = await supabaseBrowser
+    .from("emergency_contacts")
+    .select("id")
+    .eq("player_id", playerId)
+    .maybeSingle();
+
+  if (lookupError) {
+    throw lookupError;
+  }
+
+  const values = {
+    name: emergency.name,
+    relationship: emergency.relationship,
+    phone: emergency.phone,
+    alternate_phone: emergency.alternate_phone,
+    authorized_pickup: emergency.authorized_pickup,
+  };
+
+  if (existing?.id) {
+    const { error } = await supabaseBrowser
+      .from("emergency_contacts")
+      .update(values)
+      .eq("id", existing.id);
+
+    if (error) {
+      throw error;
+    }
+
+    return existing.id;
+  }
+
+  const { data, error } = await supabaseBrowser
+    .from("emergency_contacts")
+    .insert({
+      player_id: playerId,
+      ...values,
+    })
+    .select("id")
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return data.id;
+}
+
+export async function saveMedicalProfile({
+  playerId,
+  medical,
+}: {
+  playerId: string;
+  medical: MedicalFormInput;
+}) {
+  const { data: existing, error: lookupError } = await supabaseBrowser
+    .from("medical_profiles")
+    .select("id")
+    .eq("player_id", playerId)
+    .maybeSingle();
+
+  if (lookupError) {
+    throw lookupError;
+  }
+
+  const values = {
+    physician_name: medical.physician_name,
+    physician_phone: medical.physician_phone,
+    insurance_provider: medical.insurance_provider,
+    policy_number: medical.policy_number,
+    allergies: medical.allergies,
+    medications: medical.medications,
+    medical_conditions: medical.medical_conditions,
+    special_instructions: medical.special_instructions,
+  };
+
+  if (existing?.id) {
+    const { error } = await supabaseBrowser
+      .from("medical_profiles")
+      .update(values)
+      .eq("id", existing.id);
+
+    if (error) {
+      throw error;
+    }
+
+    return existing.id;
+  }
+
+  const { data, error } = await supabaseBrowser
+    .from("medical_profiles")
+    .insert({
+      player_id: playerId,
+      ...values,
+    })
+    .select("id")
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return data.id;
+}
+
+export async function saveUniformProfile({
+  registrationId,
+  playerId,
+  uniform,
+}: {
+  registrationId: string;
+  playerId: string;
+  uniform: UniformFormInput;
+}) {
+  const { data: existing, error: lookupError } = await supabaseBrowser
+    .from("uniform_profiles")
+    .select("id")
+    .eq("registration_id", registrationId)
+    .maybeSingle();
+
+  if (lookupError) {
+    throw lookupError;
+  }
+
+  const values = {
+    player_id: playerId,
+    jersey_size: uniform.jersey_size,
+    pants_size: uniform.pants_size,
+    hat_size: uniform.hat_size,
+    jersey_name: uniform.jersey_name,
+    jersey_number_preference: uniform.jersey_number_preference,
+  };
+
+  if (existing?.id) {
+    const { error } = await supabaseBrowser
+      .from("uniform_profiles")
+      .update(values)
+      .eq("id", existing.id);
+
+    if (error) {
+      throw error;
+    }
+
+    return existing.id;
+  }
+
+  const { data, error } = await supabaseBrowser
+    .from("uniform_profiles")
+    .insert({
+      registration_id: registrationId,
+      ...values,
+    })
+    .select("id")
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return data.id;
+}
