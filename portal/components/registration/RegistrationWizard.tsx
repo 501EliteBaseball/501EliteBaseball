@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import{ useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, ShieldCheck, Sparkles } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
@@ -158,6 +158,7 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
   const [registration, setRegistration] = useState<RegistrationRecord | null>(null);
   const [familyId, setFamilyId] = useState<string | null>(null);
   const [playerId, setPlayerId] = useState<string | null>(null);
+  const autosaveTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     void initializeRegistration();
@@ -320,7 +321,51 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
       setLoading(false);
     }
   }
+  useEffect(() => {
+  if (loading || saving || step !== "parent") {
+    return;
+  }
 
+  if (autosaveTimeout.current) {
+    clearTimeout(autosaveTimeout.current);
+  }
+
+  autosaveTimeout.current = setTimeout(async () => {
+    try {
+      setAutosaveText("Saving parent information…");
+
+      const {
+        data: { user },
+        error: userError,
+      } = await supabaseBrowser.auth.getUser();
+
+      if (userError || !user) {
+        return;
+      }
+
+      await saveProfile({
+        userId: user.id,
+        authEmail: user.email ?? null,
+        profile,
+      });
+
+      setAutosaveText("Parent information saved.");
+    } catch (autosaveError) {
+      setError(
+        autosaveError instanceof Error
+          ? autosaveError.message
+          : "Parent information could not be autosaved.",
+      );
+      setAutosaveText("Autosave paused.");
+    }
+  }, 1000);
+
+  return () => {
+    if (autosaveTimeout.current) {
+      clearTimeout(autosaveTimeout.current);
+    }
+  };
+}, [loading, profile, saving, step]);
   function validateStep(nextStep: StepKey) {
     const errors: Record<string, string> = {};
 
@@ -366,8 +411,11 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
     return errors;
   }
 
-  async function saveStep(destinationStep?: StepKey | null, shouldSubmit = false) {
-    if (saving) return;
+  async function saveStep(
+  destinationStep?: StepKey | null,
+  shouldSubmit = false,
+  shouldNavigate = true,
+) {
 
     const errors = validateStep(step);
     if (Object.keys(errors).length > 0) {
@@ -519,13 +567,22 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
       }
 
       const nextStep = destinationStep ?? getNextStep(step);
-      await supabaseBrowser.from("registrations").update({
-        current_step: stepConfig[nextStep].number,
-        completed_steps: completedSteps,
-      }).eq("id", currentRegistration.id);
 
-      setAutosaveText("Draft saved and ready to continue.");
-      router.push(`/registration/${nextStep}`);
+await supabaseBrowser
+  .from("registrations")
+  .update({
+    current_step: shouldNavigate
+      ? stepConfig[nextStep].number
+      : stepConfig[step].number,
+    completed_steps: completedSteps,
+  })
+  .eq("id", currentRegistration.id);
+
+setAutosaveText("Draft saved.");
+
+if (shouldNavigate) {
+  router.push(`/registration/${nextStep}`);
+}
     } catch (err) {
       setError(err instanceof Error ? err.message : "We could not save this section right now.");
     } finally {
