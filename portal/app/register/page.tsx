@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
@@ -32,13 +31,11 @@ export default function RegisterPage() {
               title="Family Profile"
               text="Create one family account for every athlete."
             />
-
             <Feature
               icon={<ShieldCheck className="h-6 w-6" />}
               title="Secure"
               text="Protected by Supabase authentication."
             />
-
             <Feature
               icon={<CheckCircle2 className="h-6 w-6" />}
               title="Simple"
@@ -47,20 +44,21 @@ export default function RegisterPage() {
           </div>
 
           <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-            <Link
+            <a
               href="/register/start"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#123E74] px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#0E3260]"
+              style={{ color: "#ffffff" }}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#123E74] px-8 py-4 text-lg font-semibold shadow-lg transition hover:-translate-y-0.5 hover:bg-[#0E3260]"
             >
               Begin Registration
               <ArrowRight className="h-5 w-5" />
-            </Link>
+            </a>
 
-            <Link
+            <a
               href="/login"
-              className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 text-lg font-semibold text-slate-700 transition hover:bg-slate-50"
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 text-lg font-semibold text-slate-800 transition hover:bg-slate-50"
             >
               Returning Family
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -69,7 +67,6 @@ export default function RegisterPage() {
             <p className="mb-6 text-lg font-semibold text-slate-900">
               Registration includes
             </p>
-
             <TimelineItem text="Create your family account" />
             <TimelineItem text="Parent information" />
             <TimelineItem text="Player information" />
@@ -96,30 +93,17 @@ function Feature({
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
       <div className="mb-3 text-[#123E74]">{icon}</div>
-
-      <h3 className="font-semibold text-slate-900">
-        {title}
-      </h3>
-
-      <p className="mt-1 text-sm text-slate-600">
-        {text}
-      </p>
+      <h3 className="font-semibold text-slate-900">{title}</h3>
+      <p className="mt-1 text-sm text-slate-600">{text}</p>
     </div>
   );
 }
 
-function TimelineItem({
-  text,
-}: {
-  text: string;
-}) {
+function TimelineItem({ text }: { text: string }) {
   return (
     <div className="flex items-center gap-4 py-3">
       <div className="h-3 w-3 rounded-full bg-[#123E74]" />
-
-      <span className="text-slate-700">
-        {text}
-      </span>
+      <span className="text-slate-700">{text}</span>
     </div>
   );
 }
