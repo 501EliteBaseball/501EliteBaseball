@@ -1,82 +1,188 @@
+import Image from "next/image";
 import Link from "next/link";
+import SiteFooter from "@/components/site/SiteFooter";
+import SiteHeader from "@/components/site/SiteHeader";
+
+const pillars = [
+  {
+    number: "01",
+    title: "Purpose Driven",
+    text: "We build players who compete with heart and play with purpose.",
+  },
+  {
+    number: "02",
+    title: "Elite Development",
+    text: "High-level instruction, intentional training, and relentless improvement.",
+    shield: true,
+  },
+  {
+    number: "03",
+    title: "Character First",
+    text: "Building strong young people on and off the baseball field.",
+  },
+];
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#fde8ee_0%,#f3f7fc_42%,#e7eef8_100%)] px-5 py-10 sm:px-8">
-      <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-5xl items-center justify-center">
-        <section className="w-full max-w-xl rounded-[32px] border border-white/70 bg-white/90 p-7 shadow-[0_30px_80px_rgba(18,62,116,0.14)] backdrop-blur sm:p-10">
-          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#123E74] text-sm font-bold text-white">
-              501
+    <>
+      <SiteHeader />
+
+      <main>
+        <section className="public-hero">
+          <div className="public-hero__overlay" />
+
+          <div className="public-hero__content">
+            <p className="section-kicker">501 Elite Baseball</p>
+
+            <h1>
+              Own Your <span>Effort.</span>
+              <br />
+              Own Your <span>Attitude.</span>
+              <br />
+              Own Your <span>Future.</span>
+            </h1>
+
+            <p className="public-hero__copy">
+              Developing baseball players with purpose, character, and elite
+              instruction. Doing things the right way on the field, at home,
+              and in life.
+            </p>
+
+            <div className="hero-actions">
+              <Link href="/register" className="gem-cta gem-cta--ruby">
+                Join 501 Elite
+              </Link>
+
+              <Link href="/training" className="gem-cta gem-cta--sapphire">
+                The 501 Standard
+              </Link>
             </div>
-
-            <span className="font-semibold text-[#123E74]">
-              501 Elite OS
-            </span>
           </div>
 
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#D7193F]">
-            Family registration
-          </p>
+          <div className="pillar-grid">
+            {pillars.map((pillar) => (
+              <article key={pillar.title}>
+                {pillar.shield ? (
+                  <Image
+                    src="/site/shield-card.png"
+                    alt=""
+                    width={110}
+                    height={110}
+                  />
+                ) : (
+                  <b>{pillar.number}</b>
+                )}
 
-          <h1 className="text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl">
-            Welcome to 501 Elite Baseball
-          </h1>
-
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            Join the 501 Elite family through a simple, secure registration
-            experience. Your information is saved automatically, so you can
-            complete registration at your own pace.
-          </p>
-
-          <div className="mt-8 grid gap-3">
-            <FeatureItem icon="⏱️" text="About 10 minutes" />
-            <FeatureItem icon="💾" text="Save and continue anytime" />
-            <FeatureItem icon="🔒" text="Secure family portal" />
+                <h2>{pillar.title}</h2>
+                <p>{pillar.text}</p>
+              </article>
+            ))}
           </div>
-
-          <div className="mt-9 grid gap-3">
-            <Link
-              href="/register"
-              className="flex min-h-14 items-center justify-center rounded-2xl bg-[#D7193F] px-6 text-center text-lg font-bold text-white shadow-[0_14px_30px_rgba(215,25,63,0.26)] transition hover:-translate-y-0.5 hover:bg-[#bf1536] focus:outline-none focus:ring-4 focus:ring-red-200"
-            >
-              Join 501 Elite
-            </Link>
-
-            <Link
-              href="/login"
-              className="flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 text-center text-lg font-bold text-[#123E74] transition hover:border-[#123E74] hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100"
-            >
-              Sign In
-            </Link>
-          </div>
-
-          <p className="mt-7 text-center text-sm leading-6 text-slate-500">
-            Own Your Effort. Own Your Attitude. Own Your Future.
-          </p>
         </section>
-      </div>
-    </main>
-  );
-}
 
-function FeatureItem({
-  icon,
-  text,
-}: {
-  icon: string;
-  text: string;
-}) {
-  return (
-    <div className="flex min-h-14 items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-      <span
-        aria-hidden="true"
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-xl shadow-sm"
-      >
-        {icon}
-      </span>
+        <section className="standard-section">
+          <div className="standard-section__copy">
+            <p className="section-kicker section-kicker--dark">
+              The 501 Standard
+            </p>
 
-      <span className="font-semibold text-slate-700">{text}</span>
-    </div>
+            <h2>
+              Better Players.
+              <br />
+              <span>Better People.</span>
+            </h2>
+
+            <p>
+              At 501 Elite, the standard goes far beyond wins and losses. It is
+              how we train, compete, lead, respond, and grow together.
+            </p>
+
+            <Link href="/training" className="text-link">
+              Learn our standard <b aria-hidden="true">→</b>
+            </Link>
+          </div>
+
+          <div className="standard-metrics">
+            <article>
+              <strong>2026</strong>
+              <span>Founded</span>
+            </article>
+
+            <article>
+              <strong>13</strong>
+              <span>Players</span>
+            </article>
+
+            <article>
+              <strong>13+</strong>
+              <span>Families</span>
+            </article>
+
+            <article>
+              <strong>100+</strong>
+              <span>Practices Ahead</span>
+            </article>
+          </div>
+        </section>
+
+        <section className="launch-section">
+          <div>
+            <p className="section-kicker">Built for families</p>
+
+            <h2>Everything 501 Elite, in one place.</h2>
+
+            <p>
+              Registration, team information, publications, payments, and the
+              new 501 Elite OS are being brought together into one secure,
+              mobile-first experience.
+            </p>
+          </div>
+
+          <div className="launch-card-grid">
+            <Link href="/parents">
+              <span>01</span>
+              <strong>Parent Hub</strong>
+              <p>Season information, important links, schedules, and updates.</p>
+            </Link>
+
+            <Link href="/library">
+              <span>02</span>
+              <strong>Document Library</strong>
+              <p>Handbooks, season guides, training resources, and publications.</p>
+            </Link>
+
+            <Link href="/os">
+              <span>03</span>
+              <strong>501 Elite OS</strong>
+              <p>Secure registration and family account access.</p>
+            </Link>
+          </div>
+        </section>
+
+        <section className="home-cta">
+          <Image
+            src="/site/shield-primary.png"
+            alt="501 Elite Baseball shield"
+            width={190}
+            height={190}
+          />
+
+          <div>
+            <p className="section-kicker">Together. Compete. Impact.</p>
+            <h2>Represent the standard the right way.</h2>
+            <p>
+              A premium baseball program rooted in family, development, and
+              accountability.
+            </p>
+          </div>
+
+          <Link href="/contact" className="gem-cta gem-cta--sapphire">
+            Start a Conversation
+          </Link>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </>
   );
 }

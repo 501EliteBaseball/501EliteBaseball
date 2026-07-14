@@ -1,0 +1,45 @@
+import Image from "next/image";
+import Link from "next/link";
+import SiteFooter from "@/components/site/SiteFooter";
+import SiteHeader from "@/components/site/SiteHeader";
+
+export default function EliteOSPage() {
+  return (
+    <>
+      <SiteHeader />
+
+      <main className="os-page">
+        <section className="os-hero">
+          <Image
+            src="/brand/501-elite-wordmark.png"
+            alt="501 Elite Baseball"
+            width={260}
+            height={170}
+            priority
+          />
+
+          <p className="section-kicker">501 Elite OS</p>
+
+          <h1>Your family’s home base.</h1>
+
+          <p>
+            Register players, securely manage family information, and access
+            your 501 Elite experience.
+          </p>
+
+          <div className="hero-actions">
+            <Link href="/login" className="gem-cta gem-cta--sapphire">
+              Sign In
+            </Link>
+
+            <Link href="/register" className="gem-cta gem-cta--ruby">
+              Begin Registration
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </>
+  );
+}
