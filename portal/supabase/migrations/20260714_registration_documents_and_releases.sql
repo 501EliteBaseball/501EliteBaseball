@@ -21,6 +21,7 @@ create table if not exists public.registration_release_acceptances (
   agreement_version text not null,
   agreement_title text not null,
   agreement_snapshot text not null,
+  response text not null check (response in ('accepted', 'declined')),
   accepted boolean not null default false,
   signature_name text not null,
   signed_at timestamptz not null default now(),
