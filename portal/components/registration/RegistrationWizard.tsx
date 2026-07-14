@@ -1,5 +1,8 @@
 "use client";
 
+import RegistrationStatus from "@/components/registration/RegistrationStatus";
+import RegistrationShell from "@/components/registration/RegistrationShell";
+import RegistrationSidebar from "@/components/registration/RegistrationSidebar";
 import Image from "next/image";
 import Link from "next/link";
 import{ useEffect, useRef, useState } from "react";
@@ -7,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, ShieldCheck } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import BrandHeader from "@/components/registration/experience/BrandHeader";
+import RegistrationProgress from "@/components/registration/experience/RegistrationProgress";
 import {
   saveEmergencyContact,
   saveFamily,
@@ -67,6 +71,8 @@ const stepConfig = {
 } as const;
 
 const stepOrder: StepKey[] = ["parent", "family", "player", "emergency", "medical", "uniform", "review", "complete"];
+
+const totalRegistrationSteps = stepOrder.length - 1;
 
 const baseProfile = {
   first_name: "",
@@ -255,6 +261,18 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
       }
 
       setRegistration(draftRegistration as RegistrationRecord | null);
+
+      const draftStep = Number(draftRegistration?.current_step ?? 1);
+      const currentStep = stepConfig[step].number;
+
+      if (
+        draftRegistration &&
+        draftStep > currentStep &&
+        draftStep <= stepOrder.length
+      ) {
+        router.replace(stepConfig[stepOrder[draftStep - 1]].route);
+        return;
+      }
 
       if (draftRegistration?.player_id) {
         setPlayerId(draftRegistration.player_id);
@@ -695,6 +713,10 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
   shouldSubmit = false,
   shouldNavigate = true,
 ) {
+
+    if (saving) {
+      return;
+    }
 
     const errors = validateStep(step);
     if (Object.keys(errors).length > 0) {
@@ -1369,11 +1391,13 @@ if (shouldNavigate) {
               <BrandHeader />
             ) : null}
 
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#123E74]">Step {stepConfig[step].number}</p>
-                <h2 className="text-2xl font-semibold text-slate-950">{stepConfig[step].title}</h2>
-              </div>
+            <div className="flex items-start justify-between gap-3">
+              <RegistrationProgress
+               current={stepConfig[step].number}
+                total={totalRegistrationSteps}
+                title={stepConfig[step].title}
+                description={stepConfig[step].description}
+              />
               <div className="inline-flex max-w-[220px] items-center gap-2 rounded-full border border-emerald-200/70 bg-emerald-50/90 px-3.5 py-2 text-xs font-semibold text-emerald-800 shadow-sm sm:text-sm">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(34,197,94,0.12)]" />
                 <span className="truncate">{autosaveText}</span>

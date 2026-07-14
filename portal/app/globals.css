@@ -291,7 +291,7 @@ img {
   background:
     linear-gradient(180deg, transparent 42%, rgba(1, 8, 20, 0.94)),
     url("/site/digital-camo.jpg") center / cover;
-  opacity: 0.34;
+  opacity: 0.22;
 }
 
 .public-hero__content {
@@ -321,8 +321,9 @@ img {
   letter-spacing: 0.01em;
   text-transform: uppercase;
   text-shadow:
-    0 7px rgba(0, 0, 0, 0.32),
-    0 18px 36px rgba(0, 0, 0, 0.68);
+    0 4px 12px rgba(0,0,0,.28),
+    0 16px 36px rgba(0,0,0,.60),
+    0 0 60px rgba(0,0,0,.18);
 }
 
 .public-hero h1 span {
@@ -330,20 +331,20 @@ img {
 }
 
 .public-hero__copy {
-  max-width: 650px;
-  margin: 28px 0 0;
-  color: #edf3fb;
+  max-width: 670px;
+  margin: 30px 0 0;
+  color: rgba(255,255,255,.93);
   font-size: 19px;
   font-weight: 700;
-  line-height: 1.55;
-  text-shadow: 0 4px 14px #000;
+  line-height: 1.72;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
+  gap: 18px;
+  margin-top: 36px;
 }
 
 .gem-cta {
@@ -362,8 +363,9 @@ img {
   text-transform: uppercase;
   clip-path: polygon(11px 0, 100% 0, calc(100% - 11px) 100%, 0 100%);
   box-shadow:
-    0 15px 28px rgba(0, 0, 0, 0.32),
-    inset 0 1px rgba(255, 255, 255, 0.34);
+    0 18px 36px rgba(0,0,0,.30),
+    0 0 24px rgba(255,255,255,.05),
+    inset 0 1px rgba(255,255,255,.30);
 }
 
 .gem-cta--ruby {
@@ -392,11 +394,15 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: linear-gradient(
     180deg,
-    rgba(8, 34, 66, 0.86),
-    rgba(2, 10, 22, 0.94)
+    rgba(12,34,66,.72),
+    rgba(2,10,22,.82)
   );
+  backdrop-filter: blur(16px);
   text-align: center;
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.34);
+  border-top: 3px solid rgba(215,25,63,.55);
+  box-shadow:
+    0 22px 50px rgba(0,0,0,.34),
+    inset 0 1px rgba(255,255,255,.08);
 }
 
 .pillar-grid article > b {
@@ -412,17 +418,19 @@ img {
 }
 
 .pillar-grid h2 {
-  margin: 16px 0 10px;
+  margin: 18px 0 12px;
   font-family: Graduate, serif;
-  font-size: 18px;
+  font-size: 20px;
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
 
 .pillar-grid p {
   margin: 0;
-  color: #dce5f1;
-  font-weight: 700;
-  line-height: 1.5;
+  color: rgba(236,243,252,.92);
+  font-size: .98rem;
+  font-weight: 600;
+  line-height: 1.7;
 }
 
 /* Sections */
@@ -956,10 +964,11 @@ img {
 }
 
 .pillar-grid article:hover{
-  transform:translateY(-8px);
-  border-color:rgba(215,25,63,.45);
+  transform:translateY(-10px) scale(1.02);
+  border-color:rgba(215,25,63,.60);
   box-shadow:
-    0 20px 50px rgba(0,0,0,.32);
+    0 28px 60px rgba(0,0,0,.38),
+    0 0 24px rgba(215,25,63,.12);
 }
 
 .section-kicker{

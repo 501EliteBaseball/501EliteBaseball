@@ -1,99 +1,125 @@
-"use client";
-
-import { useState } from "react";
-import { ArrowRight, Lock, Mail, Sparkles } from "lucide-react";
-import { supabaseBrowser } from "@/lib/supabase-browser";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  Sparkles,
+  Users,
+} from "lucide-react";
 
 export default function RegisterPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus("");
-    setLoading(true);
-
-    const { error } = await supabaseBrowser.auth.signUp({
-      email,
-      password,
-    });
-
-    setLoading(false);
-
-    if (error) {
-      setStatus(error.message);
-      return;
-    }
-
-    setStatus("Check your inbox for a confirmation email before signing in.");
-  }
-
   return (
-    <main className="min-h-screen bg-slate-100 px-6 py-8 text-slate-950 sm:px-8">
-      <div className="mx-auto flex max-w-xl flex-col gap-8 rounded-[32px] bg-white p-8 shadow-[0_32px_100px_rgba(18,62,116,0.12)]">
-        <section className="space-y-3 text-center">
-          <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#D7193F]/10 text-[#D7193F] shadow-sm shadow-[#D7193F]/10">
-            <Sparkles className="h-8 w-8" />
-          </div>
-          <p className="text-sm uppercase tracking-[0.35em] text-[#123E74]">501 Elite OS</p>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Create your parent account</h1>
-          <p className="text-sm leading-6 text-slate-600">Register to manage family access, review schedules, and stay connected to your parent dashboard.</p>
-        </section>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700">Email</label>
-            <div className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-[#123E74] focus-within:ring-2 focus-within:ring-[#123E74]/20">
-              <Mail className="h-5 w-5 text-slate-400" />
-              <input
-                id="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="w-full border-0 bg-transparent p-0 text-base text-slate-950 outline-none"
-                placeholder="you@example.com"
-              />
-            </div>
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100">
+      <section className="mx-auto flex max-w-6xl flex-col px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:py-24">
+        <div className="max-w-2xl">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-[#123E74]">
+            <Sparkles className="h-4 w-4" />
+            Welcome to 501 Elite OS
           </div>
 
-          <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium text-slate-700">Password</label>
-            <div className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-[#123E74] focus-within:ring-2 focus-within:ring-[#123E74]/20">
-              <Lock className="h-5 w-5 text-slate-400" />
-              <input
-                id="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                minLength={8}
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                className="w-full border-0 bg-transparent p-0 text-base text-slate-950 outline-none"
-                placeholder="Create a secure password"
-              />
-            </div>
+          <h1 className="text-5xl font-black tracking-tight text-slate-900">
+            Register your family in minutes.
+          </h1>
+
+          <p className="mt-6 text-lg leading-8 text-slate-600">
+            One secure account gives you access to player registration,
+            documents, schedules, messaging, payments, and your family dashboard.
+          </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            <Feature
+              icon={<Users className="h-6 w-6" />}
+              title="Family Profile"
+              text="Create one family account for every athlete."
+            />
+
+            <Feature
+              icon={<ShieldCheck className="h-6 w-6" />}
+              title="Secure"
+              text="Protected by Supabase authentication."
+            />
+
+            <Feature
+              icon={<CheckCircle2 className="h-6 w-6" />}
+              title="Simple"
+              text="One guided experience from start to finish."
+            />
           </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0f335f] disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {loading ? "Creating account…" : "Register"}
-            <ArrowRight className="h-4 w-4" />
-          </button>
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/register/start"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#123E74] px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#0E3260]"
+            >
+              Begin Registration
+              <ArrowRight className="h-5 w-5" />
+            </Link>
 
-          {status ? <div className="rounded-3xl bg-slate-50 px-4 py-3 text-sm text-slate-700">{status}</div> : null}
-        </form>
-
-        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-          Already have an account? <a href="/login" className="font-semibold text-[#D7193F] hover:underline">Sign in instead</a>.
+            <Link
+              href="/login"
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 text-lg font-semibold text-slate-700 transition hover:bg-slate-50"
+            >
+              Returning Family
+            </Link>
+          </div>
         </div>
-      </div>
+
+        <div className="mt-16 w-full max-w-md lg:mt-0">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl">
+            <p className="mb-6 text-lg font-semibold text-slate-900">
+              Registration includes
+            </p>
+
+            <TimelineItem text="Create your family account" />
+            <TimelineItem text="Parent information" />
+            <TimelineItem text="Player information" />
+            <TimelineItem text="Medical & emergency contacts" />
+            <TimelineItem text="Uniform sizing" />
+            <TimelineItem text="League agreements" />
+            <TimelineItem text="Payment setup" />
+          </div>
+        </div>
+      </section>
     </main>
+  );
+}
+
+function Feature({
+  icon,
+  title,
+  text,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="mb-3 text-[#123E74]">{icon}</div>
+
+      <h3 className="font-semibold text-slate-900">
+        {title}
+      </h3>
+
+      <p className="mt-1 text-sm text-slate-600">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+function TimelineItem({
+  text,
+}: {
+  text: string;
+}) {
+  return (
+    <div className="flex items-center gap-4 py-3">
+      <div className="h-3 w-3 rounded-full bg-[#123E74]" />
+
+      <span className="text-slate-700">
+        {text}
+      </span>
+    </div>
   );
 }
