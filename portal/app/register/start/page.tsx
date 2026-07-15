@@ -1,13 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Lock, Mail } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Lock,
+  Mail,
+  MailCheck,
+} from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 
 export default function RegisterStartPage() {
   const [mode, setMode] = useState<"signup" | "signin">("signup");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmationEmail, setConfirmationEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
@@ -31,7 +39,7 @@ export default function RegisterStartPage() {
         return;
       }
 
-      setStatus("Check your email to verify your account, then sign in to begin registration.");
+      setConfirmationEmail(email);
       return;
     }
 
@@ -53,6 +61,67 @@ export default function RegisterStartPage() {
     }
 
     window.location.assign("/registration/parent");
+  }
+
+  if (confirmationEmail) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-slate-100 px-6 py-10 text-slate-950">
+        <section className="w-full max-w-xl rounded-[32px] bg-white p-8 text-center shadow-[0_32px_100px_rgba(18,62,116,0.14)] sm:p-12">
+          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+            <MailCheck className="h-10 w-10" aria-hidden="true" />
+          </div>
+
+          <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
+            <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+            Account created successfully
+          </div>
+
+          <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-950">
+            Check your email
+          </h1>
+
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            We sent a verification link to
+          </p>
+          <p className="mt-1 break-all text-lg font-bold text-[#123E74]">
+            {confirmationEmail}
+          </p>
+
+          <div className="mt-8 rounded-3xl border border-blue-100 bg-blue-50 p-6 text-left">
+            <p className="font-semibold text-slate-900">Your next step</p>
+            <p className="mt-2 leading-7 text-slate-600">
+              Open the email from 501 Elite, select the verification link, and
+              then sign in to continue your family registration.
+            </p>
+          </div>
+
+          <p className="mt-6 text-sm leading-6 text-slate-500">
+            The message may take a minute to arrive. Check your spam or junk
+            folder if you do not see it.
+          </p>
+
+          <a
+            href="/login"
+            className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 font-semibold shadow-lg transition hover:bg-[#0E3260]"
+            style={{ color: "#ffffff" }}
+          >
+            I verified my email — sign in
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+
+          <button
+            type="button"
+            onClick={() => {
+              setConfirmationEmail("");
+              setPassword("");
+            }}
+            className="mt-5 text-sm font-semibold text-[#123E74] hover:underline"
+          >
+            Use a different email address
+          </button>
+        </section>
+      </main>
+    );
   }
 
   return (
@@ -113,7 +182,8 @@ export default function RegisterStartPage() {
           <button
             type="submit"
             disabled={loading}
-            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 font-semibold text-white transition hover:bg-[#0E3260] disabled:opacity-50"
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 font-semibold transition hover:bg-[#0E3260] disabled:opacity-50"
+            style={{ color: "#ffffff" }}
           >
             {loading ? "Please wait…" : mode === "signup" ? "Create Family Account" : "Parent Sign In"}
             <ArrowRight className="h-4 w-4" />
@@ -121,7 +191,7 @@ export default function RegisterStartPage() {
         </form>
 
         {status ? (
-          <p className="mt-5 rounded-2xl bg-slate-50 p-4 text-center text-sm text-slate-700">{status}</p>
+          <p className="mt-5 rounded-2xl bg-red-50 p-4 text-center text-sm font-medium text-red-700">{status}</p>
         ) : null}
 
         <button
