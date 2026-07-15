@@ -32,19 +32,7 @@ export default function LoginPage() {
       return;
     }
 
-    const { data: membership } = await supabaseBrowser
-      .from("organization_members")
-      .select("role, active")
-      .eq("user_id", data.user.id)
-      .maybeSingle();
-
-    const hasExecutiveAccess =
-      membership?.active &&
-      (membership.role === "admin" || membership.role === "executive");
-
-    window.location.assign(
-      hasExecutiveAccess ? "/executive" : "/registration/parent",
-    );
+    window.location.assign("/registration/parent");
   }
 
   return (
@@ -55,8 +43,8 @@ export default function LoginPage() {
             <Sparkles className="h-8 w-8" />
           </div>
           <p className="text-sm uppercase tracking-[0.35em] text-[#123E74]">501 Elite OS</p>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Sign in to your account</h1>
-          <p className="text-sm leading-6 text-slate-600">Parents sign in here to manage family access and keep baseball schedules on track.</p>
+          <h1 className="text-3xl font-semibold sm:text-4xl">Parent sign in</h1>
+          <p className="text-sm leading-6 text-slate-600">Access player registration, family information, releases, and required documents.</p>
         </section>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -95,13 +83,13 @@ export default function LoginPage() {
           </div>
 
           <div className="flex items-center justify-between gap-3 text-sm sm:text-base">
-            <a href="/forgot-password" className="text-[#123E74] font-medium hover:underline">Forgot password?</a>
+            <a href="/forgot-password" className="font-medium text-[#123E74] hover:underline">Forgot password?</a>
             <button
               type="submit"
               disabled={loading}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0f335f] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Sign in
+              {loading ? "Signing in…" : "Parent sign in"}
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>
@@ -109,8 +97,13 @@ export default function LoginPage() {
           {status ? <div className="rounded-3xl bg-red-50 px-4 py-3 text-sm text-red-700">{status}</div> : null}
         </form>
 
-        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-          New to 501 Elite OS? <a href="/register" className="font-semibold text-[#D7193F] hover:underline">Register as a parent</a>.
+        <div className="space-y-3 rounded-3xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+          <p>
+            New to 501 Elite OS? <a href="/register" className="font-semibold text-[#D7193F] hover:underline">Create a family account</a>.
+          </p>
+          <p>
+            Team staff? <a href="/staff/login" className="font-semibold text-[#123E74] hover:underline">Coaches &amp; executives sign in here</a>.
+          </p>
         </div>
       </div>
     </main>
