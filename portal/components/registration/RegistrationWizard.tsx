@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, ShieldCheck } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import BrandHeader from "@/components/registration/experience/BrandHeader";
+import SectionCompletePrompt from "@/components/registration/requirements/SectionCompletePrompt";
 import RegistrationProgress from "@/components/registration/experience/RegistrationProgress";
 import {
   saveEmergencyContact,
@@ -1301,40 +1302,13 @@ if (shouldNavigate) {
 
     if (step === "complete") {
       return (
-        <div className="mx-auto max-w-3xl rounded-[32px] border border-emerald-200 bg-white p-7 text-center shadow-xl sm:p-12">
-          <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-600" />
-
-          <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-emerald-700">
-            Player information submitted
-          </p>
-
-          <h1 className="mt-3 text-4xl font-bold text-[#123E74] sm:text-5xl">
-            Finish two required items.
-          </h1>
-
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-slate-600">
-            Complete the release forms and upload the player’s birth certificate.
-            Each task saves separately.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <a
-              href="/registration/releases"
-              className="flex min-h-28 flex-col items-center justify-center rounded-[24px] bg-[#D7193F] px-5 text-white shadow-lg"
-            >
-              <span className="text-lg font-bold">Sign release forms</span>
-              <span className="mt-1 text-sm text-white/80">6 short acknowledgements</span>
-            </a>
-
-            <a
-              href="/registration/documents"
-              className="flex min-h-28 flex-col items-center justify-center rounded-[24px] bg-[#123E74] px-5 text-white shadow-lg"
-            >
-              <span className="text-lg font-bold">Upload birth certificate</span>
-              <span className="mt-1 text-sm text-white/80">Private and secure</span>
-            </a>
-          </div>
-        </div>
+        <SectionCompletePrompt
+          eyebrow="Player information complete"
+          title="The registration form is saved."
+          description="Next, complete six short release forms. You can continue now or safely return with this account later."
+          continueHref="/registration/releases"
+          continueLabel="Continue to release forms"
+        />
       );
     }
 
