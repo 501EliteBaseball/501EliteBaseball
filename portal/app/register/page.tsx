@@ -65,14 +65,15 @@ export default function RegisterPage() {
 
               <a
                 href="/login"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-lg font-semibold text-slate-800 transition hover:bg-slate-50"
+                className="inline-flex items-center justify-center rounded-full border border-[#D7193F] bg-[#D7193F] px-8 py-4 text-lg font-semibold transition hover:bg-[#B61435]"
+                style={{ color: "#ffffff" }}
               >
                 Parent Sign In
               </a>
 
               <a
                 href="/staff/login"
-                className="inline-flex items-center justify-center rounded-full border border-[#123E74] bg-white px-8 py-4 text-lg font-semibold text-[#123E74] transition hover:bg-blue-50"
+                className="inline-flex items-center justify-center rounded-full border border-[#D7193F] bg-white px-8 py-4 text-lg font-semibold text-[#D7193F] transition hover:bg-red-50"
               >
                 Staff Sign In
               </a>
