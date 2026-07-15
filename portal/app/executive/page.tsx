@@ -7,6 +7,7 @@ export default function ExecutivePage() {
       <div className="mx-auto mb-5 flex max-w-6xl justify-end">
         <a
           href="/executive/records"
+          style={{ color: "#ffffff" }}
           className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#123E74] px-5 text-sm font-bold text-white shadow-md"
         >
           <Database className="h-4 w-4" />
