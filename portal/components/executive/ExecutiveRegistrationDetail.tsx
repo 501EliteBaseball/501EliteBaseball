@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Trash2 } from "lucide-react";
+import { Download } from "lucide-react";
 import {
   openRegistrationDocument,
   type ExecutiveRegistration,
@@ -10,15 +10,11 @@ import {
 type ExecutiveRegistrationDetailProps = {
   registration: ExecutiveRegistration;
   membership: OrganizationMember;
-  deleting: boolean;
-  onDelete: () => Promise<void>;
 };
 
 export default function ExecutiveRegistrationDetail({
   registration,
   membership,
-  deleting,
-  onDelete,
 }: ExecutiveRegistrationDetailProps) {
   const address = [
     registration.family.address_line_1,
@@ -175,25 +171,6 @@ export default function ExecutiveRegistrationDetail({
         </div>
       </section>
 
-      {membership.role === "admin" ? (
-        <section className="rounded-3xl border border-red-200 bg-red-50 p-5">
-          <h3 className="font-semibold text-red-900">Administrator action</h3>
-          <p className="mt-2 text-sm leading-6 text-red-700">
-            Deleting this registration permanently removes its releases,
-            registration-specific uniform record, document metadata, and stored
-            private files. The family and player profiles remain available.
-          </p>
-          <button
-            type="button"
-            disabled={deleting}
-            onClick={() => void onDelete()}
-            className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-red-700 px-5 text-sm font-bold text-white disabled:opacity-50"
-          >
-            <Trash2 className="h-4 w-4" />
-            {deleting ? "Deleting…" : "Delete registration"}
-          </button>
-        </section>
-      ) : null}
     </div>
   );
 }
