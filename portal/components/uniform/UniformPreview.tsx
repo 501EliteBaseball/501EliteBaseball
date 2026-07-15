@@ -121,7 +121,7 @@ export default function UniformPreview({
             >
               <div className="absolute inset-0 [backface-visibility:hidden]">
                 <Image
-                  src="/uniforms/501-elite-jersey-front.png"
+                  src="/uniforms/OWN THE STANDARD-2.png"
                   alt="Front of the 501 Elite jersey"
                   fill
                   priority
@@ -132,7 +132,7 @@ export default function UniformPreview({
 
               <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
                 <Image
-                  src="/uniforms/501-elite-jersey-back.png"
+                  src="/uniforms/OWN THE STANDARD-3.png"
                   alt={`Back of ${displayName}'s 501 Elite jersey`}
                   fill
                   priority
