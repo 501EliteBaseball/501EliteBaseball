@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CheckCircle2, FileUp, LockKeyhole, Upload } from "lucide-react";
+import SectionCompletePrompt from "@/components/registration/requirements/SectionCompletePrompt";
 import {
   loadBirthCertificate,
   loadRegistrationContext,
@@ -76,6 +77,18 @@ export default function BirthCertificateUpload() {
 
   if (error && !context) {
     return <StatusCard text={error} error />;
+  }
+
+  if (document) {
+    return (
+      <SectionCompletePrompt
+        eyebrow="Required document complete"
+        title="Birth certificate uploaded."
+        description="The private document is securely stored and available only to your family and specifically authorized administrators."
+        continueHref="/registration/success"
+        continueLabel="Finish registration"
+      />
+    );
   }
 
   return (
