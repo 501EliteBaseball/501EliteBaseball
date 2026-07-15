@@ -28,12 +28,20 @@ export default function EliteOSPage() {
           </p>
 
           <div className="hero-actions">
-            <Link href="/login" className="gem-cta gem-cta--sapphire">
-              Sign In
+            <Link href="/register" className="gem-cta gem-cta--ruby">
+              Create Family Account
             </Link>
 
-            <Link href="/register" className="gem-cta gem-cta--ruby">
-              Begin Registration
+            <Link href="/login" className="gem-cta gem-cta--sapphire">
+              Parent Sign In
+            </Link>
+
+            <Link
+              href="/staff/login"
+              className="gem-cta"
+              style={{ background: "#ffffff", borderColor: "#ffffff", color: "#123E74" }}
+            >
+              Staff Sign In
             </Link>
           </div>
         </section>
