@@ -7387,3 +7387,548 @@ main{background:var(--portal-bg)}
   .about-hero-v11b,.team-hero,.gallery-hero,.library-hero,.doc-hero,.training-hero,
   .sponsor-hero,.payments-hero,.hub-hero,.contact-hero{padding-top:44px!important;padding-bottom:38px!important}
 }
+
+/* v2.5 — Homepage feature and player-card rebuild
+   Compact pill actions, photo-led roster cards, and a number-free 501 Standard. */
+
+/* True oval actions throughout the public site. */
+.brand-btn,
+.contact-method-card a,
+.doc-actions a,
+.doc-actions span,
+.doc-card-link,
+.library-feature-actions a,
+.donate-paypal-button,
+.payment-button--venmo,
+.payment-button--cashapp{
+  display:inline-flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:48px!important;
+  height:auto!important;
+  padding:12px 24px!important;
+  border-radius:9999px!important;
+  clip-path:none!important;
+  line-height:1.15!important;
+  white-space:normal!important;
+}
+.actions{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:12px!important;
+  width:auto!important;
+}
+.actions .brand-btn{width:max-content!important}
+
+/* Consistent program-value symbols. */
+.value-row .value-icon{
+  display:grid!important;
+  place-items:center!important;
+  width:58px!important;
+  height:58px!important;
+  margin:0 auto 16px!important;
+  border:1px solid #c9d9ea!important;
+  border-radius:18px!important;
+  background:#eef5fc!important;
+  color:#123e74!important;
+}
+.value-row .value-icon svg{
+  display:block!important;
+  width:34px!important;
+  height:34px!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:2.25!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.value-row article:nth-child(2) .value-icon{
+  background:#fff0f3!important;
+  border-color:#f0c4cd!important;
+  color:#c8102e!important;
+}
+.value-row article:nth-child(3) .value-icon{
+  background:#edf7f4!important;
+  border-color:#c8e1da!important;
+  color:#176b57!important;
+}
+
+/* Homepage 501 Standard: editorial feature, not a statistics table. */
+.home-standard{
+  padding:92px 24px!important;
+  background:
+    radial-gradient(circle at 88% 16%,rgba(215,25,63,.10),transparent 24%),
+    linear-gradient(135deg,#edf5fd 0%,#f8fbff 54%,#fff 100%)!important;
+  border-top:1px solid #cfdeed!important;
+  border-bottom:1px solid #cfdeed!important;
+  color:#102844!important;
+}
+.home-standard-shell{
+  width:min(1220px,100%)!important;
+  margin:0 auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,.78fr) minmax(540px,1.22fr)!important;
+  align-items:center!important;
+  gap:72px!important;
+}
+.home-standard-copy{max-width:470px!important}
+.home-standard-copy .eyebrow{
+  margin:0 0 16px!important;
+  color:#c8102e!important;
+}
+.home-standard-copy h2{
+  margin:0 0 20px!important;
+  color:#102844!important;
+  font-family:Graduate,serif!important;
+  font-size:clamp(43px,5vw,68px)!important;
+  line-height:.98!important;
+  letter-spacing:-.04em!important;
+  text-shadow:none!important;
+}
+.home-standard-copy > p:not(.eyebrow){
+  margin:0 0 28px!important;
+  color:#486078!important;
+  font-size:17px!important;
+  line-height:1.65!important;
+}
+.standard-principles{
+  display:grid!important;
+  gap:14px!important;
+}
+.standard-principles article{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:104px minmax(170px,.82fr) minmax(220px,1.18fr)!important;
+  align-items:center!important;
+  gap:24px!important;
+  min-height:132px!important;
+  padding:24px 28px 24px 32px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  border:1px solid #cfdeed!important;
+  border-radius:24px!important;
+  box-shadow:0 18px 42px rgba(18,62,116,.11)!important;
+}
+.standard-principles article:before{
+  content:""!important;
+  position:absolute!important;
+  inset:0 auto 0 0!important;
+  width:7px!important;
+  background:#d7193f!important;
+}
+.standard-principles article.attitude{transform:translateX(24px)!important}
+.standard-principles article.attitude:before{background:#123e74!important}
+.standard-principles article.future:before{background:#2b7a67!important}
+.standard-principles article > span{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  min-height:40px!important;
+  padding:8px 12px!important;
+  border-radius:999px!important;
+  background:#fff0f3!important;
+  color:#b90f2b!important;
+  font-family:Graduate,serif!important;
+  font-size:12px!important;
+  letter-spacing:.11em!important;
+  text-transform:uppercase!important;
+}
+.standard-principles article.attitude > span{
+  background:#edf4fb!important;
+  color:#123e74!important;
+}
+.standard-principles article.future > span{
+  background:#edf7f4!important;
+  color:#176b57!important;
+}
+.standard-principles h3{
+  margin:0!important;
+  color:#102844!important;
+  font-family:Graduate,serif!important;
+  font-size:23px!important;
+  line-height:1.12!important;
+  text-shadow:none!important;
+}
+.standard-principles p{
+  margin:0!important;
+  color:#486078!important;
+  font-size:14px!important;
+  line-height:1.55!important;
+}
+
+/* Homepage roster preview: the player cards are the feature. */
+.home-players{
+  padding:90px 24px 96px!important;
+  background:#fff!important;
+  color:#102844!important;
+}
+.home-players-heading{
+  width:min(1220px,100%)!important;
+  margin:0 auto 34px!important;
+  display:flex!important;
+  align-items:end!important;
+  justify-content:space-between!important;
+  gap:32px!important;
+}
+.home-players-heading > div{max-width:720px!important}
+.home-players-heading .eyebrow{
+  margin:0 0 10px!important;
+  color:#c8102e!important;
+}
+.home-players-heading h2{
+  margin:0 0 12px!important;
+  color:#102844!important;
+  font-family:Graduate,serif!important;
+  font-size:clamp(42px,5vw,64px)!important;
+  line-height:1!important;
+  letter-spacing:-.035em!important;
+  text-shadow:none!important;
+}
+.home-players-heading p:not(.eyebrow){
+  margin:0!important;
+  color:#486078!important;
+  font-size:17px!important;
+  line-height:1.6!important;
+}
+.home-player-grid{
+  width:min(1220px,100%)!important;
+  margin:0 auto!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:20px!important;
+}
+.home-player-card{
+  display:block!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  color:#102844!important;
+  text-decoration:none!important;
+  border:1px solid #cfdeed!important;
+  border-radius:24px!important;
+  box-shadow:0 16px 38px rgba(18,62,116,.10)!important;
+  transition:transform .2s ease,box-shadow .2s ease!important;
+}
+.home-player-card:hover{
+  transform:translateY(-5px)!important;
+  box-shadow:0 22px 48px rgba(18,62,116,.16)!important;
+}
+.home-player-card figure{
+  position:relative!important;
+  width:100%!important;
+  aspect-ratio:4/3!important;
+  margin:0!important;
+  overflow:hidden!important;
+  background:#dce8f4!important;
+}
+.home-player-card img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  object-fit:cover!important;
+  object-position:center 45%!important;
+  transform:none!important;
+  filter:none!important;
+}
+.home-player-card:nth-child(2) img{object-position:center 48%!important}
+.home-player-card:nth-child(3) img{object-position:center 43%!important}
+.home-player-card:nth-child(4) img{object-position:center 50%!important}
+.home-player-card figure span{
+  position:absolute!important;
+  top:14px!important;
+  left:14px!important;
+  z-index:2!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:54px!important;
+  height:38px!important;
+  padding:0 14px!important;
+  border-radius:999px!important;
+  background:#d7193f!important;
+  color:#fff!important;
+  font-family:Graduate,serif!important;
+  font-size:14px!important;
+  line-height:1!important;
+  box-shadow:0 8px 20px rgba(7,26,52,.22)!important;
+}
+.home-player-card > div{padding:20px 20px 22px!important}
+.home-player-card h3{
+  margin:0 0 9px!important;
+  color:#102844!important;
+  font-family:Graduate,serif!important;
+  font-size:21px!important;
+  line-height:1.15!important;
+  text-shadow:none!important;
+}
+.home-player-card p{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  margin:0!important;
+  color:#60768c!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+}
+.home-player-card p b{
+  color:#c8102e!important;
+  font-size:12px!important;
+}
+
+/* Team roster cards: dedicated image frame with all content below it. */
+.player-profile-section{padding:86px 24px 96px!important}
+.profile-headline{
+  max-width:760px!important;
+  margin:0 auto 34px!important;
+  text-align:center!important;
+}
+.profile-headline h2{
+  margin-bottom:14px!important;
+  color:#102844!important;
+  font-size:clamp(42px,5vw,62px)!important;
+  text-shadow:none!important;
+}
+.profile-headline > p:not(.kicker){
+  color:#486078!important;
+  font-size:17px!important;
+  line-height:1.6!important;
+}
+.roster-key{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:center!important;
+  gap:9px!important;
+  margin-top:22px!important;
+}
+.roster-key span{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:36px!important;
+  padding:8px 14px!important;
+  border:1px solid #cfdeed!important;
+  border-radius:999px!important;
+  background:#f4f8fd!important;
+  color:#486078!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+}
+.profile-info-strip{display:none!important}
+.player-card-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:start!important;
+  gap:24px!important;
+  width:100%!important;
+  margin:0!important;
+}
+.player-card-grid > .player-card{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:0 0 22px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  border:1px solid #cfdeed!important;
+  border-radius:24px!important;
+  box-shadow:0 16px 38px rgba(18,62,116,.10)!important;
+  color:#102844!important;
+}
+.player-card-grid .player-card-top{
+  position:absolute!important;
+  z-index:3!important;
+  top:14px!important;
+  left:14px!important;
+  right:14px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  width:auto!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+.player-card-grid .player-number,
+.player-card-grid .player-status{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:auto!important;
+  min-width:0!important;
+  height:38px!important;
+  margin:0!important;
+  padding:0 14px!important;
+  border:0!important;
+  border-radius:999px!important;
+  line-height:1!important;
+  box-shadow:0 8px 20px rgba(7,26,52,.20)!important;
+}
+.player-card-grid .player-number{
+  min-width:54px!important;
+  background:#d7193f!important;
+  color:#fff!important;
+  font-family:Graduate,serif!important;
+  font-size:14px!important;
+}
+.player-card-grid .player-status{
+  background:rgba(255,255,255,.94)!important;
+  color:#123e74!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  backdrop-filter:blur(8px)!important;
+}
+.player-card-grid .player-photo-slot{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:4/3!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#dce8f4!important;
+  border:0!important;
+  border-bottom:1px solid #cfdeed!important;
+  border-radius:0!important;
+}
+.player-card-grid .player-photo-slot img{
+  position:static!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center 46%!important;
+  transform:none!important;
+  filter:none!important;
+  opacity:1!important;
+}
+.player-card-grid .player-card:nth-child(2) .player-photo-slot img{object-position:center 49%!important}
+.player-card-grid .player-card:nth-child(3) .player-photo-slot img{object-position:center 43%!important}
+.player-card-grid .player-card:nth-child(4) .player-photo-slot img{object-position:center 50%!important}
+.player-card-grid .player-card:nth-child(5) .player-photo-slot img{object-position:center 46%!important}
+.player-card-grid .player-card:nth-child(6) .player-photo-slot img{object-position:center 39%!important}
+.player-card-grid .player-card:nth-child(7) .player-photo-slot img{object-position:center 48%!important}
+.player-card-grid > .player-card h3{
+  margin:0!important;
+  padding:21px 22px 14px!important;
+  color:#102844!important;
+  font-family:Graduate,serif!important;
+  font-size:24px!important;
+  line-height:1.12!important;
+  text-align:left!important;
+  text-shadow:none!important;
+}
+.player-card-grid .player-details{
+  display:grid!important;
+  gap:0!important;
+  margin:0 22px!important;
+  padding:0!important;
+  border-top:1px solid #d8e4ef!important;
+}
+.player-card-grid .player-details p{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  margin:0!important;
+  padding:10px 0!important;
+  border-bottom:1px solid #e6eef6!important;
+  color:#486078!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.player-card-grid .player-details p:last-child{border-bottom:0!important}
+.player-card-grid .player-details b{
+  color:#60768c!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+}
+.player-card-grid .player-details span{
+  color:#102844!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  text-align:right!important;
+}
+
+@media (max-width:1050px){
+  .home-standard-shell{
+    grid-template-columns:1fr!important;
+    gap:42px!important;
+  }
+  .home-standard-copy{max-width:720px!important}
+  .standard-principles article.attitude{transform:none!important}
+  .home-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .player-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+@media (max-width:760px){
+  .actions,
+  .hero-stage .actions{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    width:100%!important;
+    gap:10px!important;
+  }
+  .actions .brand-btn,
+  .hero-stage .brand-btn{
+    width:max-content!important;
+    min-width:0!important;
+    max-width:100%!important;
+    padding:12px 21px!important;
+  }
+  .home-standard{padding:64px 18px!important}
+  .home-standard-copy h2{font-size:43px!important}
+  .standard-principles article{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    min-height:0!important;
+    padding:24px!important;
+  }
+  .standard-principles article > span{width:max-content!important;min-width:96px!important}
+  .standard-principles h3{font-size:22px!important}
+  .home-players{padding:64px 18px 70px!important}
+  .home-players-heading{
+    display:grid!important;
+    align-items:start!important;
+    gap:22px!important;
+    margin-bottom:26px!important;
+  }
+  .home-players-heading h2{font-size:43px!important}
+  .home-player-grid,
+  .player-card-grid{grid-template-columns:1fr!important}
+  .home-player-card figure,
+  .player-card-grid .player-photo-slot{aspect-ratio:16/11!important}
+  .player-profile-section{padding:64px 18px 72px!important}
+  .roster-key{justify-content:flex-start!important}
+  .profile-headline{text-align:left!important}
+  .profile-headline .kicker{justify-content:flex-start!important}
+}
+
