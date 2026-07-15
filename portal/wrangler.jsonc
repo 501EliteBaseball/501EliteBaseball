@@ -10,6 +10,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "routes": [
+    {
+      "pattern": "os.501elitebaseball.com",
+      "custom_domain": true
+    }
+  ],
   "observability": {
     "enabled": true
   }
