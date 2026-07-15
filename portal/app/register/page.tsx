@@ -69,6 +69,13 @@ export default function RegisterPage() {
               >
                 Parent Sign In
               </a>
+
+              <a
+                href="/staff/login"
+                className="inline-flex items-center justify-center rounded-full border border-[#123E74] bg-white px-8 py-4 text-lg font-semibold text-[#123E74] transition hover:bg-blue-50"
+              >
+                Staff Sign In
+              </a>
             </div>
           </div>
 
