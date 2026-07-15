@@ -7932,3 +7932,405 @@ main{background:var(--portal-bg)}
   .profile-headline .kicker{justify-content:flex-start!important}
 }
 
+/* v2.6 — Authoritative desktop alignment and control reset
+   Desktop only. Mobile and tablet remain unchanged for their separate review. */
+@media (min-width:1051px){
+
+  /* A compact, centered desktop header with a visible home identity. */
+  html body .site-header{
+    --header-h:84px !important;
+    min-height:84px !important;
+    height:auto !important;
+    overflow:hidden !important;
+    background:#071a34 !important;
+    border-bottom:1px solid rgba(255,255,255,.14) !important;
+    box-shadow:0 8px 26px rgba(7,26,52,.16) !important;
+  }
+  html body .site-header:before,
+  html body .site-header:after{
+    display:none !important;
+    content:none !important;
+  }
+  html body .site-header .header-shell{
+    position:relative !important;
+    width:min(1600px,calc(100% - 56px)) !important;
+    max-width:1600px !important;
+    min-height:84px !important;
+    margin:0 auto !important;
+    padding:10px 0 !important;
+    display:grid !important;
+    grid-template-columns:205px minmax(0,1fr) !important;
+    align-items:center !important;
+    gap:28px !important;
+  }
+  html body .site-header .brand{
+    position:relative !important;
+    inset:auto !important;
+    display:flex !important;
+    align-items:center !important;
+    width:205px !important;
+    height:60px !important;
+    padding:0 0 0 68px !important;
+    background:none !important;
+    z-index:2 !important;
+  }
+  html body .site-header .brand:before{
+    content:"" !important;
+    display:block !important;
+    position:absolute !important;
+    left:0 !important;
+    top:50% !important;
+    width:56px !important;
+    height:56px !important;
+    transform:translateY(-50%) !important;
+    background:url("shield-footer.png") center/contain no-repeat !important;
+    opacity:1 !important;
+  }
+  html body .site-header .brand:after{
+    content:"501 ELITE" !important;
+    display:block !important;
+    position:static !important;
+    color:#fff !important;
+    background:none !important;
+    font-family:Graduate,serif !important;
+    font-size:16px !important;
+    line-height:1.05 !important;
+    letter-spacing:.045em !important;
+    white-space:nowrap !important;
+  }
+  html body .site-header .main-nav{
+    position:static !important;
+    inset:auto !important;
+    justify-self:stretch !important;
+    align-self:center !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:2px clamp(12px,1.05vw,20px) !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+  }
+  html body .site-header .main-nav a{
+    padding:14px 0 !important;
+    color:#dce7f3 !important;
+    font-size:clamp(10px,.62vw,12px) !important;
+    line-height:1 !important;
+    letter-spacing:.09em !important;
+    text-shadow:none !important;
+    white-space:nowrap !important;
+  }
+  html body .site-header .main-nav a.active,
+  html body .site-header .main-nav a:hover{color:#fff !important}
+  html body .site-header .main-nav a.active:after,
+  html body .site-header .main-nav a:hover:after{
+    left:0 !important;
+    right:0 !important;
+    bottom:5px !important;
+    height:3px !important;
+    border-radius:999px !important;
+    background:#f02a4f !important;
+    box-shadow:none !important;
+  }
+
+  /* One centered content rail across every public page. */
+  html body .wrap,
+  html body .about-wrap,
+  html body .gallery-wrap,
+  html body .hub-wrap,
+  html body .parents-wrap,
+  html body .resources-wrap,
+  html body .sponsor-wrap,
+  html body .team-wrap,
+  html body .training-wrap,
+  html body .payment-alt-wrap,
+  html body .about-hero-grid,
+  html body .contact-hero-grid,
+  html body .gallery-hero-grid,
+  html body .hub-hero-grid,
+  html body .library-hero-grid,
+  html body .payments-grid,
+  html body .team-hero-grid,
+  html body .sponsor-hero__content,
+  html body .training-hero-content{
+    width:min(1280px,calc(100% - 64px)) !important;
+    max-width:1280px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* Home hero: place content and values deliberately; remove the empty grid item. */
+  html body .hero-stage{
+    display:grid !important;
+    grid-template-columns:minmax(500px,.92fr) minmax(570px,1.08fr) !important;
+    grid-template-areas:"copy values" !important;
+    align-items:center !important;
+    gap:clamp(44px,5vw,82px) !important;
+    min-height:680px !important;
+    padding:70px max(32px,calc((100vw - 1480px)/2 + 32px)) !important;
+  }
+  html body .hero-stage .hero-photo{display:none !important}
+  html body .hero-stage .hero-content{
+    grid-area:copy !important;
+    width:100% !important;
+    max-width:650px !important;
+    margin:0 !important;
+    padding:0 !important;
+    align-self:center !important;
+    text-align:left !important;
+  }
+  html body .hero-stage .hero-content .kicker,
+  html body .hero-stage .hero-rule{justify-content:flex-start !important}
+  html body .hero-stage .hero-content h1{
+    max-width:640px !important;
+    margin:0 0 18px !important;
+    font-size:clamp(54px,4.2vw,72px) !important;
+    line-height:.99 !important;
+    text-align:left !important;
+  }
+  html body .hero-stage .hero-copy{
+    max-width:610px !important;
+    margin:0 0 28px !important;
+    color:#405a75 !important;
+    font-size:17px !important;
+    line-height:1.58 !important;
+    text-align:left !important;
+    opacity:1 !important;
+  }
+  html body .hero-stage .actions{
+    display:flex !important;
+    flex-flow:row wrap !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:11px !important;
+    width:100% !important;
+  }
+  html body .hero-stage .value-row{
+    grid-area:values !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:18px !important;
+    align-items:stretch !important;
+  }
+  html body .hero-stage .value-row article{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:310px !important;
+    padding:30px 22px !important;
+    border:1px solid #c8d9ea !important;
+    border-radius:24px !important;
+    background:rgba(255,255,255,.96) !important;
+    box-shadow:0 16px 38px rgba(18,62,116,.11) !important;
+    text-align:center !important;
+  }
+  html body .hero-stage .value-row h3{
+    margin:14px 0 10px !important;
+    color:#102844 !important;
+    font-size:18px !important;
+    line-height:1.16 !important;
+    text-shadow:none !important;
+  }
+  html body .hero-stage .value-row p{
+    margin:0 !important;
+    color:#405a75 !important;
+    font-size:14px !important;
+    font-weight:750 !important;
+    line-height:1.52 !important;
+    opacity:1 !important;
+    text-shadow:none !important;
+  }
+
+  /* Flat, compact oval controls. Defeat every legacy gemstone/faceted layer. */
+  html body a.brand-btn,
+  html body button.brand-btn,
+  html body a.gem-btn,
+  html body button.gem-btn,
+  html body a.gem-button,
+  html body button.gem-button,
+  html body .payment-gem,
+  html body .support-gem,
+  html body .give-gem,
+  html body .donate-paypal-button,
+  html body .payment-button,
+  html body .contact-method-card a,
+  html body .doc-actions a,
+  html body .doc-card-link,
+  html body .library-feature-actions a,
+  html body .publication-actions a,
+  html body .support-buttons a,
+  html body .upload-actions a{
+    position:relative !important;
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:max-content !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    min-height:48px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:12px 24px !important;
+    overflow:hidden !important;
+    border:1px solid rgba(18,62,116,.20) !important;
+    border-radius:9999px !important;
+    clip-path:none !important;
+    background-image:none !important;
+    box-shadow:0 8px 20px rgba(18,62,116,.13) !important;
+    color:#fff !important;
+    font-family:Inter,Arial,sans-serif !important;
+    font-size:11px !important;
+    font-weight:900 !important;
+    line-height:1.15 !important;
+    letter-spacing:.085em !important;
+    text-align:center !important;
+    text-shadow:none !important;
+    text-transform:uppercase !important;
+    transform:none !important;
+    filter:none !important;
+    appearance:none !important;
+  }
+  html body a.brand-btn:before,
+  html body a.brand-btn:after,
+  html body button.brand-btn:before,
+  html body button.brand-btn:after,
+  html body a.gem-btn:before,
+  html body a.gem-btn:after,
+  html body a.gem-button:before,
+  html body a.gem-button:after,
+  html body .payment-gem:before,
+  html body .payment-gem:after,
+  html body .support-gem:before,
+  html body .support-gem:after,
+  html body .give-gem:before,
+  html body .give-gem:after,
+  html body .donate-paypal-button:before,
+  html body .donate-paypal-button:after,
+  html body .payment-button:before,
+  html body .payment-button:after{
+    display:none !important;
+    content:none !important;
+    background:none !important;
+  }
+  html body a.brand-btn.red,
+  html body button.brand-btn.red,
+  html body .donate-paypal-button{
+    background-color:#d7193f !important;
+    background-image:none !important;
+    border-color:#d7193f !important;
+  }
+  html body a.brand-btn.navy,
+  html body button.brand-btn.navy,
+  html body .payment-button--venmo{
+    background-color:#123e74 !important;
+    background-image:none !important;
+    border-color:#123e74 !important;
+  }
+  html body a.brand-btn.steel,
+  html body button.brand-btn.steel{
+    background-color:#fff !important;
+    background-image:none !important;
+    color:#123e74 !important;
+    border-color:#b9cbe0 !important;
+  }
+  html body .payment-button--cashapp{
+    background-color:#087f5b !important;
+    background-image:none !important;
+    border-color:#087f5b !important;
+  }
+  html body a.brand-btn:hover,
+  html body button.brand-btn:hover,
+  html body .payment-button:hover,
+  html body .donate-paypal-button:hover{
+    transform:translateY(-2px) !important;
+    filter:brightness(1.03) !important;
+    box-shadow:0 12px 26px rgba(18,62,116,.17) !important;
+  }
+  html body .home-standard-copy .brand-btn{margin-top:8px !important}
+
+  /* Reinforce readable text on the light surfaces used across the public site. */
+  html body .about-lead,
+  html body .gallery-lead,
+  html body .hub-lead,
+  html body .library-lead,
+  html body .resources-lead,
+  html body .team-lead,
+  html body .payments-lead,
+  html body .sponsor-hero__copy,
+  html body .contact-lead{
+    color:#405a75 !important;
+    opacity:1 !important;
+    text-shadow:none !important;
+  }
+  html body .team-action-card p,
+  html body .season-board article p,
+  html body .development-list article p,
+  html body .hub-tile p,
+  html body .media-action-card p,
+  html body .pillar-card p,
+  html body .resource-tile p,
+  html body .schedule-card p,
+  html body .about-pillars-grid article p,
+  html body .coach-note p,
+  html body .doc-card p,
+  html body .publication-card p,
+  html body .library-category-card p,
+  html body .library-feature-card p,
+  html body .support-card p,
+  html body .contact-method-card p,
+  html body .payment-center-card p,
+  html body .payment-checkout-card p,
+  html body .payment-intent-card p,
+  html body .next-card p{
+    color:#405a75 !important;
+    opacity:1 !important;
+    text-shadow:none !important;
+  }
+  html body .team-action-card h3,
+  html body .season-board article strong,
+  html body .development-list article strong,
+  html body .hub-tile h3,
+  html body .media-action-card h3,
+  html body .pillar-card h3,
+  html body .resource-tile h3,
+  html body .schedule-card strong,
+  html body .about-pillars-grid article h3,
+  html body .coach-note h2,
+  html body .doc-card h3,
+  html body .publication-card h3,
+  html body .library-category-card h3,
+  html body .library-feature-card h3,
+  html body .support-card h2,
+  html body .contact-method-card h2{
+    color:#102844 !important;
+    opacity:1 !important;
+    text-shadow:none !important;
+  }
+}
+
+@media (min-width:1051px) and (max-width:1350px){
+  html body .hero-stage{
+    grid-template-columns:1fr !important;
+    grid-template-areas:"copy" "values" !important;
+    gap:42px !important;
+  }
+  html body .hero-stage .hero-content{
+    max-width:760px !important;
+    margin:0 auto !important;
+  }
+  html body .hero-stage .value-row{
+    width:min(100%,1000px) !important;
+    margin:0 auto !important;
+  }
+}
+
