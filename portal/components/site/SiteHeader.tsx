@@ -73,7 +73,7 @@ export default function SiteHeader() {
 
           <button
             type="button"
-            className={`gem-menu-button ${open ? "is-open" : ""}`}
+            className={`menu-button ${open ? "is-open" : ""}`}
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
             aria-controls="site-navigation-panel"

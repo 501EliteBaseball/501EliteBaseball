@@ -1,3 +1,5 @@
+import { Clock3, Save, Smartphone } from "lucide-react";
+
 type RegistrationWelcomeProps = {
   onBegin: () => void;
 };
@@ -26,21 +28,21 @@ export default function RegistrationWelcome({
         <div className="mt-10 grid gap-4 text-left sm:grid-cols-3">
 
           <div className="rounded-2xl border border-slate-200 p-5">
-            <div className="text-3xl">⏱️</div>
+            <Clock3 className="h-8 w-8 text-[#D7193F]" aria-hidden="true" />
             <h3 className="mt-3 font-semibold">
               About 5 Minutes
             </h3>
           </div>
 
           <div className="rounded-2xl border border-slate-200 p-5">
-            <div className="text-3xl">💾</div>
+            <Save className="h-8 w-8 text-[#D7193F]" aria-hidden="true" />
             <h3 className="mt-3 font-semibold">
               Autosaves
             </h3>
           </div>
 
           <div className="rounded-2xl border border-slate-200 p-5">
-            <div className="text-3xl">📱</div>
+            <Smartphone className="h-8 w-8 text-[#D7193F]" aria-hidden="true" />
             <h3 className="mt-3 font-semibold">
               Mobile Friendly
             </h3>

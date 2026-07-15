@@ -550,6 +550,9 @@ body.menu-open{overflow:hidden;}
 .player-status{font-size:9px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:#fff;border:1px solid #d7e0eb;padding:7px 9px;}
 .player-photo-slot{height:154px;display:grid;place-items:center;background:radial-gradient(circle at 50% 20%,rgba(240,31,69,.20),transparent 30%),linear-gradient(150deg,#07172d,#102d55);border:1px solid rgba(255,255,255,.24);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);position:relative;z-index:1;}
 .player-photo-slot span{font-family:Graduate,serif;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.72);font-size:18px;}
+.player-photo-slot img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 38%;}
+.player-card:nth-child(3n+2) .player-photo-slot img{object-position:center 28%;}
+.player-card:nth-child(4n) .player-photo-slot img{object-position:center 52%;}
 .player-card h3{position:relative;z-index:1;font-family:Graduate,serif;text-transform:uppercase;color:var(--ink);font-size:19px;line-height:1.15;margin:16px 0 12px;}
 .player-details{position:relative;z-index:1;display:grid;gap:8px;}
 .player-details p{display:grid;grid-template-columns:92px 1fr;gap:10px;margin:0;padding:9px 0;border-top:1px solid #dbe2ec;color:#33445c;font-weight:750;line-height:1.32;}
@@ -687,6 +690,13 @@ body.menu-open{overflow:hidden;}
 .gallery-upload{padding:56px 24px;background:#f7f9fc;color:var(--ink);border-top:3px solid var(--red)}.upload-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;background:linear-gradient(180deg,#fff,#edf3fb);border:1px solid #dbe2ec;box-shadow:0 18px 36px rgba(7,23,45,.12);padding:28px}.upload-panel h2{font-size:clamp(28px,3.5vw,46px);text-shadow:none;color:var(--ink)}.upload-panel p{font-weight:750;line-height:1.55;color:#34455c}.upload-actions{display:grid;gap:12px}
 @media(max-width:1000px){.gallery-hero-grid,.spotlight-grid,.upload-panel{grid-template-columns:1fr}.media-action-grid,.category-grid{grid-template-columns:repeat(2,1fr)}.media-mosaic{grid-template-columns:1fr 1fr}.gallery-hero:after{opacity:.18;background-size:auto 70%}}
 @media(max-width:760px){.gallery-hero{padding:50px 16px 36px}.gallery-hero h1{font-size:clamp(34px,10vw,50px)}.gallery-lead{font-size:15px}.gallery-hero-card{min-height:190px;padding:20px}.gallery-control-section,.gallery-light,.gallery-dark,.gallery-upload{padding-left:16px;padding-right:16px}.media-action-grid,.category-grid,.media-mosaic{grid-template-columns:1fr}.media-mosaic{grid-auto-rows:130px}.media-mosaic article.large{grid-row:span 1}.media-action-card{min-height:140px}.spotlight-stack article{grid-template-columns:50px 1fr}.upload-panel{padding:20px}}
+.editorial-photo{position:relative;overflow:hidden;padding:0!important;background:#03152b!important;isolation:isolate;}
+.editorial-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2;transition:transform .35s ease;}
+.editorial-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(1,8,20,.9));z-index:-1;}
+.editorial-photo:hover img{transform:scale(1.035);}
+.editorial-photo span,.editorial-photo strong{position:absolute;left:20px;z-index:1;text-shadow:0 2px 8px #000;}
+.editorial-photo span{bottom:44px;color:#fff;background:var(--red);padding:5px 9px;font-size:9px;font-weight:950;text-transform:uppercase;letter-spacing:.12em;}
+.editorial-photo strong{bottom:17px;color:#fff;font-family:Graduate,serif;text-transform:uppercase;}
 
 
 /* Commit 49 — Resources & Organization Hub */
@@ -841,7 +851,7 @@ body.menu-open{overflow:hidden;}
 .level-card p{color:#e8edf5!important;text-align:center!important;font-weight:750!important;line-height:1.45!important;font-size:13px!important;margin:0 0 18px!important;}
 .level-card ul{margin-top:auto!important;padding-left:0!important;list-style:none!important;display:grid!important;gap:8px!important;}
 .level-card li{color:#f2f5fa!important;font-size:12px!important;font-weight:800!important;line-height:1.35!important;padding-left:22px!important;position:relative!important;}
-.level-card li:before{content:"✓";position:absolute;left:0;top:0;color:#fff;font-weight:900;}
+.level-card li:before{content:"";position:absolute;left:0;top:0;color:#fff;font-weight:900;}
 .level-bronze:before{background:linear-gradient(160deg,#4d250d,#b3652d 35%,#2c1307 100%);} 
 .level-silver:before{background:linear-gradient(160deg,#2d333b,#cfd5dc 45%,#565f69 100%);} 
 .level-gold:before{background:linear-gradient(160deg,#6e4c05,#d6a11e 45%,#3b2700 100%);} 
@@ -967,7 +977,7 @@ body.menu-open{overflow:hidden;}
   position:relative!important;
 }
 .level-card li:before{
-  content:"✓"!important;
+  content:""!important;
   position:absolute!important;
   left:10px!important;
   top:7px!important;
@@ -6615,6 +6625,144 @@ html, body{max-width:100%;overflow-x:hidden;}
   .footer{padding-left:max(28px,calc((100vw - 1320px)/2 + 28px)) !important;padding-right:max(28px,calc((100vw - 1320px)/2 + 28px)) !important;}
 }
 
+/* v2.3 — Youth-first visual system
+   Applies equally to desktop, tablet, and mobile. */
+:root{
+  --youth-bg:#f7f9fc;
+  --youth-blue:#edf4fb;
+  --youth-blue-2:#dfeaf6;
+  --youth-ink:#132943;
+  --youth-copy:#40546d;
+  --youth-line:#cbd9e8;
+}
+
+/* All CTA buttons use simple rounded geometry. Gem artwork and faceting are retired. */
+.brand-btn,
+.gem-btn,.gem-button,.payment-gem,.support-gem,.give-gem,
+a[class*="gem"],button[class*="gem"],
+.donate-paypal-button,.contact-method-card a{
+  position:relative !important;
+  width:auto;
+  height:auto !important;
+  min-height:50px !important;
+  padding:12px 24px !important;
+  border-radius:999px !important;
+  clip-path:none !important;
+  border:1px solid rgba(18,62,116,.22) !important;
+  box-shadow:0 8px 20px rgba(18,62,116,.12) !important;
+  text-shadow:none !important;
+  transform:none;
+  gap:8px !important;
+}
+.brand-btn:before,.brand-btn:after,
+.gem-btn:before,.gem-btn:after,.gem-button:before,.gem-button:after,
+.payment-gem:before,.payment-gem:after,.support-gem:before,.support-gem:after,
+.give-gem:before,.give-gem:after,a[class*="gem"]:before,a[class*="gem"]:after,
+button[class*="gem"]:before,button[class*="gem"]:after,
+.donate-paypal-button:before,.donate-paypal-button:after,
+.contact-method-card a:before,.contact-method-card a:after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+}
+.brand-btn.red,.donate-paypal-button{background:#d7193f !important;color:#fff !important;}
+.brand-btn.navy,.brand-btn.venmo-gem{background:#123e74 !important;color:#fff !important;}
+.brand-btn.steel{background:#fff !important;color:#123e74 !important;border-color:#b9cbe0 !important;}
+.brand-btn.cashapp-gem{background:#087f5b !important;color:#fff !important;}
+.brand-btn:hover,.gem-btn:hover,.gem-button:hover,a[class*="gem"]:hover{transform:translateY(-2px) !important;filter:brightness(1.03) !important;}
+
+/* The menu control is a plain brand button, not a gemstone. */
+@media (max-width:1050px){
+  .site-header .menu-toggle{
+    width:54px !important;height:48px !important;border-radius:16px !important;clip-path:none !important;
+    background:#123e74 !important;border:1px solid rgba(255,255,255,.32) !important;
+    box-shadow:0 8px 18px rgba(3,21,43,.24) !important;transform:translateY(-50%) !important;
+  }
+  .site-header .menu-toggle:before{display:none !important;content:none !important;}
+  .site-header .menu-toggle[aria-expanded="true"],.site-header .menu-toggle.is-open{background:#d7193f !important;}
+}
+
+/* Home identity marks: 01, shield, 03 share one visual footprint. */
+.hero-rule{display:flex;align-items:center;gap:16px;color:#fff;margin:14px 0 18px;}
+.hero-rule i{display:block;width:86px;height:2px;background:#d7193f;}
+.hero-rule span{font-family:Graduate,serif;color:#d7193f;font-size:15px;letter-spacing:.16em;}
+.value-row .mark,
+.value-row article img[src="shield-card.png"]{
+  width:92px !important;height:92px !important;max-width:92px !important;margin:0 auto 14px !important;
+}
+.value-row .mark{display:grid;place-items:center;font-family:Graduate,serif;font-size:30px !important;color:#d7193f;border:2px solid rgba(215,25,63,.7);border-radius:50%;}
+
+/* Light, welcoming content surfaces. Dark treatment is reserved for true heroes and footer. */
+.standard-panel:not(.standard-feature .standard-panel),
+.players-panel,.team-dark,.hub-dashboard,.hub-dark,.about-dark-v11b,
+.training-dark,.gallery-dark,.gallery-page,.support-giving-section,
+.team-control-section,.gallery-control-section{
+  background:linear-gradient(180deg,var(--youth-bg),var(--youth-blue)) !important;
+  color:var(--youth-ink) !important;
+}
+.players-panel:before,.team-dark:before,.hub-dark:before,.about-dark-v11b:before,
+.training-dark:before,.gallery-dark:before{opacity:.035 !important;}
+.players-intro h2,.team-dark h2,.hub-dark h2,.about-dark-v11b h2,
+.training-dark h2,.gallery-dark h2{color:var(--youth-ink) !important;text-shadow:none !important;}
+.players-intro p,.team-dark p,.hub-dark p,.about-dark-v11b p,
+.training-dark p,.gallery-dark p{color:var(--youth-copy) !important;text-shadow:none !important;}
+
+.player-card,.team-action-card,.hub-tile,.media-action-card,.pillar-card,.resource-tile,
+.season-board article,.schedule-card,.about-pillars-grid article,.coach-note,
+.dashboard-control-panel,.media-control-panel,.team-control-panel{
+  background:linear-gradient(180deg,#fff,var(--youth-blue)) !important;
+  color:var(--youth-ink) !important;
+  border:1px solid var(--youth-line) !important;
+  box-shadow:0 14px 30px rgba(18,62,116,.10) !important;
+}
+.player-card h3,.player-card span,.player-card small,
+.team-action-card h3,.team-action-card p,.team-action-card span,
+.hub-tile h3,.hub-tile p,.hub-tile span,.media-action-card h3,.media-action-card p,
+.pillar-card h3,.pillar-card p,.resource-tile h3,.resource-tile p,.resource-tile a,
+.season-board strong,.season-board p,.schedule-card strong,.schedule-card span,
+.about-pillars-grid h3,.about-pillars-grid p,.coach-note h2,.coach-note p{
+  color:var(--youth-ink) !important;text-shadow:none !important;
+}
+.team-action-card i,.hub-tile i,.media-action-card i,.category-grid i,
+.category-topline i,.sponsor-benefit-card span{
+  font-family:Graduate,serif !important;font-style:normal !important;color:#d7193f !important;
+  background:transparent !important;border:1px solid rgba(215,25,63,.28) !important;
+}
+.dashboard-panel-topline{color:var(--youth-ink) !important;border-color:var(--youth-line) !important;}
+
+/* Founder letter */
+.founder-letter{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(260px,.65fr) minmax(0,1.35fr);gap:64px;align-items:start;}
+.founder-letter-heading h2{font-family:Graduate,serif;text-transform:uppercase;color:var(--youth-ink);font-size:clamp(34px,4vw,52px);line-height:1.08;margin:0;}
+.founder-letter-copy{background:#fff;border:1px solid var(--youth-line);border-radius:24px;padding:clamp(28px,4vw,48px);box-shadow:0 18px 40px rgba(18,62,116,.10);}
+.founder-letter-copy p{color:var(--youth-copy);font-size:17px;line-height:1.68;margin:0 0 18px;}
+.founder-signature{border-top:1px solid var(--youth-line);padding-top:22px;margin-top:28px !important;}
+.founder-signature strong,.founder-signature span{display:block;}
+.founder-signature strong{font-family:Graduate,serif;color:var(--youth-ink);font-size:20px;}
+.founder-signature span{margin-top:6px;color:#667a91;font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:850;}
+
+.payment-alternate-buttons small{color:#60748c;font-size:12px;line-height:1.35;text-align:center;margin:-2px 0 2px;}
+.payment-alternate-buttons,.payment-button-list{display:grid;gap:10px;justify-items:stretch;}
+.payment-button-item{display:grid;}
+.payment-button{width:100% !important;max-width:340px !important;margin-inline:auto !important;}
+.payment-button--venmo{background:#123e74 !important;color:#fff !important;}
+.payment-button--cashapp{background:#087f5b !important;color:#fff !important;}
+.payment-button--two-line{display:flex !important;flex-direction:column !important;gap:3px !important;}
+.payment-button-brand{font-family:Graduate,serif;font-size:15px;}
+.payment-button-handle{font-family:Inter,Arial,sans-serif;font-size:12px;text-transform:none;letter-spacing:.03em;}
+
+@media (max-width:1050px){
+  .founder-letter{grid-template-columns:1fr;gap:24px;}
+  .founder-letter-copy{border-radius:20px;}
+}
+@media (max-width:760px){
+  .value-row .mark,.value-row article img[src="shield-card.png"]{width:52px !important;height:52px !important;max-width:52px !important;margin-bottom:7px !important;}
+  .value-row .mark{font-size:18px !important;}
+  .hero-rule{gap:9px;margin:9px 0 12px;}.hero-rule i{width:44px;}.hero-rule span{font-size:11px;}
+  .founder-letter-section{padding:42px 16px !important;}
+  .founder-letter-copy{padding:24px 20px;}
+  .founder-letter-copy p{font-size:15px;line-height:1.62;}
+}
+
 /* Tablet bridge: prevent the site from feeling like neither desktop nor mobile. */
 @media (min-width:761px) and (max-width:1050px){
   .header-shell{grid-template-columns:190px 1fr 88px !important;gap:18px !important;padding:12px 22px !important;}
@@ -6930,4 +7078,152 @@ input,textarea,select{
     height:36px;
     margin:0 auto 6px;
   }
+}
+
+/* v2.2 — Desktop layout repair
+   Authoritative fixes for the desktop cascade. Mobile rules remain unchanged. */
+@media (min-width:1051px){
+  /* Home hero: intentional two-column composition with no clipped copy. */
+  .hero-stage{
+    display:grid !important;
+    grid-template-columns:minmax(390px,.78fr) minmax(660px,1.22fr) !important;
+    align-items:center !important;
+    gap:clamp(38px,4vw,72px) !important;
+    min-height:720px !important;
+    padding:64px max(28px,calc((100vw - 1440px)/2 + 28px)) !important;
+  }
+  .hero-content{
+    width:auto !important;
+    max-width:590px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  .hero-content h1{
+    font-size:clamp(48px,4.6vw,70px) !important;
+    line-height:.98 !important;
+    margin-bottom:16px !important;
+  }
+  .hero-content .kicker{margin-bottom:18px !important;}
+  .hero-content .stars{margin:14px 0 !important;}
+  .hero-copy{font-size:17px !important;line-height:1.55 !important;max-width:560px !important;}
+  .hero-content .actions{gap:10px !important;}
+  .hero-content .brand-btn{min-height:48px !important;padding:0 18px !important;font-size:11px !important;}
+  .value-row{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:18px !important;
+    align-items:stretch !important;
+  }
+  .value-row article{
+    min-height:390px !important;
+    padding:34px 24px !important;
+    justify-content:center !important;
+    border-radius:24px !important;
+  }
+  .value-row h3{font-size:20px !important;line-height:1.18 !important;}
+  .value-row p{font-size:15px !important;line-height:1.5 !important;}
+  .value-row .mark{font-size:50px !important;}
+  .value-row article img[src="shield-card.png"]{width:128px !important;max-width:128px !important;height:128px !important;}
+
+  /* Contact: compact, bounded cards instead of full-screen panels. */
+  .contact-hero-grid{grid-template-columns:minmax(0,1.45fr) 340px !important;max-width:1180px !important;}
+  .contact-hero-card{max-width:340px !important;padding:24px !important;border-radius:22px !important;justify-self:end !important;}
+  .contact-hero-card img{width:150px !important;max-width:150px !important;margin-bottom:14px !important;}
+  .contact-methods-section{padding:58px 24px 68px !important;}
+  .contact-methods-section .wrap{max-width:1180px !important;}
+  .contact-section-head{margin-bottom:30px !important;}
+  .contact-section-head h2{font-size:42px !important;}
+  .contact-method-grid--two{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:24px !important;}
+  .contact-method-card{min-height:330px !important;padding:30px 34px !important;border-radius:22px !important;}
+  .contact-method-card p{font-size:16px !important;line-height:1.48 !important;max-width:520px !important;margin:0 auto 22px !important;}
+  .contact-method-card a{width:auto !important;min-width:290px !important;max-width:100% !important;}
+
+  /* Footer: stable single-line closure without crushed slogan text. */
+  .v10-footer{padding:14px 24px !important;}
+  .v10-footer-inner{
+    max-width:1440px !important;
+    grid-template-columns:minmax(230px,1fr) auto minmax(360px,1.25fr) auto !important;
+    gap:16px 28px !important;
+  }
+  .v10-footer-brand img{width:42px !important;max-width:42px !important;}
+  .v10-footer-brand span{font-size:12px !important;}
+  .v10-footer > .v10-footer-inner > p{display:none !important;}
+  .v10-footer nav{justify-content:center !important;flex-wrap:nowrap !important;}
+  .v10-footer address{white-space:normal !important;text-align:center !important;font-size:10px !important;}
+  .v10-footer small{font-size:9px !important;justify-self:end !important;}
+
+  /* Parent Hub hero: keep the event card useful without dominating the screen. */
+  .hub-hero{padding:58px 24px !important;}
+  .hub-hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(380px,.8fr) !important;gap:44px !important;}
+  .next-card{min-height:0 !important;padding:28px 32px !important;border-radius:22px !important;}
+  .next-card h2{font-size:42px !important;margin-bottom:12px !important;}
+  .next-card > p:not(.eyebrow){font-size:16px !important;line-height:1.48 !important;margin-bottom:16px !important;}
+  .mini-meta{padding:11px 0 !important;}
+
+  /* About story: eliminate the artificial empty upper half. */
+  .about-light-v11b{padding:56px 24px !important;}
+  .about-story-grid{grid-template-columns:280px minmax(0,1fr) !important;gap:52px !important;align-items:start !important;}
+  .about-story-grid h2{font-size:44px !important;margin-top:4px !important;}
+  .about-copy-stack{gap:14px !important;}
+  .about-copy-stack p{font-size:16px !important;line-height:1.58 !important;}
+
+  /* Training standards: restore dark contrast and rational image scale. */
+  .standard-feature{padding:64px 24px !important;}
+  .standard-feature .standard-panel{
+    display:grid !important;
+    grid-template-columns:260px minmax(0,1fr) !important;
+    min-height:260px !important;
+    margin:20px auto !important;
+    padding:0 !important;
+    gap:32px !important;
+    max-width:1180px !important;
+    background:linear-gradient(135deg,#082142,#020b18) !important;
+    color:#fff !important;
+    border:1px solid rgba(205,222,242,.25) !important;
+    border-radius:22px !important;
+    opacity:1 !important;
+  }
+  .standard-feature .standard-panel.red{background:linear-gradient(135deg,#082142,#260913) !important;}
+  .standard-feature .standard-panel:before{opacity:.08 !important;}
+  .standard-feature .standard-panel figure{min-height:260px !important;background:rgba(0,0,0,.18) !important;}
+  .standard-feature .standard-panel img{width:170px !important;max-width:170px !important;height:170px !important;margin:0 !important;opacity:1 !important;}
+  .standard-feature .standard-panel div{padding:30px 34px 30px 0 !important;text-align:left !important;}
+  .standard-feature .standard-panel h3{color:#fff !important;font-size:42px !important;}
+  .standard-feature .standard-panel p{color:#dce6f2 !important;font-size:17px !important;opacity:1 !important;}
+
+  /* Give page: clean oval actions, aligned cards, no gemstone artwork. */
+  .support-giving-section{padding:58px 24px !important;}
+  .support-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:22px !important;align-items:stretch !important;}
+  .support-card{min-height:430px !important;padding:32px !important;border-radius:22px !important;}
+  .support-card h2{font-size:38px !important;}
+  .support-card p,.support-card li{font-size:16px !important;line-height:1.5 !important;}
+  .paypal-donate-form{margin-top:26px !important;}
+  .donate-paypal-button,
+  .brand-btn.venmo-gem,
+  .brand-btn.cashapp-gem{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    min-height:58px !important;
+    height:auto !important;
+    padding:12px 24px !important;
+    border-radius:999px !important;
+    clip-path:none !important;
+    border:1px solid rgba(255,255,255,.35) !important;
+    box-shadow:0 12px 24px rgba(7,23,45,.18) !important;
+    background:#d7193f !important;
+    color:#fff !important;
+    text-shadow:none !important;
+  }
+  .brand-btn.venmo-gem{background:#123e74 !important;}
+  .brand-btn.cashapp-gem{background:#087f5b !important;}
+  .donate-paypal-button:before,.donate-paypal-button:after,
+  .brand-btn.venmo-gem:before,.brand-btn.venmo-gem:after,
+  .brand-btn.cashapp-gem:before,.brand-btn.cashapp-gem:after{display:none !important;content:none !important;}
+  .support-gem-list{gap:12px !important;margin-top:22px !important;}
+  .payment-gem-two-line{flex-direction:column !important;gap:4px !important;}
+  .payment-gem-two-line .gem-brand{font-family:Graduate,serif !important;font-size:15px !important;}
+  .payment-gem-two-line .gem-handle{display:block !important;margin:0 !important;font-size:12px !important;}
 }

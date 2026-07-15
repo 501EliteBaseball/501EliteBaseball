@@ -28,17 +28,17 @@ export default function EliteOSPage() {
           </p>
 
           <div className="hero-actions">
-            <Link href="/register" className="gem-cta gem-cta--ruby">
+            <Link href="/register" className="pill-cta pill-cta--red">
               Create Family Account
             </Link>
 
-            <Link href="/login" className="gem-cta gem-cta--sapphire">
+            <Link href="/login" className="pill-cta pill-cta--navy">
               Parent Sign In
             </Link>
 
             <Link
               href="/staff/login"
-              className="gem-cta"
+              className="pill-cta"
               style={{ background: "#ffffff", borderColor: "#ffffff", color: "#123E74" }}
             >
               Staff Sign In

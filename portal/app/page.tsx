@@ -51,19 +51,19 @@ export default function HomePage() {
             <div className="hero-actions">
               <Link
                 href="/register/start"
-                className="gem-cta gem-cta--ruby"
+                className="pill-cta pill-cta--red"
                 style={{ color: "#ffffff" }}
               >
                 Create Family Account
               </Link>
 
-              <Link href="/login" className="gem-cta gem-cta--sapphire">
+              <Link href="/login" className="pill-cta pill-cta--navy">
                 Parent Sign In
               </Link>
 
               <Link
                 href="/staff/login"
-                className="gem-cta"
+                className="pill-cta"
                 style={{
                   background: "#ffffff",
                   borderColor: "#ffffff",
@@ -192,7 +192,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <Link href="/contact" className="gem-cta gem-cta--sapphire">
+          <Link href="/contact" className="pill-cta pill-cta--navy">
             Start a Conversation
           </Link>
         </section>
