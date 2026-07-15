@@ -32,7 +32,19 @@ export default function LoginPage() {
       return;
     }
 
-    window.location.assign("/registration/parent");
+    const { data: membership } = await supabaseBrowser
+      .from("organization_members")
+      .select("role, active")
+      .eq("user_id", data.user.id)
+      .maybeSingle();
+
+    const hasExecutiveAccess =
+      membership?.active &&
+      (membership.role === "admin" || membership.role === "executive");
+
+    window.location.assign(
+      hasExecutiveAccess ? "/executive" : "/registration/parent",
+    );
   }
 
   return (
