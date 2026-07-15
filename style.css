@@ -7227,3 +7227,163 @@ input,textarea,select{
   .payment-gem-two-line .gem-brand{font-family:Graduate,serif !important;font-size:15px !important;}
   .payment-gem-two-line .gem-handle{display:block !important;margin:0 !important;font-size:12px !important;}
 }
+
+/* v2.4 — Portal-light public experience
+   Navy is reserved for navigation and the footer; controls use simple oval pills. */
+:root{
+  --portal-bg:#f4f8fd;
+  --portal-surface:#fff;
+  --portal-tint:#eaf3fc;
+  --portal-ink:#102844;
+  --portal-copy:#486078;
+  --portal-line:#cfdeed;
+  --portal-shadow:0 16px 42px rgba(18,62,116,.10);
+}
+html,body{background:var(--portal-bg)!important;color:var(--portal-ink)}
+main{background:var(--portal-bg)}
+
+/* Portal-style navigation. */
+.site-header{background:#071a34!important;border-bottom:1px solid rgba(255,255,255,.14)!important;box-shadow:0 8px 28px rgba(7,26,52,.18)!important}
+.site-header:before{opacity:.08!important}
+.main-nav a{color:#dce8f5!important;text-shadow:none!important}
+.main-nav a:hover,.main-nav a.active{color:#fff!important}
+.main-nav a.active:after,.main-nav a:hover:after{background:#f02a4f!important;border-radius:999px!important;box-shadow:none!important}
+
+/* All authored actions are clean oval pills. */
+.brand-btn,.contact-method-card a,.doc-actions a,.doc-actions span,.doc-card-link,.library-feature-actions a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-height:50px!important;height:auto!important;padding:12px 26px!important;
+  border-radius:999px!important;clip-path:none!important;border:1px solid rgba(18,62,116,.18)!important;
+  box-shadow:0 8px 20px rgba(18,62,116,.12)!important;text-shadow:none!important;text-align:center!important;gap:8px!important;
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important
+}
+.brand-btn:hover,.contact-method-card a:hover,.doc-actions a:hover{transform:translateY(-2px)!important;box-shadow:0 12px 26px rgba(18,62,116,.16)!important;filter:brightness(1.03)!important}
+.brand-btn.red,.donate-paypal-button{background:#d7193f!important;color:#fff!important}
+.brand-btn.navy,.payment-button--venmo{background:#123e74!important;color:#fff!important}
+.brand-btn.steel{background:#fff!important;color:#123e74!important;border-color:#b9cbe0!important}
+.payment-button--cashapp{background:#087f5b!important;color:#fff!important}
+.brand-btn:before,.brand-btn:after,.contact-method-card a:before,.contact-method-card a:after{content:none!important;display:none!important}
+
+/* Light homepage hero. */
+.hero-stage{background:linear-gradient(135deg,#fff 0%,#f4f9fe 52%,#e6f1fb 100%)!important;color:var(--portal-ink)!important;border-bottom:1px solid var(--portal-line)!important}
+.hero-stage:before{background:url('hero-team.jpg') right center/auto 100% no-repeat!important;opacity:.16!important;filter:saturate(.86) brightness(1.08)!important}
+.hero-stage:after{background:linear-gradient(90deg,#f8fbff 0%,rgba(248,251,255,.96) 36%,rgba(248,251,255,.35) 72%,rgba(248,251,255,.78) 100%)!important}
+.hero-content h1{color:var(--portal-ink)!important;text-shadow:none!important}
+.hero-copy{color:var(--portal-copy)!important;text-shadow:none!important}
+.hero-stage .kicker{color:#c8102e!important}
+.hero-rule{color:var(--portal-ink)!important}
+.value-row article{background:rgba(255,255,255,.94)!important;color:var(--portal-ink)!important;border:1px solid var(--portal-line)!important;border-radius:24px!important;box-shadow:var(--portal-shadow)!important;backdrop-filter:blur(10px)}
+.value-row h3,.value-row p{color:var(--portal-ink)!important;text-shadow:none!important}
+.value-row p{color:var(--portal-copy)!important}
+
+/* Secondary heroes share the portal canvas. */
+.about-hero-v11b,.team-hero,.gallery-hero,.library-hero,.doc-hero,.training-hero,
+.sponsor-hero,.payments-hero,.hub-hero,.contact-hero{
+  background:linear-gradient(135deg,#fff 0%,#f2f8fe 55%,#e3effb 100%)!important;
+  color:var(--portal-ink)!important;border-bottom:1px solid var(--portal-line)!important
+}
+.about-hero-v11b:before,.team-hero:before,.gallery-hero:after,.library-hero:before,.doc-hero:before,
+.training-hero:before,.sponsor-hero:before,.hub-hero:before,.contact-hero:before{opacity:.055!important;filter:saturate(.75)!important}
+.about-hero-v11b:after,.team-hero:after,.training-hero:after,.sponsor-hero:after,.contact-hero:after{background:linear-gradient(90deg,rgba(255,255,255,.92),rgba(234,243,252,.62))!important;opacity:1!important}
+.about-hero-v11b h1,.team-hero h1,.gallery-hero h1,.library-hero h1,.doc-hero h1,.training-hero h1,
+.sponsor-hero h1,.payments-hero h1,.hub-hero h1,.contact-hero h1{color:var(--portal-ink)!important;text-shadow:none!important}
+.about-lead,.team-lead,.gallery-lead,.library-lead,.doc-lead,.training-lead,.sponsor-hero__copy,
+.payments-lead,.hub-lead,.contact-lead{color:var(--portal-copy)!important;text-shadow:none!important}
+
+/* White portal cards inside the heroes. */
+.about-hero-card,.team-identity-card,.gallery-hero-card,.library-hero-card,.doc-cover-card,
+.sponsor-hero__card,.next-card,.contact-hero-card,.payment-panel,.payment-widget-card{
+  background:#fff!important;color:var(--portal-ink)!important;border:1px solid var(--portal-line)!important;
+  border-radius:24px!important;clip-path:none!important;box-shadow:var(--portal-shadow)!important
+}
+.about-hero-card strong,.about-hero-card p,.team-identity-card h2,.team-identity-card strong,.team-identity-card p,.team-identity-card span,
+.gallery-hero-card strong,.gallery-hero-card p,.library-hero-card strong,.library-hero-card p,.doc-cover-card strong,
+.sponsor-hero__card strong,.sponsor-hero__card p,.next-card h2,.next-card p,.next-card strong,
+.contact-hero-card strong,.contact-hero-card p,.payment-panel h2,.payment-panel p,.payment-widget-card strong{color:var(--portal-ink)!important;text-shadow:none!important}
+.about-hero-card p,.team-identity-card p,.gallery-hero-card p,.library-hero-card p,.sponsor-hero__card p,
+.next-card p,.contact-hero-card p,.payment-panel p{color:var(--portal-copy)!important}
+.team-meta,.mini-meta{border-color:var(--portal-line)!important}
+
+/* Formerly dark sections now alternate white and pale blue. */
+.about-v11b,.gallery-page,.resources-page,.doc-viewer-page,.training-page,.sponsor-page,
+.support-page,.payments-page{background:var(--portal-bg)!important;color:var(--portal-ink)!important}
+.standard-panel:not(.standard-feature .standard-panel),.players-panel,.cta-panel,.team-control-section,.team-dark,
+.hub-dashboard,.hub-dark,.about-dark-v11b,.about-dark-v12,.training-dark,.gallery-dark,
+.gallery-control-section,.support-giving-section,.sponsor-dark,.library-shelves,.library-coming-soon,
+.doc-reader,.doc-next,.standard-feature{background:linear-gradient(180deg,var(--portal-tint),var(--portal-bg))!important;color:var(--portal-ink)!important;border-color:var(--portal-line)!important}
+.team-light,.hub-light,.about-light-v11b,.training-light,.gallery-light,.gallery-upload,.sponsor-light,
+.sponsor-cta,.library-featured,.library-publications,.doc-overview,.payment-center-section,
+.contact-methods-section,.parent-payment-section,.support-cta,.about-cta-v11b{background:#fff!important;color:var(--portal-ink)!important;border-color:var(--portal-line)!important}
+.players-intro h2,.players-intro p,.team-dark h2,.team-dark p,.hub-dark h2,.hub-dark p,
+.about-dark-v11b h2,.about-dark-v11b p,.about-dark-v12 h2,.about-dark-v12 p,.training-dark h2,
+.training-dark p,.gallery-dark h2,.gallery-dark p,.sponsor-dark h2,.sponsor-dark p,.doc-next h2,.doc-next p{color:var(--portal-ink)!important;text-shadow:none!important}
+.players-intro p,.team-dark p,.hub-dark p,.about-dark-v11b p,.about-dark-v12 p,.training-dark p,
+.gallery-dark p,.sponsor-dark p,.doc-next p{color:var(--portal-copy)!important}
+
+/* Portal cards throughout the public experience. */
+.stat,.player-card,.roster-wall article,.team-action-card,.season-board article,.development-list article,
+.hub-tile,.schedule-card,.doc-card,.announcement-list article,.pillar-card,.pathway-card,.resource-tile,
+.media-action-card,.category-card,.spotlight-stack article,.founder-card,.about-pillars-grid article,
+.impact-grid article,.level-card,.publication-card,.library-category-card,.library-feature-card,.doc-section,
+.quick-pay-card,.payment-card,.support-card,.contact-method-card,.standard-callout,.about-cta-card,
+.coach-note,.standard-feature .standard-panel{
+  background:#fff!important;color:var(--portal-ink)!important;border:1px solid var(--portal-line)!important;
+  border-radius:22px!important;clip-path:none!important;box-shadow:var(--portal-shadow)!important
+}
+.standard-feature .standard-panel h3,.standard-feature .standard-panel p,.about-cta-card h2,.about-cta-card p,
+.standard-callout h3,.standard-callout p,.season-board strong,.season-board p,.schedule-card strong,
+.schedule-card span,.schedule-card small,.impact-grid h3,.impact-grid p,.level-card h3,.level-card p,.level-card li{color:var(--portal-ink)!important;text-shadow:none!important}
+.standard-feature .standard-panel p,.about-cta-card p,.standard-callout p,.season-board p,
+.schedule-card small,.impact-grid p,.level-card p{color:var(--portal-copy)!important}
+.standard-feature .standard-panel figure{background:var(--portal-tint)!important;border-radius:20px!important}
+.sponsor-levels-colored .level-card{background:#fff!important;border-color:var(--portal-line)!important}
+.sponsor-levels-colored .level-card li{background:#f3f7fb!important;color:var(--portal-ink)!important;border-color:var(--portal-line)!important}
+.doc-toc{background:#fff!important;border:1px solid var(--portal-line)!important;border-radius:22px!important;box-shadow:var(--portal-shadow)!important}
+.doc-toc a{color:var(--portal-ink)!important;border-color:var(--portal-line)!important}
+.doc-standard-callout,.doc-section blockquote,.doc-note{background:var(--portal-tint)!important;color:var(--portal-ink)!important;border-color:#d7193f!important}
+.doc-standard-callout h2,.doc-standard-callout p{color:var(--portal-ink)!important}
+
+/* Oval hamburger and a light pill-based mobile drawer. */
+@media (max-width:1050px){
+  .site-header .menu-toggle{
+    width:58px!important;height:42px!important;padding:0!important;border-radius:999px!important;clip-path:none!important;
+    border:1px solid #d8e5f2!important;background:#fff!important;box-shadow:0 8px 20px rgba(0,0,0,.16)!important;filter:none!important
+  }
+  .site-header .menu-toggle:before,.site-header .menu-toggle:after{content:none!important;display:none!important}
+  .site-header .menu-toggle span{
+    position:absolute!important;left:50%!important;width:24px!important;height:2px!important;margin:0!important;
+    border-radius:999px!important;background:#123e74!important;box-shadow:none!important;transform:translateX(-50%)!important
+  }
+  .site-header .menu-toggle span:nth-child(1){top:13px!important}
+  .site-header .menu-toggle span:nth-child(2){top:20px!important}
+  .site-header .menu-toggle span:nth-child(3){top:27px!important}
+  .site-header .menu-toggle.is-open,.site-header .menu-toggle[aria-expanded="true"]{background:#d7193f!important;border-color:#d7193f!important;box-shadow:0 8px 20px rgba(215,25,63,.22)!important}
+  .site-header .menu-toggle.is-open span,.site-header .menu-toggle[aria-expanded="true"] span{background:#fff!important}
+  .site-header .menu-toggle.is-open span:nth-child(1),.site-header .menu-toggle[aria-expanded="true"] span:nth-child(1){top:20px!important;transform:translateX(-50%) rotate(45deg)!important}
+  .site-header .menu-toggle.is-open span:nth-child(2),.site-header .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0!important}
+  .site-header .menu-toggle.is-open span:nth-child(3),.site-header .menu-toggle[aria-expanded="true"] span:nth-child(3){top:20px!important;transform:translateX(-50%) rotate(-45deg)!important}
+  .mobile-menu{background:#f8fbff!important;border-top:1px solid var(--portal-line)!important;border-bottom:1px solid var(--portal-line)!important;box-shadow:0 18px 36px rgba(7,26,52,.16)!important;padding:14px 18px 18px!important}
+  .mobile-menu.open{gap:8px!important}
+  .mobile-menu a{min-height:42px!important;padding:8px 15px!important;color:var(--portal-ink)!important;background:#fff!important;border:1px solid var(--portal-line)!important;border-radius:999px!important;text-shadow:none!important}
+  .mobile-menu a.active{color:#b90f2b!important;background:#fff0f3!important;border-color:#f2bdc8!important}
+}
+@media (min-width:761px) and (max-width:1050px){
+  .site-header .menu-toggle{position:relative!important;inset:auto!important;transform:none!important;justify-self:end!important}
+}
+@media (max-width:760px){
+  .site-header .menu-toggle{position:absolute!important;top:50%!important;right:14px!important;transform:translateY(-50%)!important}
+  .hero-stage{display:block!important;min-height:auto!important;padding:48px 16px 30px!important}
+  .hero-stage:before{background:url('hero-team.jpg') right top/auto 58% no-repeat!important;opacity:.10!important}
+  .hero-stage:after{background:linear-gradient(90deg,rgba(248,251,255,.98),rgba(248,251,255,.76))!important}
+  .hero-content{width:100%!important;max-width:620px!important;padding:0!important}
+  .hero-content h1{font-size:clamp(38px,11vw,56px)!important;line-height:1.02!important}
+  .hero-copy{font-size:15px!important;line-height:1.55!important;max-width:520px!important}
+  .hero-stage .actions{display:grid!important;grid-template-columns:1fr!important;width:100%!important;gap:10px!important}
+  .hero-stage .brand-btn{width:100%!important;min-height:50px!important;font-size:11px!important}
+  .value-row{width:100%!important;grid-template-columns:1fr!important;gap:12px!important;margin-top:24px!important}
+  .value-row article{min-height:0!important;padding:22px 18px!important}
+  .value-row h3{font-size:17px!important}
+  .value-row p{font-size:13px!important;line-height:1.5!important}
+  .about-hero-v11b,.team-hero,.gallery-hero,.library-hero,.doc-hero,.training-hero,
+  .sponsor-hero,.payments-hero,.hub-hero,.contact-hero{padding-top:44px!important;padding-bottom:38px!important}
+}
