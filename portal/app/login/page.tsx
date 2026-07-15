@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Lock, Mail, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Lock, Mail, ShieldCheck, Sparkles } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 
 export default function LoginPage() {
@@ -47,7 +47,7 @@ export default function LoginPage() {
         </a>
 
         <section className="space-y-3 text-center">
-          <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#D7193F]/10 text-[#D7193F] shadow-sm shadow-[#D7193F]/10">
+          <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#D7193F]/10 text-[#D7193F] shadow-sm shadow-[#D7193F]/10">
             <Sparkles className="h-8 w-8" />
           </div>
           <p className="text-sm uppercase tracking-[0.35em] text-[#123E74]">501 Elite OS</p>
@@ -90,28 +90,37 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between gap-3 text-sm sm:text-base">
-            <a href="/forgot-password" className="font-medium text-[#123E74] hover:underline">Forgot password?</a>
-            <button
-              type="submit"
-              disabled={loading}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0f335f] disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {loading ? "Signing in…" : "Parent sign in"}
-              <ArrowRight className="h-4 w-4" />
-            </button>
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#123E74] px-6 text-sm font-semibold text-white transition hover:bg-[#0f335f] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading ? "Signing in…" : "Parent Sign In"}
+            <ArrowRight className="h-4 w-4" />
+          </button>
+
+          <div className="text-center">
+            <a href="/forgot-password" className="text-sm font-medium text-[#123E74] hover:underline">Forgot password?</a>
           </div>
 
           {status ? <div className="rounded-3xl bg-red-50 px-4 py-3 text-sm text-red-700">{status}</div> : null}
         </form>
 
-        <div className="space-y-3 rounded-3xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-          <p>
-            New to 501 Elite OS? <a href="/register" className="font-semibold text-[#D7193F] hover:underline">Create a family account</a>.
-          </p>
-          <p>
-            Team staff? <a href="/staff/login" className="font-semibold text-[#123E74] hover:underline">Coaches &amp; executives sign in here</a>.
-          </p>
+        <section className="rounded-3xl border border-[#123E74]/20 bg-blue-50/70 p-5 text-center">
+          <ShieldCheck className="mx-auto h-6 w-6 text-[#123E74]" />
+          <h2 className="mt-2 font-semibold text-slate-900">Coaches &amp; executives</h2>
+          <p className="mt-1 text-sm text-slate-600">Use the secure staff entrance for authorized team access.</p>
+          <a
+            href="/staff/login"
+            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-[#123E74] bg-white px-5 text-sm font-semibold text-[#123E74] transition hover:bg-[#123E74] hover:text-white"
+          >
+            Staff Sign In
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </section>
+
+        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4 text-center text-sm text-slate-700">
+          New family? <a href="/register" className="font-semibold text-[#D7193F] hover:underline">Create a family account</a>.
         </div>
       </div>
     </main>
