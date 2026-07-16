@@ -1,16 +1,16 @@
 import { createClient } from "@supabase/supabase-js";
+import { supabaseUrl } from "@/lib/supabase-config";
 
 export function createSupabaseAdmin() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key =
     process.env.SUPABASE_SECRET_KEY ??
     process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!url || !key) {
+  if (!key) {
     throw new Error("Supabase server credentials are not configured.");
   }
 
-  return createClient(url, key, {
+  return createClient(supabaseUrl, key, {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 }
