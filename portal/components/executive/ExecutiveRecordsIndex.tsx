@@ -20,6 +20,7 @@ import {
   loadExecutiveRegistrations,
   type ExecutiveRegistration,
 } from "@/lib/executive/executive-service";
+import { supabaseBrowser } from "@/lib/supabase-browser";
 import {
   duplicateRegistrationIds,
   registrationMatches,
@@ -97,9 +98,15 @@ export default function ExecutiveRecordsIndex() {
     try {
       setProcessing(true);
       setError("");
+      const { data: sessionData } = await supabaseBrowser.auth.getSession();
+      const accessToken = sessionData.session?.access_token;
+      if (!accessToken) throw new Error("Authentication required.");
       const response = await fetch("/api/executive/registrations/bulk", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
         body: JSON.stringify({ action: pendingAction, registrationIds: [...selectedIds] }),
       });
       const result = (await response.json().catch(() => null)) as { error?: string } | null;

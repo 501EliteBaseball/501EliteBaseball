@@ -358,8 +358,12 @@ export async function openRegistrationDocument(storagePath: string) {
 }
 
 export async function deleteExecutiveRegistration(registrationId: string) {
+  const { data: sessionData } = await supabaseBrowser.auth.getSession();
+  const accessToken = sessionData.session?.access_token;
+  if (!accessToken) throw new Error("Authentication required.");
   const response = await fetch(`/api/executive/registrations/${registrationId}`, {
     method: "DELETE",
+    headers: { Authorization: `Bearer ${accessToken}` },
   });
   const result = (await response.json()) as { error?: string };
 

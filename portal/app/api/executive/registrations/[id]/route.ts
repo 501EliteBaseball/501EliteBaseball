@@ -11,7 +11,7 @@ export async function DELETE(request: Request, context: Context) {
     return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
   }
 
-  const authorization = await requireExecutive();
+  const authorization = await requireExecutive(request);
   if ("error" in authorization) {
     return NextResponse.json(
       { error: authorization.error },
