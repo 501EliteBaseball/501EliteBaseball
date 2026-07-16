@@ -14,6 +14,14 @@ Last updated: July 16, 2026
   - Pushes affecting `portal/**` on `main` now validate and deploy automatically.
   - GitHub Actions securely provides Cloudflare and Supabase deployment variables.
   - TypeScript validation runs before every production deployment.
+- Registration operations milestone (validated, awaiting production configuration)
+  - Secure server-side single and bulk deletion with Executive/Admin verification.
+  - Reversible bulk archive with confirmation and progress feedback.
+  - Registration search, operational filters, multi-select, and duplicate badges.
+  - Immutable audit logging for registrations, status changes, documents, and releases.
+  - Exact normalized duplicate detection and future merge-review foundation.
+  - Query indexes and protected archive fields.
+- Repository-wide lint debt cleared; lint, TypeScript, and production build now pass.
 - XS/S hat-size registration option.
 - Initial executive registration delete action.
 
@@ -23,15 +31,12 @@ Last updated: July 16, 2026
 
 ## Next Priorities
 
-1. Secure server-side registration deletion and verify its complete cleanup behavior.
-2. Bulk registration management: select, archive, delete, confirm, and show progress.
-3. Duplicate registration detection and duplicate badges.
-4. Registration search and operational filters.
-5. Audit logging for executive actions.
-6. Continue the Executive Dashboard operational hub.
-7. Coach Dashboard, Family OS, announcements, teams, scheduling, notifications, and internal tools.
+1. Apply the registration operations migration and configure the server-only Supabase secret.
+2. Verify secure deletion, archive, duplicate detection, and audit logging in production.
+3. Continue the Executive Dashboard operational hub.
+4. Coach Dashboard, Family OS, announcements, teams, scheduling, notifications, and internal tools.
 
 ## Blockers / Attention Needed
 
-- None for the jersey preview hotfix or production deployment pipeline.
-- Supabase schema changes and Cloudflare secrets must remain synchronized with production as registration management work expands.
+- Add `SUPABASE_SECRET_KEY` to GitHub Actions using a Supabase `sb_secret_…` key.
+- Apply `portal/supabase/migrations/202607161400_registration_operations.sql` before deploying this milestone.

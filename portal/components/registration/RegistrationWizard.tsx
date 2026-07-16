@@ -1,11 +1,7 @@
 "use client";
 
-import RegistrationStatus from "@/components/registration/RegistrationStatus";
-import RegistrationShell from "@/components/registration/RegistrationShell";
-import RegistrationSidebar from "@/components/registration/RegistrationSidebar";
 import Image from "next/image";
-import Link from "next/link";
-import{ useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, ShieldCheck } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
@@ -166,6 +162,9 @@ export default function RegistrationWizard({ step }: RegistrationWizardProps) {
     if (step !== "complete") {
       void initializeRegistration();
     }
+    // Initialization is intentionally keyed to route-step changes. Including the
+    // function itself would recreate the draft on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
   async function initializeRegistration() {

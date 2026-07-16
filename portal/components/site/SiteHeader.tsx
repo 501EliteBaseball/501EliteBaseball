@@ -20,11 +20,8 @@ const navigation = [
 
 export default function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const [menuState, setMenuState] = useState({ open: false, pathname });
+  const open = menuState.pathname === pathname && menuState.open;
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -77,7 +74,7 @@ export default function SiteHeader() {
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
             aria-controls="site-navigation-panel"
-            onClick={() => setOpen((current) => !current)}
+            onClick={() => setMenuState({ open: !open, pathname })}
           >
             {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </button>

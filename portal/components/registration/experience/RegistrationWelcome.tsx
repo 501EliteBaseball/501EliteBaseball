@@ -16,7 +16,7 @@ export default function RegistrationWelcome({
         </span>
 
         <h1 className="mt-6 text-5xl font-bold tracking-tight text-slate-950">
-          Let's get your family registered.
+          Let&apos;s get your family registered.
         </h1>
 
         <p className="mt-6 text-xl leading-8 text-slate-600">
@@ -54,7 +54,7 @@ export default function RegistrationWelcome({
           onClick={onBegin}
           className="mt-12 inline-flex h-14 items-center rounded-full bg-[#123E74] px-10 text-lg font-semibold text-white transition hover:scale-[1.02]"
         >
-          Let's Begin →
+          Let&apos;s Begin →
         </button>
 
       </div>

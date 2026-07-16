@@ -112,7 +112,7 @@ export default function PlayerStep({
     }));
   }
 
-  function PlayerProfileCard() {
+  function renderPlayerProfileCard() {
     return (
       <aside className="relative overflow-hidden rounded-[30px] border border-slate-200/80 bg-[linear-gradient(155deg,#ffffff_0%,#f8fafc_58%,#eef4fb_100%)] p-6 shadow-[0_24px_70px_rgba(18,62,116,0.12)]">
         <div
@@ -695,7 +695,7 @@ export default function PlayerStep({
 
         <div className="order-first lg:order-last">
           <div className="lg:sticky lg:top-6">
-            <PlayerProfileCard />
+            {renderPlayerProfileCard()}
           </div>
         </div>
       </div>

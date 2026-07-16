@@ -140,6 +140,7 @@ export async function loadExecutiveRegistrations(): Promise<ExecutiveRegistratio
   const { data: registrations, error: registrationError } = await supabaseBrowser
     .from("registrations")
     .select("id, family_id, player_id, status, season, submitted_at, created_at")
+    .is("archived_at", null)
     .order("created_at", { ascending: false });
 
   if (registrationError) throw registrationError;
@@ -357,31 +358,14 @@ export async function openRegistrationDocument(storagePath: string) {
 }
 
 export async function deleteExecutiveRegistration(registrationId: string) {
-  const { data: documents, error: documentError } = await supabaseBrowser
-    .from("registration_documents")
-    .select("storage_path")
-    .eq("registration_id", registrationId);
+  const response = await fetch(`/api/executive/registrations/${registrationId}`, {
+    method: "DELETE",
+  });
+  const result = (await response.json()) as { error?: string };
 
-  if (documentError) throw documentError;
-
-  const storagePaths = (documents ?? [])
-    .map((item) => item.storage_path)
-    .filter(Boolean);
-
-  if (storagePaths.length) {
-    const { error: storageError } = await supabaseBrowser.storage
-      .from("registration-documents")
-      .remove(storagePaths);
-
-    if (storageError) throw storageError;
+  if (!response.ok) {
+    throw new Error(result.error ?? "The registration could not be deleted.");
   }
-
-  const { error } = await supabaseBrowser
-    .from("registrations")
-    .delete()
-    .eq("id", registrationId);
-
-  if (error) throw error;
 }
 
 export async function grantOrganizationAccess({

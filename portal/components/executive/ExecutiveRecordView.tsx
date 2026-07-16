@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Loader2, Trash2, X } from "lucide-react";
 import ExecutiveRegistrationDetail from "@/components/executive/ExecutiveRegistrationDetail";
@@ -22,11 +23,7 @@ export default function ExecutiveRecordView({ registrationId }: { registrationId
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState("");
 
-  useEffect(() => {
-    void loadRecord();
-  }, [registrationId]);
-
-  async function loadRecord() {
+  const loadRecord = useCallback(async () => {
     try {
       const currentMembership = await loadCurrentMembership();
       const registrations = await loadExecutiveRegistrations();
@@ -48,7 +45,11 @@ export default function ExecutiveRecordView({ registrationId }: { registrationId
           : "The registration record could not be loaded.",
       );
     }
-  }
+  }, [registrationId]);
+
+  useEffect(() => {
+    void Promise.resolve().then(loadRecord);
+  }, [loadRecord]);
 
   async function handleDeleteRegistration() {
     if (!registration || deleting) return;
@@ -88,13 +89,13 @@ export default function ExecutiveRecordView({ registrationId }: { registrationId
   return (
     <div className="mx-auto max-w-5xl">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <a
+        <Link
           href="/executive/records"
           className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 bg-white px-5 text-sm font-bold text-[#123E74]"
         >
           <ArrowLeft className="h-4 w-4" />
           Registration database
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -157,8 +158,8 @@ export default function ExecutiveRecordView({ registrationId }: { registrationId
             </h2>
             <p className="mt-3 leading-7 text-slate-600">
               This permanently removes the registration for <strong>{registration.playerName}</strong>,
-              including its registration record and uploaded registration documents. The parent account
-              and family profile will remain available.
+              including its registration record and uploaded registration documents. Player and family
+              records are removed only when they are no longer connected to another registration.
             </p>
 
             <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium leading-6 text-amber-900">

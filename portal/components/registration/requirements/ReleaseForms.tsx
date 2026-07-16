@@ -83,32 +83,34 @@ export default function ReleaseForms() {
   const complete = completedKeys.length === agreements.length;
 
   useEffect(() => {
+    async function initialize() {
+      try {
+        setLoading(true);
+        const registrationContext = await loadRegistrationContext();
+        const existing = await loadReleaseAcceptances(
+          registrationContext.registrationId,
+        );
+        const keys = existing.map((item) => item.agreement_key);
+        setContext(registrationContext);
+        setCompletedKeys(keys);
+        setSignatureName(existing[0]?.signature_name ?? "");
+        const nextIndex = agreements.findIndex(
+          (item) => !keys.includes(item.key),
+        );
+        setCurrentIndex(nextIndex === -1 ? agreements.length - 1 : nextIndex);
+      } catch (initializationError) {
+        setError(
+          initializationError instanceof Error
+            ? initializationError.message
+            : "The release forms could not be loaded.",
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
     void initialize();
   }, []);
-
-  async function initialize() {
-    try {
-      setLoading(true);
-      const registrationContext = await loadRegistrationContext();
-      const existing = await loadReleaseAcceptances(
-        registrationContext.registrationId,
-      );
-      const keys = existing.map((item) => item.agreement_key);
-      setContext(registrationContext);
-      setCompletedKeys(keys);
-      setSignatureName(existing[0]?.signature_name ?? "");
-      const nextIndex = agreements.findIndex((item) => !keys.includes(item.key));
-      setCurrentIndex(nextIndex === -1 ? agreements.length - 1 : nextIndex);
-    } catch (initializationError) {
-      setError(
-        initializationError instanceof Error
-          ? initializationError.message
-          : "The release forms could not be loaded.",
-      );
-    } finally {
-      setLoading(false);
-    }
-  }
 
   const progress = useMemo(
     () => Math.round((completedKeys.length / agreements.length) * 100),

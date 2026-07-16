@@ -47,9 +47,6 @@ export default function UniformStep({
 }: UniformStepProps) {
   const [localErrors, setLocalErrors] = useState<Record<string, string>>({});
 
-  const displayName =
-    uniform.jersey_name.trim() || playerName.trim() || "PLAYER";
-
   const progressPercentage =
     question === 0 ? 0 : Math.min((question / totalQuestions) * 100, 100);
 
@@ -90,7 +87,7 @@ export default function UniformStep({
     setQuestion((current) => Math.max(current - 1, 0));
   }
 
-  function SizeChoices({
+  function renderSizeChoices({
     options,
     value,
     onChange,
@@ -129,7 +126,7 @@ export default function UniformStep({
     );
   }
 
-  function UniformPreviewCard() {
+  function renderUniformPreviewCard() {
     return (
       <UniformPreview
         playerName={playerName}
@@ -214,13 +211,11 @@ export default function UniformStep({
               </p>
 
               <div className="mt-10">
-                <SizeChoices
-                  options={jerseySizes}
-                  value={uniform.jersey_size}
-                  onChange={(value) =>
-                    updateUniform({ jersey_size: value })
-                  }
-                />
+                {renderSizeChoices({
+                  options: jerseySizes,
+                  value: uniform.jersey_size,
+                  onChange: (value) => updateUniform({ jersey_size: value }),
+                })}
 
                 {localErrors.jersey_size ? (
                   <p className="mt-4 text-sm font-semibold text-[#D7193F]">
@@ -246,13 +241,11 @@ export default function UniformStep({
               </p>
 
               <div className="mt-10">
-                <SizeChoices
-                  options={pantsSizes}
-                  value={uniform.pants_size}
-                  onChange={(value) =>
-                    updateUniform({ pants_size: value })
-                  }
-                />
+                {renderSizeChoices({
+                  options: pantsSizes,
+                  value: uniform.pants_size,
+                  onChange: (value) => updateUniform({ pants_size: value }),
+                })}
 
                 {localErrors.pants_size ? (
                   <p className="mt-4 text-sm font-semibold text-[#D7193F]">
@@ -278,11 +271,11 @@ export default function UniformStep({
               </p>
 
               <div className="mt-10">
-                <SizeChoices
-                  options={hatSizes}
-                  value={uniform.hat_size}
-                  onChange={(value) => updateUniform({ hat_size: value })}
-                />
+                {renderSizeChoices({
+                  options: hatSizes,
+                  value: uniform.hat_size,
+                  onChange: (value) => updateUniform({ hat_size: value }),
+                })}
 
                 {localErrors.hat_size ? (
                   <p className="mt-4 text-sm font-semibold text-[#D7193F]">
@@ -432,7 +425,7 @@ export default function UniformStep({
 
         <div className="order-first lg:order-last">
           <div className="lg:sticky lg:top-6">
-            <UniformPreviewCard />
+            {renderUniformPreviewCard()}
           </div>
         </div>
       </div>

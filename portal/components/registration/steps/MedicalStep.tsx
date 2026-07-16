@@ -5,10 +5,8 @@ import { useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
-  Check,
   CheckCircle2,
   HeartPulse,
-  Hospital,
   ShieldCheck,
   Stethoscope,
 } from "lucide-react";
@@ -91,7 +89,7 @@ export default function MedicalStep({
     updateMedical({ [field]: "None" } as Partial<MedicalForm>);
   }
 
-  function MedicalSummaryCard() {
+  function renderMedicalSummaryCard() {
     const careItems = [
       {
         label: "Allergies",
@@ -609,7 +607,7 @@ export default function MedicalStep({
 
         <div className="order-first lg:order-last">
           <div className="lg:sticky lg:top-6">
-            <MedicalSummaryCard />
+            {renderMedicalSummaryCard()}
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ClipboardList, LogOut, ShieldCheck } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 
@@ -14,11 +14,7 @@ export default function StaffPage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("Verifying staff access…");
 
-  useEffect(() => {
-    void loadStaffAccess();
-  }, []);
-
-  async function loadStaffAccess() {
+  const loadStaffAccess = useCallback(async () => {
     const {
       data: { user },
     } = await supabaseBrowser.auth.getUser();
@@ -48,7 +44,11 @@ export default function StaffPage() {
     setEmail(user.email || "");
     setMembership(data as StaffMembership);
     setStatus("");
-  }
+  }, []);
+
+  useEffect(() => {
+    void Promise.resolve().then(loadStaffAccess);
+  }, [loadStaffAccess]);
 
   async function signOut() {
     await supabaseBrowser.auth.signOut();

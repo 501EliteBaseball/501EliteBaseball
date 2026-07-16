@@ -11,12 +11,6 @@ import {
   type RegistrationDocument,
 } from "@/lib/registration/registration-requirements-service";
 
-function formatBytes(bytes: number) {
-  return bytes < 1024 * 1024
-    ? `${Math.ceil(bytes / 1024)} KB`
-    : `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
-
 export default function BirthCertificateUpload() {
   const [context, setContext] = useState<RegistrationContext | null>(null);
   const [document, setDocument] = useState<RegistrationDocument | null>(null);
@@ -26,27 +20,27 @@ export default function BirthCertificateUpload() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    async function initialize() {
+      try {
+        const registrationContext = await loadRegistrationContext();
+        const existing = await loadBirthCertificate(
+          registrationContext.registrationId,
+        );
+        setContext(registrationContext);
+        setDocument(existing);
+      } catch (initializationError) {
+        setError(
+          initializationError instanceof Error
+            ? initializationError.message
+            : "Document requirements could not be loaded.",
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
     void initialize();
   }, []);
-
-  async function initialize() {
-    try {
-      const registrationContext = await loadRegistrationContext();
-      const existing = await loadBirthCertificate(
-        registrationContext.registrationId,
-      );
-      setContext(registrationContext);
-      setDocument(existing);
-    } catch (initializationError) {
-      setError(
-        initializationError instanceof Error
-          ? initializationError.message
-          : "Document requirements could not be loaded.",
-      );
-    } finally {
-      setLoading(false);
-    }
-  }
 
   async function upload() {
     if (!context || !file) {

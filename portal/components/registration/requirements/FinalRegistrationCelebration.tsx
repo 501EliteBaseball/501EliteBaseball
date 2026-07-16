@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, CheckCircle2, CreditCard, Trophy } from "lucide-react";
+import Link from "next/link";
 import {
   loadBirthCertificate,
   loadRegistrationContext,
@@ -21,30 +22,31 @@ export default function FinalRegistrationCelebration() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    async function loadCompletion() {
+      try {
+        const context = await loadRegistrationContext();
+        const [releases, document] = await Promise.all([
+          loadReleaseAcceptances(context.registrationId),
+          loadBirthCertificate(context.registrationId),
+        ]);
+
+        setCompletion({
+          playerName: context.playerName,
+          releasesComplete:
+            new Set(releases.map((item) => item.agreement_key)).size === 6,
+          documentComplete: Boolean(document),
+        });
+      } catch (completionError) {
+        setError(
+          completionError instanceof Error
+            ? completionError.message
+            : "Completion status could not be loaded.",
+        );
+      }
+    }
+
     void loadCompletion();
   }, []);
-
-  async function loadCompletion() {
-    try {
-      const context = await loadRegistrationContext();
-      const [releases, document] = await Promise.all([
-        loadReleaseAcceptances(context.registrationId),
-        loadBirthCertificate(context.registrationId),
-      ]);
-
-      setCompletion({
-        playerName: context.playerName,
-        releasesComplete: new Set(releases.map((item) => item.agreement_key)).size === 6,
-        documentComplete: Boolean(document),
-      });
-    } catch (completionError) {
-      setError(
-        completionError instanceof Error
-          ? completionError.message
-          : "Completion status could not be loaded.",
-      );
-    }
-  }
 
   const confetti = useMemo(
     () =>
@@ -83,12 +85,12 @@ export default function FinalRegistrationCelebration() {
           Complete both requirements before finalizing registration.
         </p>
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
-          <a href="/registration/releases" className="rounded-full bg-[#D7193F] px-6 py-4 font-bold" style={{ color: "#ffffff" }}>
+          <Link href="/registration/releases" className="rounded-full bg-[#D7193F] px-6 py-4 font-bold" style={{ color: "#ffffff" }}>
             Complete releases
-          </a>
-          <a href="/registration/documents" className="rounded-full bg-[#123E74] px-6 py-4 font-bold" style={{ color: "#ffffff" }}>
+          </Link>
+          <Link href="/registration/documents" className="rounded-full bg-[#123E74] px-6 py-4 font-bold" style={{ color: "#ffffff" }}>
             Upload birth certificate
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -142,14 +144,14 @@ export default function FinalRegistrationCelebration() {
             <CreditCard className="h-5 w-5" />
             Continue to payment
           </a>
-          <a
+          <Link
             href="/"
             className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 font-bold transition hover:bg-white/15"
             style={{ color: "#ffffff" }}
           >
             Finish for now
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <p className="mt-5 text-xs text-blue-200">
