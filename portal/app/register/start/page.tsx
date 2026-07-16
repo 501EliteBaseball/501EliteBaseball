@@ -10,6 +10,7 @@ import {
   MailCheck,
 } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
+import { getRegistrationResumePath } from "@/lib/registration/registration-resume";
 
 export default function RegisterStartPage() {
   const [mode, setMode] = useState<"signup" | "signin">("signup");
@@ -60,7 +61,9 @@ export default function RegisterStartPage() {
       return;
     }
 
-    window.location.assign("/registration/parent");
+    setStatus("Opening your saved registration…");
+    const destination = await getRegistrationResumePath(data.session.user.id);
+    window.location.assign(destination);
   }
 
   if (confirmationEmail) {

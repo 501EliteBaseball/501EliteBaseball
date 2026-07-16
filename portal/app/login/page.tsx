@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, Lock, Mail, ShieldCheck, Sparkles } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
+import { getRegistrationResumePath } from "@/lib/registration/registration-resume";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -32,7 +33,9 @@ export default function LoginPage() {
       return;
     }
 
-    window.location.assign("/registration/parent");
+    setStatus("Opening your saved registration…");
+    const destination = await getRegistrationResumePath(data.session.user.id);
+    window.location.assign(destination);
   }
 
   return (
