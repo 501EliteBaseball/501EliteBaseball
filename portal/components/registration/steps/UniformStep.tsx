@@ -33,7 +33,7 @@ const totalQuestions = 4;
 
 const jerseySizes = ["YXS", "YS", "YM", "YL", "YXL", "AS", "AM"];
 const pantsSizes = ["YXS", "YS", "YM", "YL", "YXL", "AS", "AM"];
-const hatSizes = ["Youth", "S/M", "M/L", "L/XL"];
+const hatSizes = ["XS/S", "Youth", "S/M", "M/L", "L/XL"];
 
 const textInputClassName =
   "w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-4 text-2xl font-semibold tracking-[-0.025em] text-slate-950 outline-none transition-all duration-300 placeholder:text-slate-300 focus:border-[#D7193F] sm:text-3xl";
