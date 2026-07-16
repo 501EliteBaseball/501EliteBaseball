@@ -9,6 +9,11 @@ Last updated: July 16, 2026
   - Correct production back artwork is shown on the Back side.
   - Player last name and jersey number render only on the Back side and update live.
   - Artwork mapping is documented in code to prevent future reversal.
+  - Deployed successfully to production through Cloudflare Workers.
+- Automated production deployment
+  - Pushes affecting `portal/**` on `main` now validate and deploy automatically.
+  - GitHub Actions securely provides Cloudflare and Supabase deployment variables.
+  - TypeScript validation runs before every production deployment.
 - XS/S hat-size registration option.
 - Initial executive registration delete action.
 
@@ -28,5 +33,5 @@ Last updated: July 16, 2026
 
 ## Blockers / Attention Needed
 
-- None for the jersey preview hotfix.
+- None for the jersey preview hotfix or production deployment pipeline.
 - Supabase schema changes and Cloudflare secrets must remain synchronized with production as registration management work expands.
