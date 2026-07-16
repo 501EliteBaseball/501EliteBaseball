@@ -30,8 +30,17 @@ export async function DELETE(request: Request, context: Context) {
     return NextResponse.json({ ok: true, ...result });
   } catch (error) {
     console.error("Executive registration deletion failed", { id, error });
+    const message = error instanceof Error ? error.message : "";
+    const databasePatchRequired =
+      message.includes("foreign key constraint") ||
+      message.includes("registration_audit_log") ||
+      message.includes("delete_registration_cascade");
     return NextResponse.json(
-      { error: "The registration could not be deleted." },
+      {
+        error: databasePatchRequired
+          ? "The Supabase deletion function needs its latest database patch. No records were deleted."
+          : "The registration could not be deleted. No records were changed.",
+      },
       { status: 500 },
     );
   }

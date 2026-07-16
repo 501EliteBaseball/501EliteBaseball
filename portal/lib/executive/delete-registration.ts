@@ -41,8 +41,6 @@ export async function deleteRegistration(id: string, actorUserId: string) {
     .eq("registration_id", id);
 
   if (documentError) throw documentError;
-  await removeDocuments(documents ?? []);
-
   const { data, error: deleteError } = await admin.rpc(
     "delete_registration_cascade",
     { registration_id: id, actor_user_id: actorUserId },
@@ -50,6 +48,7 @@ export async function deleteRegistration(id: string, actorUserId: string) {
 
   if (deleteError) throw deleteError;
   const result = data as DeleteResult;
+  await removeDocuments(documents ?? []);
   return {
     familyRemoved: result.family_removed,
     playerRemoved: result.player_removed,
