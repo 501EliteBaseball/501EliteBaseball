@@ -8732,3 +8732,14 @@ p,.feature-card p,.value-row p,.founder-card p,.about-cta-card p,.publication-ca
   .founder-card .founder-role{min-height:0!important}
   .founder-email{width:100%;min-height:54px}
 }
+
+
+/* v3.3 — permanent executive portfolios, separate coaching assignments */
+.founder-card .founder-portfolio{
+  display:block;color:#173e6d;font-size:15px;line-height:1.4;font-weight:900;
+  margin:2px 0 12px;text-transform:none;letter-spacing:0
+}
+.founder-card .founder-portfolio+p{margin-top:0}
+@media(max-width:700px){
+  .founder-card .founder-portfolio{font-size:16px;margin-bottom:14px}
+}
