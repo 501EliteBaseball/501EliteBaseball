@@ -1,4 +1,5 @@
 name: Deploy 501 Elite OS
+# Push credentials activated July 17, 2026.
 
 on:
   push:
