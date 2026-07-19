@@ -21,20 +21,23 @@ export default function ExecutiveNavigation() {
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 px-4 pb-3 pt-[calc(env(safe-area-inset-top)+0.75rem)] shadow-sm backdrop-blur sm:px-6">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
         {home ? (
-          <Link href="/dashboard" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-200 px-4 text-sm font-bold text-[#123E74]">
-            <Home className="h-4 w-4" />
-            Family OS
-          </Link>
+          <span className="text-sm font-black uppercase tracking-widest text-[#071D39]">Executive OS</span>
         ) : (
           <Link href="/executive" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-200 px-4 text-sm font-bold text-[#123E74]">
             <ArrowLeft className="h-4 w-4" />
             Executive
           </Link>
         )}
-        <button type="button" onClick={() => void signOut()} disabled={signingOut} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#D7193F] px-4 text-sm font-bold text-white disabled:opacity-60">
-          <LogOut className="h-4 w-4" />
-          {signingOut ? "Signing out…" : "Log out"}
-        </button>
+        <div className="flex items-center gap-2">
+          <Link href="/dashboard" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-200 px-3 text-sm font-bold text-[#123E74] sm:px-4">
+            <Home className="h-4 w-4" />
+            Family OS
+          </Link>
+          <button type="button" aria-label="Log out" onClick={() => void signOut()} disabled={signingOut} className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full bg-[#D7193F] px-3 text-sm font-bold text-white disabled:opacity-60 sm:px-4">
+            <LogOut className="h-4 w-4" />
+            <span className="hidden sm:inline">{signingOut ? "Signing out…" : "Log out"}</span>
+          </button>
+        </div>
       </div>
     </header>
   );
