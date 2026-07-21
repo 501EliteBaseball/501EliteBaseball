@@ -1,8 +1,20 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { CheckCircle2, FileWarning, ShieldCheck, UsersRound } from "lucide-react";
+import {
+  CheckCircle2,
+  CircleAlert,
+  FileWarning,
+  ShieldCheck,
+  UserRoundCheck,
+  UserRoundX,
+  UsersRound,
+} from "lucide-react";
 import NotificationCard from "@/components/app/NotificationCard";
+import {
+  registrationForRosterPlayer,
+  TEAM_ROSTER,
+} from "@/components/executive/registration-roster";
 import {
   grantOrganizationAccess,
   loadCurrentMembership,
@@ -60,6 +72,17 @@ export default function ExecutiveDashboard() {
     [registrations],
   );
 
+  const rosterStatus = useMemo(
+    () =>
+      TEAM_ROSTER.map((playerName) => ({
+        playerName,
+        registration: registrationForRosterPlayer(playerName, registrations),
+      })),
+    [registrations],
+  );
+  const unregisteredPlayers = rosterStatus.filter((item) => !item.registration);
+  const registrationsStarted = rosterStatus.length - unregisteredPlayers.length;
+
   if (loading) {
     return <div className="mx-auto max-w-5xl p-8 text-slate-600">Loading executive dashboard…</div>;
   }
@@ -83,15 +106,15 @@ export default function ExecutiveDashboard() {
           Track submitted registrations, releases, and required documents.
         </p>
 
-        <div className="mt-7 grid gap-4 sm:grid-cols-3">
-          <Metric label="Registrations" value={registrations.length} />
+        <div className="mt-7 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <Metric label="Team roster" value={TEAM_ROSTER.length} />
+          <Metric label="Registration started" value={registrationsStarted} />
+          <Metric label="Not registered" value={unregisteredPlayers.length} />
           <Metric label="Launch complete" value={completeRegistrations} />
-          <Metric
-            label="Needs attention"
-            value={registrations.length - completeRegistrations}
-          />
         </div>
       </div>
+
+      <RosterRegistrationTracker registrations={registrations} />
 
       <div className="mt-5">
         <NotificationCard />
@@ -158,6 +181,91 @@ export default function ExecutiveDashboard() {
         <AccessManager members={members} onChanged={refresh} />
       ) : null}
     </div>
+  );
+}
+
+function RosterRegistrationTracker({
+  registrations,
+}: {
+  registrations: ExecutiveRegistration[];
+}) {
+  const rosterStatus = TEAM_ROSTER.map((playerName) => ({
+    playerName,
+    registration: registrationForRosterPlayer(playerName, registrations),
+  }));
+  const missing = rosterStatus.filter((item) => !item.registration);
+  const started = rosterStatus.filter((item) => item.registration);
+
+  return (
+    <section className="mt-7 overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm">
+      <div className="flex flex-col gap-3 border-b border-slate-200 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#D7193F]">
+            2026–2027 team roster
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold text-slate-950">
+            Registration tracker
+          </h2>
+          <p className="mt-1 text-sm text-slate-500">
+            Automatically matched against Family OS registration records.
+          </p>
+        </div>
+        <span
+          className={`self-start rounded-full px-4 py-2 text-sm font-bold ${
+            missing.length
+              ? "bg-red-50 text-[#B31534]"
+              : "bg-emerald-50 text-emerald-800"
+          }`}
+        >
+          {missing.length ? `${missing.length} not registered` : "Entire roster registered"}
+        </span>
+      </div>
+
+      {missing.length ? (
+        <div className="bg-red-50/60 p-6 sm:p-8">
+          <div className="flex items-center gap-3 text-[#9F1239]">
+            <UserRoundX className="h-6 w-6" />
+            <h3 className="text-lg font-bold">Still need to register</h3>
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {missing.map(({ playerName }) => (
+              <div
+                key={playerName}
+                className="flex min-h-12 items-center gap-3 rounded-2xl border border-red-200 bg-white px-4 py-3 font-semibold text-slate-900"
+              >
+                <CircleAlert className="h-5 w-5 shrink-0 text-[#D7193F]" />
+                {playerName}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="flex items-center gap-4 bg-emerald-50 p-6 text-emerald-900 sm:p-8">
+          <UserRoundCheck className="h-7 w-7 shrink-0" />
+          <p className="font-semibold">Every player on the roster has started registration.</p>
+        </div>
+      )}
+
+      {started.length ? (
+        <details className="group p-6 sm:p-8">
+          <summary className="cursor-pointer list-none font-bold text-[#123E74] marker:hidden">
+            View {started.length} matched player{started.length === 1 ? "" : "s"}
+          </summary>
+          <div className="mt-4 grid gap-2 sm:grid-cols-2">
+            {started.map(({ playerName, registration }) => (
+              <div key={playerName} className="flex items-center justify-between gap-3 rounded-2xl bg-slate-50 px-4 py-3">
+                <span className="flex items-center gap-2 font-semibold text-slate-800">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> {playerName}
+                </span>
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
+                  {registration?.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </details>
+      ) : null}
+    </section>
   );
 }
 
@@ -310,31 +418,3 @@ function AccessManager({
           >
             <div>
               <p className="font-semibold capitalize">{member.role}</p>
-              <p className="mt-1 break-all text-xs text-slate-500">
-                {member.user_id}
-              </p>
-              <p className="mt-1 text-xs text-slate-500">
-                Medical: {member.can_view_medical ? "yes" : "no"} · Documents:{" "}
-                {member.can_view_documents ? "yes" : "no"} ·{" "}
-                {member.active ? "active" : "inactive"}
-              </p>
-            </div>
-
-            {member.active ? (
-              <button
-                type="button"
-                onClick={async () => {
-                  await revokeOrganizationAccess(member.user_id);
-                  await onChanged();
-                }}
-                className="rounded-full border border-red-200 px-4 py-2 text-sm font-semibold text-red-700"
-              >
-                Revoke
-              </button>
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
