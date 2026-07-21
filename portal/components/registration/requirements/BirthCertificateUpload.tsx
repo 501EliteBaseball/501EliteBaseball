@@ -1,6 +1,7 @@
 "use client";
 
 import { FileCheck2, FileClock, FileUp, LockKeyhole, Upload } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   loadBirthCertificates,
@@ -183,12 +184,12 @@ export default function BirthCertificateUpload() {
       ) : null}
 
       {current ? (
-        <a
+        <Link
           href="/registration/success"
           className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#123E74] px-6 font-bold text-white"
         >
           Finish registration
-        </a>
+        </Link>
       ) : null}
     </div>
   );
