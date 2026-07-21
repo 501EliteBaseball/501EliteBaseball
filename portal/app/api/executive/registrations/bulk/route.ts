@@ -4,7 +4,7 @@ import { requireExecutive } from "@/lib/executive/require-executive";
 import { createSupabaseAdmin } from "@/lib/supabase-admin";
 
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-type BulkRequest = { action?: "archive" | "delete"; registrationIds?: unknown };
+type BulkRequest = { action?: "archive" | "restore" | "delete"; registrationIds?: unknown };
 
 function readIds(value: unknown) {
   if (!Array.isArray(value)) return null;
@@ -21,6 +21,17 @@ async function archive(ids: string[], actorUserId: string) {
   );
   if (error) throw error;
   return data;
+}
+
+async function restore(ids: string[]) {
+  const { data, error } = await createSupabaseAdmin()
+    .from("registrations")
+    .update({ archived_at: null, archived_by: null })
+    .in("id", ids)
+    .not("archived_at", "is", null)
+    .select("id");
+  if (error) throw error;
+  return { affected_count: data?.length ?? 0 };
 }
 
 async function remove(ids: string[], actorUserId: string) {
@@ -51,14 +62,16 @@ export async function POST(request: Request) {
   }
 
   const ids = readIds(body.registrationIds);
-  if (!ids || !["archive", "delete"].includes(body.action ?? "")) {
+  if (!ids || !["archive", "restore", "delete"].includes(body.action ?? "")) {
     return NextResponse.json({ error: "Choose an action and 1–100 valid registrations." }, { status: 400 });
   }
 
   try {
     const result = body.action === "archive"
       ? await archive(ids, authorization.user.id)
-      : await remove(ids, authorization.user.id);
+      : body.action === "restore"
+        ? await restore(ids)
+        : await remove(ids, authorization.user.id);
     return NextResponse.json({ ok: true, action: body.action, ...result });
   } catch (error) {
     console.error("Bulk registration action failed", { action: body.action, ids, error });
