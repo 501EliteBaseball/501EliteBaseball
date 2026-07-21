@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import type { FamilyPlayer } from "@/lib/family/family-dashboard-service";
+import { notifyExecutivesOfRegistration } from "@/lib/registration/registration-notifications";
 
 const emptyPlayer: FamilyPlayer = {
   id: "",
@@ -80,6 +81,24 @@ export default function PlayerManager({
     if (saveError) {
       setError(saveError.message || "We couldn't save this player.");
       return;
+    }
+
+    if (editing.id) {
+      const { data: linkedRegistration } = await supabaseBrowser
+        .from("registrations")
+        .select("id")
+        .eq("player_id", editing.id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (linkedRegistration?.id) {
+        void notifyExecutivesOfRegistration({
+          registrationId: linkedRegistration.id,
+          event: "edited",
+          section: "player information",
+        });
+      }
     }
 
     setEditing(null);
