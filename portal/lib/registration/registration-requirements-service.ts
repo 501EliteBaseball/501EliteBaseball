@@ -153,6 +153,23 @@ export async function saveReleaseAcceptance({
   }
 }
 
+export async function loadBirthCertificates(
+  registrationId: string,
+): Promise<RegistrationDocument[]> {
+  const { data, error } = await supabaseBrowser
+    .from("registration_documents")
+    .select("id, original_filename, content_type, size_bytes, status, created_at")
+    .eq("registration_id", registrationId)
+    .eq("document_type", "birth_certificate")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    throw error;
+  }
+
+  return (data ?? []) as RegistrationDocument[];
+}
+
 export async function loadBirthCertificate(
   registrationId: string,
 ): Promise<RegistrationDocument | null> {
