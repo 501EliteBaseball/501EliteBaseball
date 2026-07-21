@@ -26,7 +26,7 @@ export default function ExecutiveRecordView({ registrationId }: { registrationId
   const loadRecord = useCallback(async () => {
     try {
       const currentMembership = await loadCurrentMembership();
-      const registrations = await loadExecutiveRegistrations();
+      const registrations = await loadExecutiveRegistrations("all");
       const currentRegistration = registrations.find(
         (item) => item.id === registrationId,
       );
