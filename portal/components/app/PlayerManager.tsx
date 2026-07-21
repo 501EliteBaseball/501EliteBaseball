@@ -2,7 +2,8 @@
 
 import { Pencil, Trash2, UserRound, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
+import type { FormEvent } from "react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import type { FamilyPlayer } from "@/lib/family/family-dashboard-service";
 
@@ -54,15 +55,26 @@ export default function PlayerManager({
       throws: editing.throws,
     };
 
-    const query = editing.id
-      ? supabaseBrowser
-          .from("players")
-          .update(values)
-          .eq("id", editing.id)
-          .eq("family_id", familyId)
-      : supabaseBrowser.from("players").insert({ family_id: familyId, ...values });
+    let saveError: { message?: string } | null = null;
 
-    const { error: saveError } = await query.select("id").single();
+    if (editing.id) {
+      const result = await supabaseBrowser
+        .from("players")
+        .update(values)
+        .eq("id", editing.id)
+        .eq("family_id", familyId)
+        .select("id")
+        .single();
+      saveError = result.error;
+    } else {
+      const result = await supabaseBrowser
+        .from("players")
+        .insert({ family_id: familyId, ...values })
+        .select("id")
+        .single();
+      saveError = result.error;
+    }
+
     setSaving(false);
 
     if (saveError) {
